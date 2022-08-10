@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#f44331</color>
+    <color name="primaryLightColor">#ff795c</color>
+    <color name="primaryDarkColor">#b90006</color>
+    <color name="secondaryColor">#673ab7</color>
+    <color name="secondaryLightColor">#9a67ea</color>
+    <color name="secondaryDarkColor">#320b86</color>
+    <color name="colorPrimaryVariant">#b90006</color>
+    <color name="primaryTextColor">#fafafa</color>
+    <color name="secondaryTextColor">#4e342e</color>
+    <color name="white">@android:color/white</color>
+    <color name="disableFilledBtn">#CE93D8</color>
+    <color name="disableBtn">#CE93D8</color>
+    <color name="rippleColor">#B39DDB</color>
+    <color name="selected_nav">#F36B6B</color>
+</resources>

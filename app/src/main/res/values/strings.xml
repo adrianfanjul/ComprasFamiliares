@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Compras Familiares</string>
+    <string name="login_error_user">El email no es valido</string>
+    <string name="login_background_animation">https://assets9.lottiefiles.com/packages/lf20_boJRmE.json</string>
+    <string name="login_loading_animation">https://assets6.lottiefiles.com/packages/lf20_maasqjvl.json</string>
+    <string name="login_username_text">Usuario o email</string>
+    <string name="login_password_text">Contraseña</string>
+    <string name="login_login_btn_text">LOG-IN</string>
+</resources>
