@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ComprasFamiliares.NoActionBar"
         tools:targetApi="31">
+
         <activity
             android:name=".presentation.LoginActivity"
             android:exported="true">
@@ -24,6 +25,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".presentation.features.groups.activity.GroupActivity"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".presentation.features.listaCompra.activity.ListaCompraActivity"
+            android:exported="false">
         </activity>
     </application>
 

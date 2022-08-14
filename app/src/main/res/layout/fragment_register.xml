@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="es.adrianfg.comprasfamiliares.presentation.features.login.vm.RegisterViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:lottie_autoPlay="true"
+            app:lottie_clipToCompositionBounds="true"
+            app:lottie_loop="true"
+            app:lottie_url="@string/login_background_animation" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/registerContentRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{View.VISIBLE}">
+
+         <com.google.android.material.textview.MaterialTextView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             android:textAppearance="@style/TextAppearance.Compras.Headline3"
+             android:gravity="center"
+             android:layout_marginVertical="@dimen/titles_vertical_margin"
+             android:text="@string/register_title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

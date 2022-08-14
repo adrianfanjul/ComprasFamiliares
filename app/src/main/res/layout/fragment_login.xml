@@ -31,6 +31,16 @@
             android:layout_height="match_parent"
             android:visibility="@{viewModel.loading?View.GONE:View.VISIBLE}">
 
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textAppearance="@style/TextAppearance.Compras.Headline3"
+                android:gravity="center"
+                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:text="@string/login_title"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginInputLayoutUserName"
                 android:layout_width="0dp"
@@ -87,6 +97,16 @@
                 android:enabled="@{viewModel.enableBtn}"
                 android:onClick="@{()-> viewModel.logIn()}"
                 android:text="@string/login_login_btn_text"
+                app:layout_constraintBottom_toTopOf="@+id/register_user_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/register_user_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginVertical="24dp"
+                android:text="@string/login_register_btn_text"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

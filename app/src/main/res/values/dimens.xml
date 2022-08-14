@@ -2,4 +2,5 @@
 <resources>
     <dimen name="filled_button_horizontal_margin">30dp</dimen>
     <dimen name="filled_button_vertical_margin">24dp</dimen>
+    <dimen name="titles_vertical_margin">16dp</dimen>
 </resources>

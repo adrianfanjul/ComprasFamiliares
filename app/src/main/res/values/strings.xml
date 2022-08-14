@@ -6,4 +6,11 @@
     <string name="login_username_text">Usuario o email</string>
     <string name="login_password_text">Contraseña</string>
     <string name="login_login_btn_text">LOG-IN</string>
+    <string name="groups_title">GRUPOS</string>
+    <string name="lista_compra_title">Lista de la compra</string>
+    <string name="login_title">LOG-IN</string>
+    <string name="login_register_btn_text">REGISTRARSE</string>
+    <string name="register_title">REGISTRARSE</string>
+    <string name="group_toolbar_title_default">Grupos</string>
+    <string name="group_toolbar_title">Bienvenido  %s</string>
 </resources>
