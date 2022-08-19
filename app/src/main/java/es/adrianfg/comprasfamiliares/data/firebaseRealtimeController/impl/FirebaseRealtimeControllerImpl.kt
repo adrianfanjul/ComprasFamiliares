@@ -1,14 +1,14 @@
-package es.adrianfg.comprasfamiliares.data.firebaseRealtimeDAO.impl
+package es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl
 
 import android.util.Log
 import com.google.firebase.database.*
-import es.adrianfg.comprasfamiliares.data.firebaseRealtimeDAO.FirebaseRealtimeDAO
+import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeController
 import es.adrianfg.comprasfamiliares.data.response.UserResponse
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 
-class FirebaseRealtimeDAOImpl @Inject constructor() : FirebaseRealtimeDAO {
+class FirebaseRealtimeControllerImpl @Inject constructor() : FirebaseRealtimeController {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
 
     override fun registerUser() {
