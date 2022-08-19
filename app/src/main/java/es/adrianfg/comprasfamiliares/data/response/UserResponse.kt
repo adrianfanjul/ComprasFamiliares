@@ -1,11 +1,17 @@
 package es.adrianfg.comprasfamiliares.data.response
 
-import com.google.gson.annotations.SerializedName
+import com.google.firebase.database.IgnoreExtraProperties
 
-data class UserResponse(
-    @SerializedName("nombre")
-    val name:String?,
-    val surName:String?,
-    val userToken:String?,
-    val refreshToken:String,
-    val timeStamp:Long)
+@IgnoreExtraProperties
+class UserResponse {
+    var email: String? = ""
+    var pass: String? = ""
+    var name: String? = ""
+    var surName: String? = ""
+    var age: Int? = -1
+
+    constructor() {
+        // Default constructor required for calls to DataSnapshot.getValue(Message.class)
+    }
+
+}

@@ -36,6 +36,7 @@
             android:name=".presentation.features.listaCompra.activity.ListaCompraActivity"
             android:exported="false">
         </activity>
+
     </application>
 
 </manifest>
