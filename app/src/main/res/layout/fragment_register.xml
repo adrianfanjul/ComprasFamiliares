@@ -13,36 +13,165 @@
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registerContentRoot"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="@{View.VISIBLE}">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/register_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:lottie_autoPlay="true"
-            app:lottie_clipToCompositionBounds="true"
-            app:lottie_loop="true"
-            app:lottie_url="@string/login_background_animation" />
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:text="@string/register_title"
+            android:textAppearance="@style/TextAppearance.Compras.Headline3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/registerContentRoot"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{View.VISIBLE}">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerInputLayoutEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/registerInputLayoutEmailText"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_title">
 
-         <com.google.android.material.textview.MaterialTextView
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintStart_toStartOf="parent"
-             android:textAppearance="@style/TextAppearance.Compras.Headline3"
-             android:gravity="center"
-             android:layout_marginVertical="@dimen/titles_vertical_margin"
-             android:text="@string/register_title"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.email}"
+                android:textAppearance="?comprasBody16Inverse"
+                android:textColor="@color/secondaryTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerInputLayoutPass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:hint="@string/registerInputLayoutPassText"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutEmail">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputPass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.pass}"
+                android:inputType="textPassword"
+                android:textAppearance="?comprasBody16Inverse"
+                android:textColor="@color/secondaryTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerInputLayoutName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/registerInputLayoutNameText"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutPass">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.name}"
+                android:textAppearance="?comprasBody16Inverse"
+                android:textColor="@color/secondaryTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerInputLayoutSurName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/registerInputLayoutSurNameText"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputSurName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@={viewModel.surName}"
+                android:textAppearance="?comprasBody16Inverse"
+                android:textColor="@color/secondaryTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerInputLayoutEdad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/registerInputLayoutEdadText"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutSurName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputEdad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:text="@={viewModel.age}"
+                android:textAppearance="?comprasBody16Inverse"
+                android:textColor="@color/secondaryTextColor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/register_save_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginVertical="24dp"
+            android:text="@string/register_save_btn"
+            app:icon="@drawable/ic_save"
+            app:iconGravity="textStart"
+            android:enabled="@{viewModel.enableBtn}"
+            android:onClick="@{()-> viewModel.register()}"
+            app:layout_constraintBottom_toTopOf="@+id/register_exit_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/register_exit_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginVertical="24dp"
+            android:text="@string/register_exit_btn"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

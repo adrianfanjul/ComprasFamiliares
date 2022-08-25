@@ -4,8 +4,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeController
-import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl.FirebaseRealtimeControllerImpl
+import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerGroup
+import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerUser
+import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl.FirebaseRealtimeControllerGroupImpl
+import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl.FirebaseRealtimeControllerUserImpl
 
 
 @InstallIn(SingletonComponent::class)
@@ -13,6 +15,9 @@ import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl.Fireba
 abstract class FirebaseRealtimeModule {
 
     @Binds
-    abstract fun bindingFirebaseRealtimeDAO(firebaseRealtimeDAOImpl: FirebaseRealtimeControllerImpl): FirebaseRealtimeController
+    abstract fun bindingFirebaseRealtimeControllerUser(firebaseRealtimeControllerUserImpl: FirebaseRealtimeControllerUserImpl): FirebaseRealtimeControllerUser
+
+    @Binds
+    abstract fun bindingFirebaseRealtimeControllerGroupImpl(firebaseRealtimeControllerGroupImpl: FirebaseRealtimeControllerGroupImpl): FirebaseRealtimeControllerGroup
 
 }

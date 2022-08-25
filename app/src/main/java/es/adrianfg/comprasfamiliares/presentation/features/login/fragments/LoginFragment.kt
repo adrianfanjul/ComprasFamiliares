@@ -1,13 +1,13 @@
 package es.adrianfg.comprasfamiliares.presentation.features.login.fragments
 
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
+import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentLoginBinding
+import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.login.vm.LoginViewModel
 
@@ -23,12 +23,16 @@ class LoginFragment : BaseFragmentDb<FragmentLoginBinding, LoginViewModel>() {
     }
 
     override fun eventListeners() {
-        dataBinding.registerUserBtn.setOnClickListener(View.OnClickListener{ register()})
+        dataBinding.registerUserBtn.setOnClickListener { register() }
     }
 
     override fun observeViewModels() {
         viewModel.errorUser.observe(viewLifecycleOwner, ::errorUserName)
         viewModel.user.observe(viewLifecycleOwner, ::loginSucess)
+    }
+
+    override fun showError(message: String?) {
+        snack(SnackbarMessage(R.string.error_login, varargs = message)).show()
     }
 
     fun register() {

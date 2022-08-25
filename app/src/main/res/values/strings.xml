@@ -1,16 +1,52 @@
 <resources>
     <string name="app_name">Compras Familiares</string>
+
+    <!--LOGIN-->
+    <string name="login_title">LOG-IN</string>
+    <string name="login_register_btn_text">REGISTRARSE</string>
     <string name="login_error_user">El email no es valido</string>
     <string name="login_background_animation">https://assets9.lottiefiles.com/packages/lf20_boJRmE.json</string>
-    <string name="login_loading_animation">https://assets6.lottiefiles.com/packages/lf20_maasqjvl.json</string>
+    <string name="login_loading_animation">https://assets1.lottiefiles.com/packages/lf20_qogkaqmb.json</string>
     <string name="login_username_text">Usuario o email</string>
     <string name="login_password_text">Contraseña</string>
     <string name="login_login_btn_text">LOG-IN</string>
-    <string name="groups_title">GRUPOS</string>
-    <string name="lista_compra_title">Lista de la compra</string>
-    <string name="login_title">LOG-IN</string>
-    <string name="login_register_btn_text">REGISTRARSE</string>
+    <string name="error_login">Error en el login: %s</string>
+    <string name="error_login_incorrect_paswword">Usuario o contraseña incorrectos por favor intentelo de nuevo</string>
+    <string name="error_login_incorrect_user">Usuario o contraseña incorrectos por favor intentelo de nuevo</string>
+
+    <!--REGISTER-->
     <string name="register_title">REGISTRARSE</string>
+    <string name="register_save_btn">GUARDAR</string>
+    <string name="register_exit_btn">SALIR</string>
+    <string name="registerInputLayoutEmailText">Email</string>
+    <string name="registerInputLayoutPassText">Contraseña</string>
+    <string name="registerInputLayoutNameText">Nombre</string>
+    <string name="registerInputLayoutSurNameText">Apellidos</string>
+    <string name="registerInputLayoutEdadText">Edad</string>
+    <string name="register_error_user">El email no es valido</string>
+    <string name="register_registred_user">Usuario registrado: %s</string>
+    <string name="register_error_pass">La contraseña no es valida</string>
+    <string name="register_error_name">El nombre no es valido</string>
+    <string name="error_register">Error al registrarse: %s</string>
+    <string name="error_register_repeat_user">El usuario ya esta registrado</string>
+
+    <!--GROUPS-->
+    <string name="groups_title">GRUPOS</string>
     <string name="group_toolbar_title_default">Grupos</string>
-    <string name="group_toolbar_title">Bienvenido  %s</string>
+    <string name="group_toolbar_title">Bienvenido %1s %2s</string>
+    <string name="selected_group">Hemos seleccionado el grupo %s</string>
+    <string name="groups_create_group">Grupo creado: %s</string>
+    <string name="error_create_group">Error al crear el grupo: %s</string>
+
+    <!--LISTA COMPRA-->
+    <string name="lista_compra_title">Lista de la compra</string>
+    <string name="error_groups_repeat_name">Ya existe un grupo con ese nombre</string>
+    <string name="error_groups_empty">No estas en ningun grupo</string>
+    <string name="item_group_enter_btn">ENTRAR</string>
+    <string name="create_group_title">CREAR GRUPO</string>
+    <string name="createGroupInputLayoutNameText">Nombre del grupo</string>
+    <string name="groups_fab_add_content_desc">Crear un grupo</string>
+    <string name="createGroupInputLayoutDescriptionText">Descripcion del grupo</string>
+
+
 </resources>

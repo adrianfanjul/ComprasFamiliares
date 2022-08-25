@@ -3,46 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="viewModel"
-            type="es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel" />
-
-    </data>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/loginContentRoot"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
+     <com.google.android.material.textview.MaterialTextView
+         android:id="@+id/groups_title"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toTopOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         android:textAppearance="@style/TextAppearance.Compras.Headline3"
+         android:gravity="center"
+         android:layout_marginVertical="@dimen/titles_vertical_margin"
+         android:text="@string/groups_title"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/groups_rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:lottie_autoPlay="true"
-            app:lottie_clipToCompositionBounds="true"
-            app:lottie_loop="true"
-            app:lottie_url="@string/login_background_animation" />
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.8"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/groups_title"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_group_list" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/loginContentRoot"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="@{View.VISIBLE}">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/groups_fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/groups_fab_add_content_desc"
+            app:srcCompat="@drawable/ic_add" />
 
-         <com.google.android.material.textview.MaterialTextView
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintStart_toStartOf="parent"
-             android:textAppearance="@style/TextAppearance.Compras.Headline3"
-             android:gravity="center"
-             android:layout_marginVertical="@dimen/titles_vertical_margin"
-             android:text="@string/groups_title"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

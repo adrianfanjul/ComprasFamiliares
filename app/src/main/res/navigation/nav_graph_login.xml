@@ -30,7 +30,7 @@
         android:name="es.adrianfg.comprasfamiliares.presentation.features.login.fragments.RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
-            android:id="@+id/action_registerFragment_to_loginFragment"
+            android:id="@+id/registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 

@@ -14,4 +14,12 @@ class UserResponse {
         // Default constructor required for calls to DataSnapshot.getValue(Message.class)
     }
 
+    constructor(email: String?, pass: String?, name: String?, surName: String?, age: Int?) {
+        this.email = email
+        this.pass = pass
+        this.name = name
+        this.surName = surName
+        this.age = age
+    }
+
 }

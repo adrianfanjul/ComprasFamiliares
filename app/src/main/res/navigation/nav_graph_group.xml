@@ -8,6 +8,18 @@
     <fragment
         android:id="@+id/groupFragment"
         android:name="es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.GroupFragment"
-        tools:layout="@layout/fragment_group"/>
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/groupFragment_to_createGroupFragment"
+            app:destination="@id/createGroupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.CreateGroupFragment"
+        tools:layout="@layout/fragment_create_group" >
+        <action
+            android:id="@+id/createGroupFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+    </fragment>
 
 </navigation>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="adapter"
+            type="es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter" />
+
+        <variable
+            name="item"
+            type="es.adrianfg.comprasfamiliares.domain.models.Group" />
+
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_group_card"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/primaryLightColor"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_group_img"
+                loadImage="@{item.image}"
+                placeHolder="@{@drawable/img_sin_imagen}"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_group_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/item_group_img"
+                android:text="@{item.name}"
+                android:textAppearance="?comprasH6Inverse"
+                tools:text="Usuario@gmail.es" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_group_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_group_name"
+                android:layout_alignStart="@+id/item_group_name"
+                android:layout_marginHorizontal="4dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:text="@{item.description}"
+                android:textAppearance="?comprasBody14Inverse"
+                tools:text="Descripcion del grupo" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="#ffd5d5d5"
+                android:id="@+id/linea"
+                android:layout_above="@+id/register_exit_btn"
+                android:layout_toEndOf="@+id/item_group_img">
+
+            </View>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/register_exit_btn"
+                style="?comprasButton_filled_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/item_group_enter_btn" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

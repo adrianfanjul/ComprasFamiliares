@@ -14,7 +14,6 @@ interface LoadingDelegateViewModel {
     suspend fun emitLoading(value:Boolean)
 }
 
-
 internal class LoadingDelegate @Inject constructor(
     @IoDispatcher private val workerScoper: CoroutineScope,
 ):LoadingDelegateViewModel{

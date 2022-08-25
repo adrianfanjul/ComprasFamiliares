@@ -5,7 +5,9 @@ import es.adrianfg.comprasfamiliares.domain.models.User
 
 
 fun UserResponse.mapToUser() = User(
+    email= this.email ?: "",
+    pass = this.pass ?: "",
     name = this.name ?: "",
-    surName = this.surName ?: "sin apellido",
+    surName = this.surName ?: "",
     age = this.age ?: -1
 )

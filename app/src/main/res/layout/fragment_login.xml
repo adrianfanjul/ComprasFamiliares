@@ -34,12 +34,12 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textAppearance="@style/TextAppearance.Compras.Headline3"
-                android:gravity="center"
                 android:layout_marginVertical="@dimen/titles_vertical_margin"
-                android:text="@string/login_title"/>
+                android:gravity="center"
+                android:text="@string/login_title"
+                android:textAppearance="@style/TextAppearance.Compras.Headline3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/loginInputLayoutUserName"
@@ -62,7 +62,7 @@
                     android:layout_height="match_parent"
                     android:text="@={viewModel.userName}"
                     android:textAppearance="?comprasBody16Inverse"
-                    android:textColor="@color/secondaryTextColor"/>
+                    android:textColor="@color/secondaryTextColor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,7 @@
                     android:inputType="textPassword"
                     android:text="@={viewModel.password}"
                     android:textAppearance="?comprasBody16Inverse"
-                    android:textColor="@color/secondaryTextColor"/>
+                    android:textColor="@color/secondaryTextColor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +97,8 @@
                 android:enabled="@{viewModel.enableBtn}"
                 android:onClick="@{()-> viewModel.logIn()}"
                 android:text="@string/login_login_btn_text"
+                app:icon="@drawable/ic_login"
+                app:iconGravity="textStart"
                 app:layout_constraintBottom_toTopOf="@+id/register_user_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -107,6 +109,8 @@
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginVertical="24dp"
                 android:text="@string/login_register_btn_text"
+                app:icon="@drawable/ic_register"
+                app:iconGravity="textStart"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -3,15 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/baseline_email_white_24dp.xml" value="0.1505" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_location.xml" value="0.2415" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_login.xml" value="0.1795" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_register.xml" value="0.165" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/a.xml" value="0.2911458333333333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/activity_group.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/activity_listaCompra.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/activity_lista_compra.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/activity_login.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_create_group.xml" value="0.284375" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_group.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_lista_compra.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_login.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register.xml" value="0.11879432624113476" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register.xml" value="0.18" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register_group.xml" value="0.284375" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/item_group_list.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
@@ -20,5 +28,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36666666666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>

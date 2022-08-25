@@ -10,6 +10,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import es.adrianfg.comprasfamiliares.R
 
 abstract class BaseFragmentDb<DB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
@@ -63,7 +64,7 @@ abstract class BaseFragmentDb<DB : ViewDataBinding, VM : BaseViewModel> : Fragme
     private fun handleError() {
         viewModel.error.observe(viewLifecycleOwner){
            it.getContentIfNotHandled()?.let {
-                showError(it.message)
+               showError(it.message)
             }
         }
     }
