@@ -17,8 +17,7 @@ class GroupsRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : GroupsRepository {
 
-    override fun getListGroups(user:User): Flow<List<Group>> = flow {
-        emit(firebaseRealtimeControllerGroup.getListGroups(user,context).mapToGroups())
+    override fun getListGroups(user:User): Flow<List<Group>> = flow { emit(firebaseRealtimeControllerGroup.getListGroups(user,context).mapToGroups())
     }
 
     override fun registerGroup(group: Group): Flow<Group> = flow {

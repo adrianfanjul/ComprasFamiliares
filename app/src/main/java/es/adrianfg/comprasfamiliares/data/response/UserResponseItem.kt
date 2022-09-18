@@ -3,7 +3,7 @@ package es.adrianfg.comprasfamiliares.data.response
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
-class UserResponse {
+class UserResponseItem {
     var email: String? = ""
     var pass: String? = ""
     var name: String? = ""

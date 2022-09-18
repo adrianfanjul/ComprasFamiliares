@@ -2,7 +2,10 @@ package es.adrianfg.comprasfamiliares.data.repository
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerUser
+import es.adrianfg.comprasfamiliares.data.mappers.mapToGroups
 import es.adrianfg.comprasfamiliares.data.mappers.mapToUser
+import es.adrianfg.comprasfamiliares.data.mappers.mapToUsers
+import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.domain.repository.LoginRepository
 import kotlinx.coroutines.flow.Flow
@@ -19,5 +22,9 @@ class LoginRepositoryImpl @Inject constructor(
 
     override fun register(user: User): Flow<User> = flow {
         emit(firebaseRealtimeControllerUser.register(user,context).mapToUser())}
+
+    override fun getListUsers(): Flow<List<User>> = flow {
+        emit(firebaseRealtimeControllerUser.getListUsers(context).mapToUsers())
+    }
 
 }

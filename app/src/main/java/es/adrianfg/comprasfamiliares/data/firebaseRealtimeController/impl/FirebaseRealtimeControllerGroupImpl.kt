@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import es.adrianfg.comprasfamiliares.ComprasFamiliaresApp
+import com.google.firebase.database.ktx.getValue
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerGroup
 import es.adrianfg.comprasfamiliares.data.response.GroupResponseItem
@@ -19,41 +19,42 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealti
 
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
 
-    override suspend fun register(group: Group,context: Context): GroupResponseItem {
-        val groupResponseItem = GroupResponseItem(group.name,group.description,group.image,group.users)
+    override suspend fun register(group: Group, context: Context): GroupResponseItem {
+        val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users)
         try {
             val result = database.orderByChild("name").equalTo(group.name).get().await()
-            if(result.exists()){
+            if (result.exists()) {
                 throw Error(context.resources?.getString(R.string.error_groups_repeat_name))
 
-            } else{
+            } else {
                 database.push().setValue(groupResponseItem)
                 return groupResponseItem
             }
 
-        }catch (e:Exception){
+        } catch (e: Exception) {
             throw Error(e.message)
         }
     }
 
-    override suspend fun getListGroups(user:User,context: Context): GroupsResponse {
+    override suspend fun getListGroups(user: User, context: Context): GroupsResponse {
+
         val listGroups = mutableListOf<GroupResponseItem>()
 
-        //TODO Buscar solo los grupos a los que pertenezcas
+        try {
             val result = database.orderByChild("name").get().await()
-            if(result.exists()){
-                for (group in result.children){
+            if (result.exists()) {
+                for (group in result.children) {
                     listGroups.add(group.getValue(GroupResponseItem::class.java) ?: GroupResponseItem())
-                    Log.e("firebase",listGroups.toString())
                 }
+                Log.e("firebase", listGroups.toString())
 
-            } else{
+            } else {
                 throw Error(context.resources?.getString(R.string.error_groups_empty))
             }
+            return GroupsResponse(listGroups.toList())
 
-            val immutableListGroups: List<GroupResponseItem> = listGroups.toList()
-            return GroupsResponse(immutableListGroups)
-
+        } catch (e: Exception) {
+            throw Error(e.message)
+        }
     }
-
 }

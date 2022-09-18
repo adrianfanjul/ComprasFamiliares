@@ -23,7 +23,6 @@ class GroupViewModel @Inject constructor(
     private val _groupList = MutableLiveData<List<Group>>()
     val groupList: LiveData<List<Group>> get() = _groupList
 
-
     fun loadGroupsList(user: User) {
         viewModelScope.launch {
             getListGroupsUseCase.execute(

@@ -36,17 +36,30 @@
     <string name="group_toolbar_title">Bienvenido %1s %2s</string>
     <string name="selected_group">Hemos seleccionado el grupo %s</string>
     <string name="groups_create_group">Grupo creado: %s</string>
-    <string name="error_create_group">Error al crear el grupo: %s</string>
-
-    <!--LISTA COMPRA-->
-    <string name="lista_compra_title">Lista de la compra</string>
-    <string name="error_groups_repeat_name">Ya existe un grupo con ese nombre</string>
-    <string name="error_groups_empty">No estas en ningun grupo</string>
     <string name="item_group_enter_btn">ENTRAR</string>
     <string name="create_group_title">CREAR GRUPO</string>
     <string name="createGroupInputLayoutNameText">Nombre del grupo</string>
     <string name="groups_fab_add_content_desc">Crear un grupo</string>
     <string name="createGroupInputLayoutDescriptionText">Descripcion del grupo</string>
+    <string name="error_create_group">Error al crear el grupo: %s</string>
+    <string name="register_error_description">Descripcion no valida</string>
+    <string name="error_groups_repeat_name">Ya existe un grupo con ese nombre</string>
+    <string name="error_groups_empty">No estas en ningun grupo</string>
+
+    <string name="create_group_image_description">Imagen del grupo</string>
+    <string name="create_group_capture_text">Foto</string>
+    <string name="create_group_choose_text">Galeria</string>
+    <string name="groups_create_camera_denegate">No hay permisos para la camara</string>
+
+
+    <!--LISTA COMPRA-->
+    <string name="lista_compra_title">Lista de la compra</string>
+    <string name="register_user_add_btn">Añadir Usuarios</string>
+    <string name="pick_users">Escoge los usuarios</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error_users_empty">No hay usuarios registrados</string>
+    <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
 
 
 </resources>

@@ -30,19 +30,8 @@ class LoginActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-        //createUser()
-    }
 
-    /*
-    private fun createUser() {
-        // Write a message to the database
-        val FIREBASE = "https://travelling-ddf68-default-rtdb.europe-west1.firebasedatabase.app/"
-        val database: FirebaseDatabase = FirebaseDatabase.getInstance(FIREBASE)
-        val userResponse = UserResponse("adrian@gmail.es","123","adrian", "fanjul", 33)
-        database.getReference("Users").push().setValue(userResponse)
     }
-*/
-
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = Navigation.findNavController(this,R.id.nav_host_login_content)

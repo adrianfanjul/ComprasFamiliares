@@ -17,6 +17,7 @@ import es.adrianfg.comprasfamiliares.databinding.ActivityGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 
+
 @AndroidEntryPoint
 class GroupActivity : AppCompatActivity() {
     private lateinit var navController: NavController
@@ -38,6 +39,8 @@ class GroupActivity : AppCompatActivity() {
         binding.toolbar.title = getString(R.string.group_toolbar_title,args.user?.name,args.user?.surName)
         sharedViewModel.setUser(args.user ?: User("","","","",-1))
     }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(this, R.id.nav_host_group_content)

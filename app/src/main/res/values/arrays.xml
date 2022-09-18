@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="example" >
+        <item>adrian@gmail.es</item>
+        <item>luis@gmail.es</item>
+        <item>paco@gmail.es</item>
+        <item>marta@gmail.es</item>
+    </string-array>
+</resources>

@@ -17,6 +17,7 @@
         android:layout_height="match_parent">
 
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -45,7 +46,7 @@
                 android:id="@+id/loginInputLayoutUserName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
+                android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
                 android:gravity="center"
                 android:hint="@string/login_username_text"
                 app:endIconMode="clear_text"
@@ -70,7 +71,7 @@
                 android:id="@+id/loginInputLayoutPassword"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="32dp"
+                android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
                 android:hint="@string/login_password_text"
                 app:endIconMode="password_toggle"
                 app:errorEnabled="true"
@@ -92,8 +93,8 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_user_btn"
                 style="?comprasButton_filled_round"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginVertical="24dp"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
                 android:enabled="@{viewModel.enableBtn}"
                 android:onClick="@{()-> viewModel.logIn()}"
                 android:text="@string/login_login_btn_text"
@@ -106,8 +107,8 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/register_user_btn"
                 style="?comprasButton_filled_round"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginVertical="24dp"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
                 android:text="@string/login_register_btn_text"
                 app:icon="@drawable/ic_register"
                 app:iconGravity="textStart"
@@ -122,6 +123,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="@{viewModel.loading?View.VISIBLE:View.GONE}"
+            app:layout_anchor="@+id/lottieAnimationView"
+            app:layout_anchorGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

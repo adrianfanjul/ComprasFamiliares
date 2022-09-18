@@ -39,9 +39,9 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_group_img"
+                android:layout_width="100dp"
                 loadImage="@{item.image}"
                 placeHolder="@{@drawable/img_sin_imagen}"
-                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/backgrounds/scenic" />
@@ -66,7 +66,6 @@
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_marginHorizontal="4dp"
                 android:ellipsize="end"
-                android:gravity="center"
                 android:text="@{item.description}"
                 android:textAppearance="?comprasBody14Inverse"
                 tools:text="Descripcion del grupo" />

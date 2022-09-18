@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/baseline_email_white_24dp.xml" value="0.1505" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_add.xml" value="0.178" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_location.xml" value="0.2415" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_login.xml" value="0.1795" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/drawable/ic_register.xml" value="0.165" />
@@ -17,9 +18,10 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_group.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_lista_compra.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_login.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register.xml" value="0.18" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/fragment_register_group.xml" value="0.284375" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/layout/item_group_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ComprasFamiliares/app/src/main/res/xml/provider_paths.xml" value="0.14356884057971014" />
       </map>
     </option>
   </component>
