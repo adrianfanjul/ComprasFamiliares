@@ -12,6 +12,7 @@
         <action
             android:id="@+id/groupFragment_to_createGroupFragment"
             app:destination="@id/createGroupFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/createGroupFragment"
@@ -21,5 +22,15 @@
             android:id="@+id/createGroupFragment_to_groupFragment"
             app:destination="@id/groupFragment" />
     </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+
+    <action
+        android:id="@+id/to_loginActivity"
+        app:destination="@id/loginActivity" />
 
 </navigation>

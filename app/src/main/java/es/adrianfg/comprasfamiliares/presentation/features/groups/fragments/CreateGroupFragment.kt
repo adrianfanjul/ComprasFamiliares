@@ -2,16 +2,16 @@ package es.adrianfg.comprasfamiliares.presentation.features.groups.fragments
 
 import android.Manifest
 import android.app.Activity
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.ArrayAdapter
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
@@ -20,41 +20,40 @@ import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentCreateGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
-import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
 
 
 @AndroidEntryPoint
-class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGroupViewModel>(){
+class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGroupViewModel>() {
 
     override fun getLayout(): Int = R.layout.fragment_create_group
     override val viewModel: CreateGroupViewModel by viewModels()
     private var latestTmpUri: Uri? = null
     private val galeryActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val intent = result.data
-            dataBinding.createGroupImage.setImageURI(intent?.data)
-        }
-    }
-    private val takePhotoActivityLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-        if (isSuccess) {
-            latestTmpUri?.let { uri ->
-                dataBinding.createGroupImage.setImageURI(uri)
+            if (result.resultCode == Activity.RESULT_OK) {
+                val intent = result.data
+                dataBinding.createGroupImage.setImageURI(intent?.data)
             }
         }
-    }
-    private val requestSinglePermission = registerForActivityResult( ActivityResultContracts.RequestPermission()) { isGranted ->
-        if (isGranted) {
-            lifecycleScope.launchWhenStarted {
-                viewModel.getTmpFileUri(requireContext()).let { uri ->
-                    latestTmpUri = uri
-                    takePhotoActivityLauncher.launch(uri)
+    private val takePhotoActivityLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
+            if (isSuccess) {
+                latestTmpUri?.let { uri ->
+                    dataBinding.createGroupImage.setImageURI(uri)
                 }
             }
-        }else{
-            snack(SnackbarMessage(R.string.groups_create_camera_denegate)).show()
         }
-    }
+    private val requestSinglePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if (isGranted) {
+                lifecycleScope.launchWhenStarted {
+                    viewModel.getTmpFileUri(requireContext()).let { uri ->
+                        latestTmpUri = uri
+                        takePhotoActivityLauncher.launch(uri)
+                    }
+                }
+            } else {
+                snack(SnackbarMessage(R.string.groups_create_camera_denegate)).show()
+            }
+        }
 
     override fun initViewModels() {
         viewModel.loadUsersList()
@@ -76,6 +75,7 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
         viewModel.errorName.observe(viewLifecycleOwner, ::errorName)
         viewModel.errorDescription.observe(viewLifecycleOwner, ::errorDescription)
         viewModel.group.observe(viewLifecycleOwner, ::createSucess)
+        viewModel.selectedUserList.observe(viewLifecycleOwner, ::selectedUserListSucess)
     }
 
     override fun showError(message: String?) {
@@ -114,7 +114,12 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
     }
 
     private fun openGallery() {
-        galeryActivityLauncher.launch(Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI))
+        galeryActivityLauncher.launch(
+            Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            )
+        )
     }
 
     private fun openCamera() {
@@ -122,9 +127,20 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
     }
 
     private fun addUsers() {
-        val modalDialog = SelectUserDialog(viewModel.userList.value?: emptyList(),viewModel)
+        val modalDialog = SelectUserDialog(viewModel)
         modalDialog.show(requireActivity().supportFragmentManager, "usersDialog")
     }
 
+    private fun selectedUserListSucess(list: List<String>?) {
+        if (list != null) {
+            dataBinding.createGroupChipGroupUsers.removeAllViews()
+            for (user in list) {
+                val chip = Chip(context)
+                chip.text = user
+                dataBinding.createGroupChipGroupUsers.addView(chip)
+            }
+        }
+
+    }
 }
 

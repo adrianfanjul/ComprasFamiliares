@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.getValue
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerGroup
 import es.adrianfg.comprasfamiliares.data.response.GroupResponseItem
@@ -16,11 +15,12 @@ import javax.inject.Inject
 
 
 class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealtimeControllerGroup {
-
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
 
     override suspend fun register(group: Group, context: Context): GroupResponseItem {
-        val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users)
+        val groupResponseItem =
+            GroupResponseItem(group.name, group.description, group.image, group.users)
+
         try {
             val result = database.orderByChild("name").equalTo(group.name).get().await()
             if (result.exists()) {
@@ -37,14 +37,16 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealti
     }
 
     override suspend fun getListGroups(user: User, context: Context): GroupsResponse {
-
         val listGroups = mutableListOf<GroupResponseItem>()
-
         try {
             val result = database.orderByChild("name").get().await()
             if (result.exists()) {
                 for (group in result.children) {
-                    listGroups.add(group.getValue(GroupResponseItem::class.java) ?: GroupResponseItem())
+                    val groupValue =
+                        group.getValue(GroupResponseItem::class.java) ?: GroupResponseItem()
+                    if (groupValue.users?.contains(user.email) == true) {
+                        listGroups.add(groupValue)
+                    }
                 }
                 Log.e("firebase", listGroups.toString())
 

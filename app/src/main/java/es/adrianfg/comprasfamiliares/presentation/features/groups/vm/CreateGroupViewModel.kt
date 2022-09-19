@@ -3,6 +3,9 @@ package es.adrianfg.comprasfamiliares.presentation.features.groups.vm
 
 import android.content.Context
 import android.net.Uri
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import androidx.appcompat.R
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.FileProvider
 import androidx.lifecycle.*
@@ -13,7 +16,6 @@ import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.*
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
-import es.adrianfg.comprasfamiliares.domain.usecase.GetListGroupsUseCase
 import es.adrianfg.comprasfamiliares.domain.usecase.GetListUsersUseCase
 import es.adrianfg.comprasfamiliares.domain.usecase.SetGroupsUseCase
 import kotlinx.coroutines.flow.catch
@@ -35,7 +37,8 @@ class CreateGroupViewModel @Inject constructor(
     val description = MutableLiveData("")
     val name = MutableLiveData("")
     val image = MutableLiveData("")
-    val selectedUserList = MutableLiveData<List<User>>()
+    private val _selectedUserList = MutableLiveData<List<String>>()
+    val selectedUserList get() = _selectedUserList
 
     private val _userList = MutableLiveData<List<User>>()
     val userList: LiveData<List<User>> get() = _userList
@@ -100,7 +103,5 @@ class CreateGroupViewModel @Inject constructor(
         }
         return FileProvider.getUriForFile(context, "${BuildConfig.APPLICATION_ID}.provider", tmpFile)
     }
-
-
 
 }

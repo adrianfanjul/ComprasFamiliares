@@ -60,6 +60,7 @@
     <string name="cancel">Cancelar</string>
     <string name="error_users_empty">No hay usuarios registrados</string>
     <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
+    <string name="menu_home_close_item">Cerrar sesion</string>
 
 
 </resources>

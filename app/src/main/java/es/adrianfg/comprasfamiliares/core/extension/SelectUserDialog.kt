@@ -1,9 +1,7 @@
 package es.adrianfg.comprasfamiliares.core.extension
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
@@ -11,10 +9,8 @@ import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
 
-//Esta clase recibe una lista de usuarios devuelve los seleccionados
-class SelectUserDialog(val listUsers: List<User>, val viewModel: CreateGroupViewModel) :
-    DialogFragment() {
-    var selectedUsers = emptyList<User>()
+class SelectUserDialog(val viewModel: CreateGroupViewModel) :DialogFragment() {
+    val listUsers = viewModel.userList.value ?: emptyList()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -44,12 +40,12 @@ class SelectUserDialog(val listUsers: List<User>, val viewModel: CreateGroupView
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
-    //Se le pasa la lista de seleccionados de tipo int y devuelve una lista de usuarios de tipo User
-    private fun getSelectedUsers(selectedItems: ArrayList<Int>): List<User> {
-        val selectedUsers = mutableListOf<User>()
+    //Se le pasa la lista de seleccionados de tipo int y devuelve una lista de emails de tipo String
+    private fun getSelectedUsers(selectedItems: ArrayList<Int>): List<String> {
+        val selectedUsers = mutableListOf<String>()
         if (!selectedItems.isEmpty()) {
             for (indice in selectedItems) {
-                selectedUsers.add(listUsers.elementAt(indice))
+                selectedUsers.add(listUsers.elementAt(indice).email)
             }
         }
         return selectedUsers.toList()

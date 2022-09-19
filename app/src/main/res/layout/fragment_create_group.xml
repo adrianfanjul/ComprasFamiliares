@@ -15,6 +15,10 @@
             name="item"
             type="es.adrianfg.comprasfamiliares.domain.models.Group" />
 
+        <variable
+            name="imageView"
+            type="android.widget.ImageView" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,8 +84,8 @@
                 android:gravity="top"
                 android:inputType="textMultiLine"
                 android:lines="3"
-                android:maxLines="3"
                 android:maxLength="100"
+                android:maxLines="3"
                 android:text="@={viewModel.description}"
                 android:textAppearance="?comprasBody16Inverse"
                 android:textColor="@color/secondaryTextColor" />
@@ -91,9 +95,9 @@
             android:id="@+id/create_group_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/create_group_image_description"
             android:scaleType="centerCrop"
             android:src="@drawable/img_sin_imagen"
-            android:contentDescription="@string/create_group_image_description"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="@+id/create_group_input_layout_description"
             app:layout_constraintTop_toBottomOf="@+id/create_group_input_layout_description"
@@ -102,60 +106,54 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_group_capture_btn"
             style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="8dp"
             android:backgroundTint="@color/primaryColor"
             android:text="@string/create_group_capture_text"
             app:icon="@drawable/ic_camera"
             app:iconGravity="textStart"
-            app:layout_constraintTop_toTopOf="@+id/create_group_image"
-            android:layout_marginHorizontal="8dp"
             app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
-            app:layout_constraintStart_toEndOf="@+id/create_group_image" />
+            app:layout_constraintStart_toEndOf="@+id/create_group_image"
+            app:layout_constraintTop_toTopOf="@+id/create_group_image" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_group_choose_btn"
             style="?comprasButton_filled_round"
-            android:text="@string/create_group_choose_text"
+            android:layout_marginHorizontal="8dp"
             android:backgroundTint="@color/rippleColor"
+            android:text="@string/create_group_choose_text"
             app:icon="@drawable/ic_galery"
             app:iconGravity="textStart"
             app:layout_constraintBottom_toBottomOf="@+id/create_group_image"
-            android:layout_marginHorizontal="8dp"
             app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
             app:layout_constraintStart_toEndOf="@+id/create_group_image" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_group_users_add_btn"
             style="?comprasButton_filled_round"
-            app:backgroundTint="@android:color/black"
-            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
             android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+            android:layout_marginVertical="24dp"
             android:text="@string/register_user_add_btn"
+            app:backgroundTint="@android:color/black"
             app:icon="@drawable/ic_user_add"
             app:iconGravity="textStart"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/create_group_input_layout_list_users"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
-            android:layout_marginTop="@dimen/titles_vertical_margin"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_users_add_btn"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_group_image" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/create_group_chip_group_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:errorEnabled="true"
-            android:hint="@string/create_group_input_layout_list_users_text">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/create_group_users_add_btn"
+            app:singleLine="true"
+            app:singleSelection="true">
 
-            <AutoCompleteTextView
-                android:id="@+id/create_group_input_list_users"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_group_save_btn"
@@ -182,8 +180,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

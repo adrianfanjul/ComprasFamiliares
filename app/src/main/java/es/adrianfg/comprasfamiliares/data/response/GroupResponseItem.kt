@@ -8,13 +8,13 @@ class GroupResponseItem {
     var name: String? = ""
     var description: String? = ""
     var image: String? = ""
-    var users: List<User>? = emptyList()
+    var users: List<String>? = emptyList()
 
     constructor() {
         // Default constructor required for calls to DataSnapshot.getValue(Message.class)
     }
 
-    constructor(name: String?, description: String?, image: String?, users:  List<User>?) {
+    constructor(name: String?, description: String?, image: String?, users:  List<String>?) {
         this.name = name
         this.description = description
         this.image = image
