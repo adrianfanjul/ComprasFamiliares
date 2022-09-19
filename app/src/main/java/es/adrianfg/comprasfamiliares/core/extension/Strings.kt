@@ -18,13 +18,13 @@ fun String.isValidPass(): Boolean {
  * Extension method to check if String is valid Name.
  */
 fun String.isValidName(): Boolean {
-    val regex = Regex("[a-zA-Z 0-9_-]{3,50}")
+    val regex = Regex("[a-zA-ZñÑáéíóúÁÉÍÓÚ 0-9_-]{3,50}")
     return matches(regex)
 }
 /**
  * Extension method to check if String is valid Description.
  */
 fun String.isValidDescription(): Boolean {
-    val regex = Regex("[a-zA-Z 0-9_-]{3,100}")
+    val regex = Regex("[a-zA-ZñÑáéíóúÁÉÍÓÚ 0-9_-]{3,100}")
     return matches(regex)
 }
