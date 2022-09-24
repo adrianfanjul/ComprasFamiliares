@@ -11,7 +11,7 @@
         <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
         <item name="colorOnSecondary">@color/secondaryDarkColor</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
         <!-- TextInputLayout -->
         <item name="textAppearanceSubtitle1">@style/TextAppearance.App.Subtitle1</item>
         <item name="textAppearanceCaption">@style/TextAppearance.App.Caption</item>
@@ -41,7 +41,6 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-
     <style name="TextAppearance.App.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="fontFamily">@font/open_sans</item>
         <item name="android:fontFamily">@font/open_sans</item>
@@ -51,6 +50,7 @@
         <item name="fontFamily">@font/open_sans</item>
         <item name="android:fontFamily">@font/open_sans</item>
     </style>
+
     <style name="Theme.ComprasFamiliares.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ComprasFamiliares.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
