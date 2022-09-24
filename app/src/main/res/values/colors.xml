@@ -10,8 +10,10 @@
     <color name="primaryTextColor">#fafafa</color>
     <color name="secondaryTextColor">#4e342e</color>
     <color name="white">@android:color/white</color>
+    <color name="colorOnError">#b90006</color>
     <color name="disableFilledBtn">#CE93D8</color>
     <color name="disableBtn">#CE93D8</color>
+    <color name="colorOnSurface">#4e342e</color>
     <color name="rippleColor">#B39DDB</color>
     <color name="selected_nav">#F36B6B</color>
 </resources>

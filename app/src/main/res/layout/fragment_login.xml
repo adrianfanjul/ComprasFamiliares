@@ -38,7 +38,7 @@
                 android:layout_marginVertical="@dimen/titles_vertical_margin"
                 android:gravity="center"
                 android:text="@string/login_title"
-                android:textAppearance="@style/TextAppearance.Compras.Headline3"
+                android:textAppearance="?comprasH3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,9 +61,7 @@
                     android:id="@+id/loginInputUserName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@={viewModel.userName}"
-                    android:textAppearance="?comprasBody16Inverse"
-                    android:textColor="@color/secondaryTextColor" />
+                    android:text="@={viewModel.userName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,9 +82,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:text="@={viewModel.password}"
-                    android:textAppearance="?comprasBody16Inverse"
-                    android:textColor="@color/secondaryTextColor" />
+                    android:text="@={viewModel.password}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

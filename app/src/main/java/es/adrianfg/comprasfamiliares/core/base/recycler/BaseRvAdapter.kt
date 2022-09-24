@@ -2,6 +2,7 @@ package es.adrianfg.comprasfamiliares.core.base.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import es.adrianfg.comprasfamiliares.BR
@@ -16,6 +17,7 @@ class BaseRvAdapter<T : Any>(
     items: List<T>? = emptyList(),
     private val viewmodel: BaseViewModel? = null,
     private val itemClick: OnClickItem<T>,
+
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var items: List<T> by Delegates.observable(items ?: emptyList()) { _, old, new ->
@@ -38,15 +40,15 @@ class BaseRvAdapter<T : Any>(
             holder.binding.setVariable(BR.adapter, this)
             holder.binding.setVariable(BR.position, position)
             holder.bind(items[position])
-            holder.itemView.setOnClickListener { view ->
-                itemClick(items[position])
-            }
+
+
         }
     }
 
-    fun listenerItemClick(position: Int) {
+    fun listenerItemBtnClick(position: Int) {
         itemClick(items[position])
     }
+
 
 
 }

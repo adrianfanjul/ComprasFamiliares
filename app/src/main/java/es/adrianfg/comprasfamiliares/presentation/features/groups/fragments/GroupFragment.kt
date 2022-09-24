@@ -13,7 +13,7 @@ import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel
-import es.adrianfg.comprasfamiliares.presentation.features.login.fragments.RegisterFragmentDirections
+
 
 @AndroidEntryPoint
 class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
@@ -24,7 +24,8 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     private val adapter by lazy {
         BaseRvAdapter<Group>(R.layout.item_group_list) { group ->
             group?.let {
-                snack(SnackbarMessage(R.string.selected_group, it.name)).show()
+                val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(it,sharedViewModel.user.value)
+                navigate(directions)
             }
         }
     }

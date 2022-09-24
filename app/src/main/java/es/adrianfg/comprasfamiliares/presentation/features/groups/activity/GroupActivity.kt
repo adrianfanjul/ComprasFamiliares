@@ -51,7 +51,7 @@ class GroupActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_home_close -> {
+            R.id.menu_groups_close-> {
                 closeSession()
                 true
             }

@@ -13,10 +13,11 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.ComprasFamiliares.AppBarOverlay" />
+            android:layout_height="?actionBarSize"
+            app:title="@string/lista_compra_toolbar_title_default"
+            app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

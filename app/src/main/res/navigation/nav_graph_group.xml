@@ -12,6 +12,18 @@
         <action
             android:id="@+id/groupFragment_to_createGroupFragment"
             app:destination="@id/createGroupFragment" />
+        <action
+            android:id="@+id/groupFragment_to_listaCompraActivity"
+            app:destination="@id/listaCompraActivity" >
+            <argument
+                android:name="group"
+                app:argType="es.adrianfg.comprasfamiliares.domain.models.Group"
+                app:nullable="true" />
+            <argument
+                android:name="user"
+                app:argType="es.adrianfg.comprasfamiliares.domain.models.User"
+                app:nullable="true" />
+        </action>
 
     </fragment>
     <fragment
@@ -32,5 +44,21 @@
     <action
         android:id="@+id/to_loginActivity"
         app:destination="@id/loginActivity" />
+
+    <activity
+        android:id="@+id/listaCompraActivity"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.activity.ListaCompraActivity">
+
+        <argument
+            android:name="group"
+            app:argType="es.adrianfg.comprasfamiliares.domain.models.Group"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="user"
+            app:argType="es.adrianfg.comprasfamiliares.domain.models.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </activity>
 
 </navigation>

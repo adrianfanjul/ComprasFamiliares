@@ -10,7 +10,7 @@ import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaC
 @AndroidEntryPoint
 class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaCompraViewModel>() {
 
-    override fun getLayout(): Int = R.layout.fragment_group
+    override fun getLayout(): Int = R.layout.fragment_lista_compra
     override val viewModel: ListaCompraViewModel by viewModels()
 
     override fun setBindingLayout() {

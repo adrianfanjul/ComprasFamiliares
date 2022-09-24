@@ -21,7 +21,6 @@
 
     </data>
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/item_group_card"
         style="@style/Widget.Material3.CardView.Elevated"
@@ -39,9 +38,9 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_group_img"
-                android:layout_width="100dp"
                 loadImage="@{item.image}"
                 placeHolder="@{@drawable/img_sin_imagen}"
+                android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/backgrounds/scenic" />
@@ -71,22 +70,23 @@
                 tools:text="Descripcion del grupo" />
 
             <View
+                android:id="@+id/linea"
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
-                android:background="#ffd5d5d5"
-                android:id="@+id/linea"
-                android:layout_above="@+id/register_exit_btn"
-                android:layout_toEndOf="@+id/item_group_img">
+                android:layout_above="@+id/item_group_btn"
+                android:layout_toEndOf="@+id/item_group_img"
+                android:background="#ffd5d5d5">
 
             </View>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/register_exit_btn"
+                android:id="@+id/item_group_btn"
                 style="?comprasButton_filled_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
                 android:text="@string/item_group_enter_btn" />
 
         </RelativeLayout>

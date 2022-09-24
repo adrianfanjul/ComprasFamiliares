@@ -54,6 +54,5 @@ class LoginFragment : BaseFragmentDb<FragmentLoginBinding, LoginViewModel>() {
         }
     }
 
-
 }
 

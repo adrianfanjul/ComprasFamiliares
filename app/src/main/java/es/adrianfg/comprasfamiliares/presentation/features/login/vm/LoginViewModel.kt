@@ -29,6 +29,7 @@ class LoginViewModel @Inject constructor(
         )
     }
     val password = MutableLiveData("")
+
     val enableBtn: LiveData<Boolean> = userName.combine(password) { user, pass ->
         return@combine user.length > 3 && pass.isValidPass()
     }
