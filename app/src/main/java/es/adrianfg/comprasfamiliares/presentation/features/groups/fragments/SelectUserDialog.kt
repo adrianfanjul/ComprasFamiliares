@@ -1,4 +1,4 @@
-package es.adrianfg.comprasfamiliares.core.extension
+package es.adrianfg.comprasfamiliares.presentation.features.groups.fragments
 
 import android.app.AlertDialog
 import android.app.Dialog

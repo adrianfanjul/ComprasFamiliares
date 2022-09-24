@@ -5,6 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.combine
+import es.adrianfg.comprasfamiliares.core.extension.get_SHA_512_SecurePassword
 import es.adrianfg.comprasfamiliares.core.extension.isEmail
 import es.adrianfg.comprasfamiliares.core.extension.isValidPass
 import es.adrianfg.comprasfamiliares.domain.models.User
@@ -38,11 +39,12 @@ class LoginViewModel @Inject constructor(
     val user get() = _user
 
     fun logIn() {
+        val codePass = get_SHA_512_SecurePassword(password.value ?: "", userName.value ?: "")
         viewModelScope.launch {
             getLogInUseCase.execute(
                 GetLogInUseCase.Params(
                     userName.value ?: "",
-                    password.value ?: ""
+                    codePass ?: ""
                 )
             )
                 .onStart { _loading.value = true }

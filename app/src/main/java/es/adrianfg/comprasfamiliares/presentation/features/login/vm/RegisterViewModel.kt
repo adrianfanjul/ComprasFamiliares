@@ -4,10 +4,7 @@ import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
-import es.adrianfg.comprasfamiliares.core.extension.combine
-import es.adrianfg.comprasfamiliares.core.extension.isEmail
-import es.adrianfg.comprasfamiliares.core.extension.isValidName
-import es.adrianfg.comprasfamiliares.core.extension.isValidPass
+import es.adrianfg.comprasfamiliares.core.extension.*
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.domain.usecase.SetRegisterUseCase
 import kotlinx.coroutines.flow.catch
@@ -55,12 +52,13 @@ class RegisterViewModel @Inject constructor(
     val user get() = _user
 
     fun register() {
+        val codePass = get_SHA_512_SecurePassword(pass.value ?: "", email.value ?: "")
         viewModelScope.launch {
             setRegisterUseCase.execute(
                 SetRegisterUseCase.Params(
                     User(
                         email.value ?: "",
-                        pass.value ?: "",
+                        codePass ?: "",
                         name.value ?: "",
                         surName.value ?: "",
                         age.value?.toIntOrNull() ?: -1
