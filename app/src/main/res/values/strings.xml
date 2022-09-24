@@ -64,5 +64,6 @@
     <string name="lista_compra_toolbar_title_default">Lista de la compra</string>
     <string name="lista_compra_toolbar_title">Bienvenido a %1s</string>
     <string name="login_error_password">La contraseña no es valida</string>
+    <string name="error_selected_user_list_empty">No se ha seleccionado ningun usuario</string>
 
 </resources>

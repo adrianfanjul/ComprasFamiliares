@@ -54,7 +54,7 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
 
     override fun initViewModels() {
         viewModel.loadUsersList()
-        viewModel.imageView = dataBinding.createGroupImage
+        viewModel.getImageView(dataBinding.createGroupImage)
     }
 
     override fun setBindingLayout() {
@@ -98,6 +98,7 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
                 false -> dataBinding.createGroupInputLayoutName.error = null
             }
         }
+
     }
 
     private fun errorDescription(isValid: Boolean?) {
@@ -140,4 +141,5 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
 
     }
 }
+
 

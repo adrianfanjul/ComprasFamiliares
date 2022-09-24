@@ -3,9 +3,6 @@ package es.adrianfg.comprasfamiliares.presentation.features.groups.vm
 
 import android.content.Context
 import android.net.Uri
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import androidx.appcompat.R
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.FileProvider
 import androidx.lifecycle.*
@@ -25,23 +22,23 @@ import kotlinx.coroutines.launch
 import java.io.File
 import javax.inject.Inject
 
-
 @HiltViewModel
 class CreateGroupViewModel @Inject constructor(
     private val setGroupsUseCase: SetGroupsUseCase,
-    private val getListUsersUseCase: GetListUsersUseCase,
+    private val getListUsersUseCase: GetListUsersUseCase
+
 ) : BaseViewModel() {
 
-    lateinit var imageView:AppCompatImageView
+    lateinit var imageView: AppCompatImageView
     private val minlengh = 3
     val description = MutableLiveData("")
     val name = MutableLiveData("")
     val image = MutableLiveData("")
     private val _selectedUserList = MutableLiveData<List<String>>()
     val selectedUserList get() = _selectedUserList
-
     private val _userList = MutableLiveData<List<User>>()
     val userList: LiveData<List<User>> get() = _userList
+
     val errorName = liveData<Boolean> {
         emitSource(
             Transformations.map(enableBtn) {
@@ -49,6 +46,7 @@ class CreateGroupViewModel @Inject constructor(
             }
         )
     }
+
     val errorDescription = liveData<Boolean> {
         emitSource(
             Transformations.map(enableBtn) {
@@ -56,15 +54,16 @@ class CreateGroupViewModel @Inject constructor(
             }
         )
     }
-    val enableBtn: LiveData<Boolean> = name.combine(description) { name, description ->
-        return@combine name.length > minlengh && description.length > minlengh
+
+    val enableBtn: LiveData<Boolean> = name.combine(description,selectedUserList) { name, description,selectedUserList ->
+        return@combine name.length > minlengh && description.length > minlengh && selectedUserList.isNotEmpty()
     }
 
     private val _group = MutableLiveData<Group>()
     val group get() = _group
 
     fun create() {
-        image.value="Grupos/${name.value}.jpg"
+        image.value = "Grupos/${name.value}.jpg"
         viewModelScope.launch {
             setGroupsUseCase.execute(
                 SetGroupsUseCase.Params(
@@ -72,7 +71,7 @@ class CreateGroupViewModel @Inject constructor(
                         name.value ?: "",
                         description.value ?: "",
                         image.value ?: "",
-                        selectedUserList.value?:emptyList()
+                        selectedUserList.value ?: emptyList()
                     )
                 )
             )
@@ -95,13 +94,20 @@ class CreateGroupViewModel @Inject constructor(
                 .collect { _userList.value = it }
         }
     }
+    fun getImageView(_imageView: AppCompatImageView) {
+        imageView =_imageView
+    }
 
     fun getTmpFileUri(context: Context): Uri {
         val tmpFile = File.createTempFile("tmp_image_file", ".jpg", context.cacheDir).apply {
             createNewFile()
             deleteOnExit()
         }
-        return FileProvider.getUriForFile(context, "${BuildConfig.APPLICATION_ID}.provider", tmpFile)
+        return FileProvider.getUriForFile(
+            context,
+            "${BuildConfig.APPLICATION_ID}.provider",
+            tmpFile
+        )
     }
 
 }
