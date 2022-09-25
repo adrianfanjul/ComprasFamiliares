@@ -16,5 +16,6 @@
     <attr name="comprasButton_outline" format="reference"/>
     <attr name="comprasButton_filled" format="reference"/>
     <attr name="comprasButton_filled_round" format="reference"/>
+    <attr name="comprasButton_filled_round_small" format="reference"/>
     <attr name="comprasButton_filled_cut" format="reference"/>
 </resources>

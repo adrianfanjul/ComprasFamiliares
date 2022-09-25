@@ -21,15 +21,48 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-         <com.google.android.material.textview.MaterialTextView
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintStart_toStartOf="parent"
-             android:textAppearance="?comprasH3"
-             android:gravity="center"
-             android:layout_marginVertical="@dimen/titles_vertical_margin"
-             android:text="@string/lista_compra_title"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:gravity="center"
+                android:text="@string/lista_compra_title"
+                android:textAppearance="?comprasH3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lista_compra_all_btn"
+                style="?comprasButton_filled_round_small"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:text="@string/lista_compra_all_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/lista_compra_add_btn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lista_compra_add_btn"
+                style="?comprasButton_filled_round_small"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:text="@string/lista_compra_add_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/lista_compra_small_add_btn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/lista_compra_all_btn"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/lista_compra_small_add_btn"
+                style="?comprasButton_filled_round_small"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:text="@string/lista_compra_small_add_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/lista_compra_add_btn"
+                app:layout_constraintWidth_percent="0.3" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

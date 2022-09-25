@@ -1,7 +1,6 @@
 package es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl
 
 import android.content.Context
-import android.util.Log
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import es.adrianfg.comprasfamiliares.R
@@ -48,7 +47,6 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealti
                         listGroups.add(groupValue)
                     }
                 }
-                Log.e("firebase", listGroups.toString())
 
             } else {
                 throw Error(context.resources?.getString(R.string.error_groups_empty))

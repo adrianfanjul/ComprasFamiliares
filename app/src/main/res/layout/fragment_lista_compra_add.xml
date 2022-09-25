@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraAddViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lista_compra_add_content_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/create_group_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:text="@string/lista_compra_add_title"
+            android:textAppearance="?comprasH3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create_group_save_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+            android:text="@string/save_btn"
+            app:icon="@drawable/ic_save"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toTopOf="@+id/create_group_exit_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create_group_exit_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+            android:text="@string/exit_btn"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

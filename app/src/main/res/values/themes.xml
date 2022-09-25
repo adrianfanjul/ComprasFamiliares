@@ -32,6 +32,7 @@
         <item name="comprasBody14Inverse">@style/TextAppearance.Compras.Body2.Inverse</item>
         <item name="comprasButton_filled">@style/Button.Filled</item>
         <item name="comprasButton_filled_round">@style/Button.Filled.Rounded</item>
+        <item name="comprasButton_filled_round_small">@style/Button.Filled.Rounded.Small</item>
         <item name="comprasButton_filled_cut">@style/Button.Filled.Cut</item>
         <item name="comprasButton_outline">@style/Button.Outlined</item>
     </style>

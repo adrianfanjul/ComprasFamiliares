@@ -6,10 +6,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
 import es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter
-import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
-import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel
@@ -20,7 +18,7 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
 
     override val viewModel: GroupViewModel by viewModels()
     override fun getLayout(): Int = R.layout.fragment_group
-    val sharedViewModel: GroupMainViewModel by activityViewModels()
+    private val sharedViewModel: GroupMainViewModel by activityViewModels()
     private val adapter by lazy {
         BaseRvAdapter<Group>(R.layout.item_group_list) { group ->
             group?.let {
@@ -45,7 +43,7 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
         }
     }
 
-    fun createGroup() {
+    private fun createGroup() {
         val directions = GroupFragmentDirections.groupFragmentToCreateGroupFragment()
         navigate(directions)
     }

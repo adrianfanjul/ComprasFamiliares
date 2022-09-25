@@ -8,6 +8,19 @@
     <fragment
         android:id="@+id/listaCompraFragment"
         android:name="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraFragment"
-        tools:layout="@layout/fragment_lista_compra"/>
+        tools:layout="@layout/fragment_lista_compra">
+        <action
+            android:id="@+id/listaCompraFragment_to_listaCompraAddFragment"
+            app:destination="@id/listaCompraAddFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listaCompraAddFragment"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraAddFragment"
+        tools:layout="@layout/fragment_lista_compra_add">
+        <action
+            android:id="@+id/listaCompraAddFragment_to_listaCompraFragment"
+            app:destination="@id/listaCompraFragment" />
+    </fragment>
 
 </navigation>
