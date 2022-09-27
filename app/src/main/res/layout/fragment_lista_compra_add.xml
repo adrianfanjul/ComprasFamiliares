@@ -4,12 +4,9 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraAddViewModel" />
-
 
     </data>
 
@@ -60,7 +57,7 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
-            android:hint="@string/registerInputLayoutEdadText"
+            android:hint="@string/lista_compra_add_input_layout_amount"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,20 +99,56 @@
                 android:text="@={viewModel.description}" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/lista_compra_add_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/lista_compra_add_image_description"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_sin_imagen"
+            app:layout_constraintHeight_percent="0.2"
+            app:layout_constraintStart_toStartOf="@+id/lista_compra_add_input_layout_description"
+            app:layout_constraintTop_toBottomOf="@+id/lista_compra_add_input_layout_description"
+            app:layout_constraintWidth_percent="0.3" />
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_save_btn"
+            android:id="@+id/lista_compra_add_capture_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="8dp"
+            android:backgroundTint="@color/primaryColor"
+            android:text="@string/capture_btn"
+            app:icon="@drawable/ic_camera"
+            app:iconGravity="textStart"
+            app:layout_constraintEnd_toEndOf="@+id/lista_compra_add_input_layout_description"
+            app:layout_constraintStart_toEndOf="@+id/lista_compra_add_image"
+            app:layout_constraintTop_toTopOf="@+id/lista_compra_add_image" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lista_compra_add_choose_btn"
+            style="?comprasButton_filled_round"
+            android:layout_marginHorizontal="8dp"
+            android:backgroundTint="@color/rippleColor"
+            android:text="@string/choose_btn"
+            app:icon="@drawable/ic_galery"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="@+id/lista_compra_add_image"
+            app:layout_constraintEnd_toEndOf="@+id/lista_compra_add_input_layout_description"
+            app:layout_constraintStart_toEndOf="@+id/lista_compra_add_image" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/lista_compra_add_save_btn"
             style="?comprasButton_filled_round"
             android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
             android:layout_marginVertical="@dimen/filled_button_vertical_margin"
             android:text="@string/save_btn"
             app:icon="@drawable/ic_save"
             app:iconGravity="textStart"
-            app:layout_constraintBottom_toTopOf="@+id/create_group_exit_btn"
+            app:layout_constraintBottom_toTopOf="@+id/lista_compra_add_exit_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_exit_btn"
+            android:id="@+id/lista_compra_add_exit_btn"
             style="?comprasButton_filled_round"
             android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
             android:layout_marginVertical="@dimen/filled_button_vertical_margin"

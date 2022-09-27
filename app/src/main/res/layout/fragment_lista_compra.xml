@@ -4,8 +4,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="viewModel"
             type="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraViewModel" />

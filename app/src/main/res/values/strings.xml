@@ -12,6 +12,8 @@
     <!--BTN-->
     <string name="save_btn">GUARDAR</string>
     <string name="exit_btn">SALIR</string>
+    <string name="capture_btn">Foto</string>
+    <string name="choose_btn">Galeria</string>
 
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>
@@ -59,8 +61,6 @@
     <string name="error_groups_empty">No estas en ningun grupo</string>
     <string name="create_group_image_description">Imagen del grupo</string>
     <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
-    <string name="create_group_capture_text">Foto</string>
-    <string name="create_group_choose_text">Galeria</string>
     <string name="create_group_user_add_btn">Añadir Usuarios</string>
     <string name="groups_create_camera_denegate">No hay permisos para la camara</string>
 
@@ -78,5 +78,7 @@
     <string name="error_products_empty">No hay productos en la lista</string>
     <string name="lista_compra_add_input_layout_name">Nombre del producto</string>
     <string name="lista_compra_add_input_layout_description">Descripción del producto</string>
+    <string name="lista_compra_add_input_layout_amount">Cantidad</string>
+    <string name="lista_compra_add_image_description">Imagen del producto</string>
 
 </resources>
