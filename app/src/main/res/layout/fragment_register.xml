@@ -14,7 +14,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/registerContentRoot"
+        android:id="@+id/register_content_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="@{View.VISIBLE}">
@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registerInputLayoutEmail"
+            android:id="@+id/register_input_layout_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
@@ -40,23 +40,21 @@
             android:hint="@string/registerInputLayoutEmailText"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/registerInputLayoutPass"
+            app:layout_constraintBottom_toTopOf="@+id/register_input_layout_pass"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/register_title">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerInputEmail"
+                android:id="@+id/register_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.email}"
-                android:textAppearance="?comprasBody16Inverse"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@={viewModel.email}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registerInputLayoutPass"
+            android:id="@+id/register_input_layout_pass"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
@@ -64,24 +62,22 @@
             android:hint="@string/registerInputLayoutPassText"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/registerInputLayoutName"
+            app:layout_constraintBottom_toTopOf="@+id/register_input_layout_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutEmail">
+            app:layout_constraintTop_toBottomOf="@+id/register_input_layout_email">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerInputPass"
+                android:id="@+id/register_input_pass"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
-                android:text="@={viewModel.pass}"
-                android:textAppearance="?comprasBody16Inverse"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@={viewModel.pass}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registerInputLayoutName"
+            android:id="@+id/register_input_layout_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
@@ -90,23 +86,21 @@
             android:hint="@string/registerInputLayoutNameText"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/registerInputLayoutSurName"
+            app:layout_constraintBottom_toTopOf="@+id/register_input_layout_surName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutPass">
+            app:layout_constraintTop_toBottomOf="@+id/register_input_layout_pass">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerInputName"
+                android:id="@+id/register_input_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.name}"
-                android:textAppearance="?comprasBody16Inverse"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@={viewModel.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registerInputLayoutSurName"
+            android:id="@+id/register_input_layout_surName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
@@ -115,23 +109,21 @@
             android:hint="@string/registerInputLayoutSurNameText"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
-            app:layout_constraintBottom_toTopOf="@+id/registerInputLayoutEdad"
+            app:layout_constraintBottom_toTopOf="@+id/register_input_layout_edad"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutName">
+            app:layout_constraintTop_toBottomOf="@+id/register_input_layout_name">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerInputSurName"
+                android:id="@+id/register_input_surName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.surName}"
-                android:textAppearance="?comprasBody16Inverse"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@={viewModel.surName}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/registerInputLayoutEdad"
+            android:id="@+id/register_input_layout_edad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
@@ -144,16 +136,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerInputLayoutSurName">
+            app:layout_constraintTop_toBottomOf="@+id/register_input_layout_surName">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/registerInputEdad"
+                android:id="@+id/register_input_edad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
-                android:text="@={viewModel.age}"
-                android:textAppearance="?comprasBody16Inverse"
-                android:textColor="@color/secondaryTextColor" />
+                android:text="@={viewModel.age}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton

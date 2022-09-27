@@ -40,17 +40,17 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
             }
         }
     private val requestSinglePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (isGranted) {
-                lifecycleScope.launchWhenStarted {
-                    viewModel.getTmpFileUri(requireContext()).let { uri ->
-                        latestTmpUri = uri
-                        takePhotoActivityLauncher.launch(uri)
-                    }
+        if (isGranted) {
+            lifecycleScope.launchWhenStarted {
+                viewModel.getTmpFile(requireContext()).let { uri ->
+                    latestTmpUri = uri
+                    takePhotoActivityLauncher.launch(uri)
                 }
-            } else {
-                snack(SnackbarMessage(R.string.groups_create_camera_denegate)).show()
             }
+        } else {
+            snack(SnackbarMessage(R.string.groups_create_camera_denegate)).show()
         }
+    }
 
     override fun initViewModels() {
         viewModel.loadUsersList()

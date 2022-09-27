@@ -1,15 +1,20 @@
 package es.adrianfg.comprasfamiliares.core.extension
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import androidx.core.content.FileProvider
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import es.adrianfg.comprasfamiliares.BuildConfig
 import java.io.ByteArrayOutputStream
+import java.io.File
 
 //Se le pasa el pathstring y el imageview y sube la foto al storage
 fun ImageView.uploadImage(pathString: String) {
@@ -56,5 +61,17 @@ private fun convertViewToDrawable(view: View): Bitmap {
     canvas.translate((-view.scrollX).toFloat(), (-view.scrollY).toFloat())
     view.draw(canvas)
     return bitmap
+}
+
+fun getTmpFileUri(context: Context): Uri {
+    val tmpFile = File.createTempFile("tmp_image_file", ".jpg", context.cacheDir).apply {
+        createNewFile()
+        deleteOnExit()
+    }
+    return FileProvider.getUriForFile(
+        context,
+        "${BuildConfig.APPLICATION_ID}.provider",
+        tmpFile
+    )
 }
 

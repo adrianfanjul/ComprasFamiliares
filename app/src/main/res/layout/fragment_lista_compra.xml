@@ -17,7 +17,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/listaCompraContentRoot"
+            android:id="@+id/lista_compra_content_root"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

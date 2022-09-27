@@ -19,7 +19,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/create_group_title"
+            android:id="@+id/lista_compra_add_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
@@ -28,6 +28,79 @@
             android:textAppearance="?comprasH3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lista_compra_add_input_layout_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+            android:layout_marginTop="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/lista_compra_add_input_layout_name"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lista_compra_add_title">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lista_compra_add_input_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:maxLength="50"
+                android:text="@={viewModel.name}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lista_compra_add_input_layout_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/registerInputLayoutEdadText"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lista_compra_add_input_layout_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lista_compra_add_input_amount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="number"
+                android:text="@={viewModel.amount}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lista_compra_add_input_layout_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+            android:layout_marginTop="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:hint="@string/lista_compra_add_input_layout_description"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lista_compra_add_input_layout_amount">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lista_compra_add_input_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLength="100"
+                android:maxLines="3"
+                android:text="@={viewModel.description}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/create_group_save_btn"

@@ -94,20 +94,13 @@ class CreateGroupViewModel @Inject constructor(
                 .collect { _userList.value = it }
         }
     }
+
     fun getImageView(_imageView: AppCompatImageView) {
         imageView =_imageView
     }
 
-    fun getTmpFileUri(context: Context): Uri {
-        val tmpFile = File.createTempFile("tmp_image_file", ".jpg", context.cacheDir).apply {
-            createNewFile()
-            deleteOnExit()
-        }
-        return FileProvider.getUriForFile(
-            context,
-            "${BuildConfig.APPLICATION_ID}.provider",
-            tmpFile
-        )
+    fun getTmpFile(context: Context): Uri {
+       return getTmpFileUri(context)
     }
 
 }

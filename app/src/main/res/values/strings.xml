@@ -76,5 +76,7 @@
     <string name="lista_compra_add_title">PRODUCTO</string>
     <string name="error_products_repeat_name">Ya existe un producto con ese nombre</string>
     <string name="error_products_empty">No hay productos en la lista</string>
+    <string name="lista_compra_add_input_layout_name">Nombre del producto</string>
+    <string name="lista_compra_add_input_layout_description">Descripción del producto</string>
 
 </resources>
