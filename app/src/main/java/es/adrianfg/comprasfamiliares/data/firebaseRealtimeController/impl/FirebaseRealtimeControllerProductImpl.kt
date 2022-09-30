@@ -17,18 +17,25 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor() :  FirebaseRea
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Products")
 
     override suspend fun register(product: Product, context: Context): ProductResponseItem {
-        val productResponseItem =
-            ProductResponseItem(product.name, product.description,product.amount, product.image, product.user)
+        val productResponseItem = ProductResponseItem(product.name, product.description,product.amount, product.image, product.user,product.group)
 
         try {
             val result = database.orderByChild("name").equalTo(product.name).get().await()
-            if (result.exists()) {
-                throw Error(context.resources?.getString(R.string.error_products_repeat_name))
 
+            if (result.exists()) {
+                for (res in result.children) {
+                    val productResponse = res.getValue(ProductResponseItem::class.java) ?: ProductResponseItem()
+                    if (productResponse.group.equals(product.group)) {
+                        throw Error(context.resources?.getString(R.string.error_products_repeat_name))
+                    }else{
+                        database.push().setValue(productResponseItem)
+                    }
+                }
             } else {
                 database.push().setValue(productResponseItem)
-                return productResponseItem
             }
+
+            return productResponseItem
 
         } catch (e: Exception) {
             throw Error(e.message)
@@ -41,7 +48,10 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor() :  FirebaseRea
             val result = database.orderByChild("name").get().await()
             if (result.exists()) {
                 for (product in result.children) {
-                    listProducts.add(product.getValue(ProductResponseItem::class.java) ?: ProductResponseItem())
+                    val productResponse = product.getValue(ProductResponseItem::class.java) ?: ProductResponseItem()
+                    if (productResponse.group.equals(group.name)) {
+                        listProducts.add(product.getValue(ProductResponseItem::class.java) ?: ProductResponseItem())
+                    }
                 }
 
             } else {

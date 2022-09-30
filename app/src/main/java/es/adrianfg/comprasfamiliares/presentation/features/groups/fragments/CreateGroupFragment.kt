@@ -48,13 +48,13 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
                 }
             }
         } else {
-            snack(SnackbarMessage(R.string.groups_create_camera_denegate)).show()
+            snack(SnackbarMessage(R.string.camera_denegate)).show()
         }
     }
 
     override fun initViewModels() {
         viewModel.loadUsersList()
-        viewModel.getImageView(dataBinding.createGroupImage)
+        viewModel.imageView=dataBinding.createGroupImage
     }
 
     override fun setBindingLayout() {

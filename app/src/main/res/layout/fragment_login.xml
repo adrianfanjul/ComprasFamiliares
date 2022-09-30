@@ -61,6 +61,7 @@
                     android:id="@+id/login_input_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:maxLength="254"
                     android:text="@={viewModel.userName}" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -82,6 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
+                    android:maxLength="16"
                     android:text="@={viewModel.password}" />
 
             </com.google.android.material.textfield.TextInputLayout>

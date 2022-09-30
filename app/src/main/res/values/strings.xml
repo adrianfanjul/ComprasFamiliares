@@ -2,6 +2,7 @@
 
     <string name="app_name">Compras Familiares</string>
     <string name="menu_groups_close_item">Cerrar sesion</string>
+    <string name="camera_denegate">No hay permisos para la camara</string>
 
     <!--USERSDIALOG-->
     <string name="ok">Aceptar</string>
@@ -62,7 +63,6 @@
     <string name="create_group_image_description">Imagen del grupo</string>
     <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
     <string name="create_group_user_add_btn">Añadir Usuarios</string>
-    <string name="groups_create_camera_denegate">No hay permisos para la camara</string>
 
     <!--LISTA COMPRA-->
     <string name="lista_compra_title">LISTA COMPRA</string>
@@ -71,6 +71,8 @@
     <string name="lista_compra_all_btn">COMPRAR TODO</string>
     <string name="lista_compra_add_btn">PRODUCTO DETALLADO</string>
     <string name="lista_compra_small_add_btn">PRODUCTO RAPIDO</string>
+    <string name="product_amount">Cantidad: %d</string>
+    <string name="product_user">Añadido por: %s</string>
 
     <!--LISTA COMPRA ADD-->
     <string name="lista_compra_add_title">PRODUCTO</string>
@@ -80,5 +82,8 @@
     <string name="lista_compra_add_input_layout_description">Descripción del producto</string>
     <string name="lista_compra_add_input_layout_amount">Cantidad</string>
     <string name="lista_compra_add_image_description">Imagen del producto</string>
+    <string name="error_create_product">Error al añadir el producto: %s</string>
+    <string name="products_create">Producto añadido: %s</string>
+    <string name="item_product_enter_btn">COMPRAR</string>
 
 </resources>

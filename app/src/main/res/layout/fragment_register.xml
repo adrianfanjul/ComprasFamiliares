@@ -50,6 +50,7 @@
                 android:id="@+id/register_input_email"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:maxLength="254"
                 android:text="@={viewModel.email}" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +74,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
-                android:text="@={viewModel.pass}"/>
+                android:maxLength="16"
+                android:text="@={viewModel.pass}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -96,6 +98,7 @@
                 android:id="@+id/register_input_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:maxLength="100"
                 android:text="@={viewModel.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +122,8 @@
                 android:id="@+id/register_input_surName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@={viewModel.surName}"/>
+                android:maxLength="200"
+                android:text="@={viewModel.surName}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -143,6 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:inputType="number"
+                android:maxLength="3"
                 android:text="@={viewModel.age}" />
         </com.google.android.material.textfield.TextInputLayout>
 

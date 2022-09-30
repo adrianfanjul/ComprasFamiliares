@@ -40,8 +40,6 @@ class BaseRvAdapter<T : Any>(
             holder.binding.setVariable(BR.adapter, this)
             holder.binding.setVariable(BR.position, position)
             holder.bind(items[position])
-
-
         }
     }
 

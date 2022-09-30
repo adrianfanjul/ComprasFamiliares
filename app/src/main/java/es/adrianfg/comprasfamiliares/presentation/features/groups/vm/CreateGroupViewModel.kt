@@ -4,10 +4,8 @@ package es.adrianfg.comprasfamiliares.presentation.features.groups.vm
 import android.content.Context
 import android.net.Uri
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.content.FileProvider
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
-import es.adrianfg.comprasfamiliares.BuildConfig
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.*
@@ -19,7 +17,6 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -93,10 +90,6 @@ class CreateGroupViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect { _userList.value = it }
         }
-    }
-
-    fun getImageView(_imageView: AppCompatImageView) {
-        imageView =_imageView
     }
 
     fun getTmpFile(context: Context): Uri {

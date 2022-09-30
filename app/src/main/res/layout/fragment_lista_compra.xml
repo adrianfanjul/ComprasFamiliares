@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <data>
-
-        <variable
-            name="viewModel"
-            type="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraViewModel" />
-
-    </data>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -20,6 +13,7 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/lista_compra_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/titles_vertical_margin"
@@ -28,6 +22,18 @@
                 android:textAppearance="?comprasH3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/products_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginVertical="12dp"
+                app:layout_constraintHeight_percent="0.8"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@+id/lista_compra_title"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_product_list" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lista_compra_all_btn"

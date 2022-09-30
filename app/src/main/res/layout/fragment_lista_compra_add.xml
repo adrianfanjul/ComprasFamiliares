@@ -69,6 +69,7 @@
                 android:id="@+id/lista_compra_add_input_amount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:maxLength="4"
                 android:inputType="number"
                 android:text="@={viewModel.amount}" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -141,6 +142,8 @@
             android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
             android:layout_marginVertical="@dimen/filled_button_vertical_margin"
             android:text="@string/save_btn"
+            android:enabled="@{viewModel.enableBtn}"
+            android:onClick="@{()-> viewModel.create()}"
             app:icon="@drawable/ic_save"
             app:iconGravity="textStart"
             app:layout_constraintBottom_toTopOf="@+id/lista_compra_add_exit_btn"

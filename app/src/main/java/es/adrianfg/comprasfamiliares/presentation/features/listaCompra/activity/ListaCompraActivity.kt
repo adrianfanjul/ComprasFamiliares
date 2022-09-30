@@ -16,8 +16,6 @@ import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
-import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
-import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 
 @AndroidEntryPoint
@@ -25,8 +23,8 @@ class ListaCompraActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityListaCompraBinding::inflate)
-    val sharedViewModel: ListaCompraMainViewModel by viewModels ()
-    val args: ListaCompraActivityArgs by navArgs()
+    private val sharedViewModel: ListaCompraMainViewModel by viewModels ()
+    private val args: ListaCompraActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

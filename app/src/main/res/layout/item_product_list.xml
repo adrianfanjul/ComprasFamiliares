@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="adapter"
+            type="es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter" />
+
+        <variable
+            name="item"
+            type="es.adrianfg.comprasfamiliares.domain.models.Product" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_product_card"
+        style="@style/Widget.Material3.CardView.Elevated"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/primaryLightColor"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardPreventCornerOverlap="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_product_img"
+                loadImage="@{item.image}"
+                placeHolder="@{@drawable/img_sin_imagen}"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/item_product_img"
+                android:text="@{item.name}"
+                android:textAppearance="?comprasH6Inverse"
+                tools:text="Leche" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_product_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_product_name"
+                android:layout_alignStart="@+id/item_product_name"
+                android:layout_marginHorizontal="4dp"
+                android:ellipsize="end"
+                android:text="@{@string/product_amount(item.amount)}"
+                android:textAppearance="?comprasBody14Inverse"
+                tools:text="Cantidad:5" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_product_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_product_amount"
+                android:layout_alignStart="@+id/item_product_amount"
+                android:ellipsize="end"
+                android:text="@{@string/product_user(item.user)}"
+                android:textAppearance="?comprasBody14Inverse"
+                tools:text="Añadido por Paco" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_product_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_product_user"
+                android:layout_alignStart="@+id/item_product_user"
+                android:ellipsize="end"
+                android:text="@{item.description}"
+                android:textAppearance="?comprasBody14Inverse"
+                tools:text="Descripcion del producto" />
+
+            <View
+                android:id="@+id/linea"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_above="@+id/item_product_btn"
+                android:layout_toEndOf="@+id/item_product_img"
+                android:background="#ffd5d5d5">
+
+            </View>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/item_product_btn"
+                style="?comprasButton_filled_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
+                android:text="@string/item_product_enter_btn" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

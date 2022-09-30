@@ -7,19 +7,21 @@ import es.adrianfg.comprasfamiliares.domain.models.User
 class ProductResponseItem {
     var name: String? = ""
     var description: String? = ""
-    var amount:Int ?=-1
+    var amount:Int?=-1
     var image: String? = ""
     var user:String?=""
+    var group:String?=""
 
     constructor() {
         // Default constructor required for calls to DataSnapshot.getValue(Message.class)
     }
 
-    constructor(name: String?, description: String?,amount:Int?, image: String?, user:  String?) {
+    constructor(name: String?, description: String?,amount:Int?, image: String?, user:  String?,group:String?) {
         this.name = name
         this.description = description
         this.amount = amount
         this.image = image
         this.user = user
+        this.group = group
     }
 }

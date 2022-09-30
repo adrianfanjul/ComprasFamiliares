@@ -11,7 +11,8 @@ fun ProductsResponse.mapToProducts() =
             name = it?.name ?: "",
             description = it?.description ?: "",
             amount = it?.amount ?:-1,
-            user= it?.user ?:""
+            user= it?.user ?:"",
+            group = it?.group ?:""
         )
     }.orEmpty()
 
@@ -21,7 +22,8 @@ fun ProductResponseItem.mapToProduct() =
             name = this.name ?: "",
             description = this.description ?: "",
             amount = this.amount ?:-1,
-            user= this.user ?:""
+            user= this.user ?:"",
+            group = this.group ?:""
         )
 
 

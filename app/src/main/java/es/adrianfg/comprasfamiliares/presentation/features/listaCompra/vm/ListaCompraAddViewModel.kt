@@ -2,8 +2,10 @@ package es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm
 
 import android.content.Context
 import android.net.Uri
+import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.*
+import androidx.lifecycle.viewmodel.viewModelFactory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
@@ -31,6 +33,7 @@ class ListaCompraAddViewModel @Inject constructor(
     val image = MutableLiveData("")
     val amount = MutableLiveData("")
     val user = MutableLiveData("")
+    val group = MutableLiveData("")
 
     val errorName = liveData<Boolean> {
         emitSource(
@@ -48,7 +51,7 @@ class ListaCompraAddViewModel @Inject constructor(
     val product get() = _product
 
     fun create() {
-        image.value = "Products/${name.value}.jpg"
+        image.value = "Products/${group.value}/${name.value}.jpg"
         viewModelScope.launch {
             setProductsUseCase.execute(
                 SetProductsUseCase.Params(
@@ -58,6 +61,7 @@ class ListaCompraAddViewModel @Inject constructor(
                         amount.value?.toInt() ?: -1,
                         image.value ?: "",
                         user.value ?: "",
+                        group.value ?:""
                     )
                 )
             )
@@ -66,13 +70,9 @@ class ListaCompraAddViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect {
                     _product.value = it
-                    imageView.uploadImage("Products/${it.name}.jpg")
+                    imageView.uploadImage("Products/${group.value}/${it.name}.jpg")
                 }
         }
-    }
-
-    fun getImageView(_imageView: AppCompatImageView) {
-        imageView =_imageView
     }
 
     fun getTmpFile(context: Context): Uri {
