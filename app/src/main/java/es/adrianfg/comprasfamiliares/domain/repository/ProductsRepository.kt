@@ -9,5 +9,6 @@ import kotlinx.coroutines.flow.Flow
 interface ProductsRepository {
     fun getListProducts(group: Group): Flow<List<Product>>
     fun registerProduct(product: Product): Flow<Product>
+    fun deleteProduct(product: Product): Flow<Product>
 }
 

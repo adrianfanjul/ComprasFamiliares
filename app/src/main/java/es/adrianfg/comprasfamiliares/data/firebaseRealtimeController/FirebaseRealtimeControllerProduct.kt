@@ -12,4 +12,5 @@ import es.adrianfg.comprasfamiliares.domain.models.User
 interface FirebaseRealtimeControllerProduct {
     suspend fun register(product: Product,context: Context): ProductResponseItem
     suspend fun getListProducts(group: Group,context: Context): ProductsResponse
+    suspend fun deleteProduct(product: Product,context: Context): ProductResponseItem
 }

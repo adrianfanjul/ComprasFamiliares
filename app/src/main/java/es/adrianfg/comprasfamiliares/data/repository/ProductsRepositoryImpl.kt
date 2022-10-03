@@ -21,6 +21,10 @@ class ProductsRepositoryImpl @Inject constructor(
         emit(firebaseRealtimeControllerProduct.register(product, context).mapToProduct())
     }
 
+    override fun deleteProduct(product: Product): Flow<Product> = flow {
+        emit(firebaseRealtimeControllerProduct.deleteProduct(product, context).mapToProduct())
+    }
+
     override fun getListProducts(group: Group): Flow<List<Product>> = flow {
         emit(firebaseRealtimeControllerProduct.getListProducts(group,context).mapToProducts())
     }

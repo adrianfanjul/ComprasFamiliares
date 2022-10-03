@@ -6,8 +6,11 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
+import es.adrianfg.comprasfamiliares.core.extension.deleteStorageImage
+import es.adrianfg.comprasfamiliares.core.extension.uploadImage
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.Product
+import es.adrianfg.comprasfamiliares.domain.usecase.DeleteProductUseCase
 import es.adrianfg.comprasfamiliares.domain.usecase.GetListProductsUseCase
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
@@ -17,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ListaCompraViewModel @Inject constructor(
-    private val getListProductsUseCase: GetListProductsUseCase
+    private val getListProductsUseCase: GetListProductsUseCase,
+    private val deleteProductUseCase: DeleteProductUseCase
 ) : BaseViewModel() {
     private val _productList = MutableLiveData<List<Product>>()
     val productList: LiveData<List<Product>> get() = _productList
@@ -33,4 +37,17 @@ class ListaCompraViewModel @Inject constructor(
                 .collect { _productList.value = it}
         }
     }
+
+    fun buyProduct(product: Product) {
+        viewModelScope.launch {
+            deleteProductUseCase.execute(
+                DeleteProductUseCase.Params(product)
+            )
+                .onStart { _loading.value = true }
+                .onCompletion { _loading.value = false }
+                .catch { _error.value = SingleEvent(it) }
+                .collect { deleteStorageImage(it.image)}
+        }
+    }
+
 }

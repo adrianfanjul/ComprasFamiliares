@@ -77,7 +77,7 @@ class CreateGroupViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect {
                     _group.value = it
-                    imageView.uploadImage("Grupos/${it.name}.jpg")
+                    imageView.uploadImage(image.value.toString())
                 }
         }
     }

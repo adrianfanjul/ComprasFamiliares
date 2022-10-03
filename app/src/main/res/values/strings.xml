@@ -73,6 +73,7 @@
     <string name="lista_compra_small_add_btn">PRODUCTO RAPIDO</string>
     <string name="product_amount">Cantidad: %d</string>
     <string name="product_user">Añadido por: %s</string>
+    <string name="products_bought">El producto %s ha sido comprado</string>
 
     <!--LISTA COMPRA ADD-->
     <string name="lista_compra_add_title">PRODUCTO</string>
@@ -85,5 +86,6 @@
     <string name="error_create_product">Error al añadir el producto: %s</string>
     <string name="products_create">Producto añadido: %s</string>
     <string name="item_product_enter_btn">COMPRAR</string>
+    <string name="error_products_not_found">El producto no existe</string>
 
 </resources>

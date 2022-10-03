@@ -27,7 +27,7 @@ class ListaCompraAddViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     lateinit var imageView: AppCompatImageView
-    private val minlengh = 3
+    private val minlengh = 1
     val description = MutableLiveData("")
     val name = MutableLiveData("")
     val image = MutableLiveData("")

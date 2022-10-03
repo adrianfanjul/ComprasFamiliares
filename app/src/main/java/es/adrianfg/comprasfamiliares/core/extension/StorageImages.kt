@@ -27,7 +27,6 @@ fun ImageView.uploadImage(pathString: String) {
     bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos)
     val data = baos.toByteArray()
     val uploadTask = imagesRef.putBytes(data)
-
     uploadTask.addOnFailureListener {
         Log.e("storage","Error al subir la imagen: ${it.message}")
     }.addOnSuccessListener { taskSnapshot ->
@@ -47,6 +46,19 @@ fun getStorageImage(imageView:ImageView,imageReference:String,placeHolder: Drawa
         imageView.setImageBitmap(bitmap)
     }.addOnFailureListener {
         imageView.setImageDrawable(placeHolder)
+    }
+}
+
+//Con una referencia coloca la imagen del storage en el imageview
+fun deleteStorageImage(imageReference:String){
+    val storage = Firebase.storage
+    val storageRef = storage.reference
+    val imagesRef = storageRef.child(imageReference)
+    // Delete the file
+    imagesRef.delete().addOnSuccessListener {
+        Log.e("storage","Borrada la imagen del producto: $imageReference")
+    }.addOnFailureListener {
+        Log.e("storage","Error al borrar la imagen la imagen: ${it.message}")
     }
 }
 

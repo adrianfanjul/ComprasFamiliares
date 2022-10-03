@@ -64,4 +64,30 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor() :  FirebaseRea
         }
     }
 
+    override suspend fun deleteProduct(product: Product, context: Context): ProductResponseItem {
+        val productResponseItem = ProductResponseItem(product.name, product.description,product.amount, product.image, product.user,product.group)
+
+        try {
+            val result = database.orderByChild("name").equalTo(product.name).get().await()
+
+            if (result.exists()) {
+                for (res in result.children) {
+                    val productResponse = res.getValue(ProductResponseItem::class.java) ?: ProductResponseItem()
+                    if (productResponse.group.equals(product.group)) {
+                        res.key?.let { database.child(it).removeValue() }
+                    }else{
+                        throw Error(context.resources?.getString(R.string.error_products_not_found))
+                    }
+                }
+            } else {
+                throw Error(context.resources?.getString(R.string.error_products_not_found))
+            }
+
+            return productResponseItem
+
+        } catch (e: Exception) {
+            throw Error(e.message)
+        }
+    }
+
 }
