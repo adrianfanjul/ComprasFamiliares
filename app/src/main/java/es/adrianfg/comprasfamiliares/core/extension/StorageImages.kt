@@ -13,6 +13,9 @@ import androidx.core.content.FileProvider
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import es.adrianfg.comprasfamiliares.BuildConfig
+import es.adrianfg.comprasfamiliares.R
+import es.adrianfg.comprasfamiliares.data.response.GroupResponseItem
+import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
 import java.io.File
 
@@ -45,6 +48,7 @@ fun getStorageImage(imageView:ImageView,imageReference:String,placeHolder: Drawa
         val bitmap = BitmapFactory.decodeByteArray(it, 0, it.size)
         imageView.setImageBitmap(bitmap)
     }.addOnFailureListener {
+        Log.e("storage","Error al obtener la imagen: ${it.message}")
         imageView.setImageDrawable(placeHolder)
     }
 }

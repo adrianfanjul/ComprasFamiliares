@@ -93,7 +93,7 @@ class CreateGroupViewModel @Inject constructor(
     }
 
     fun getTmpFile(context: Context): Uri {
-       return getTmpFileUri(context)
+        return getTmpFileUri(context)
     }
 
 }
