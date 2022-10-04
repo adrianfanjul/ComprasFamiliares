@@ -41,6 +41,11 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
         viewModel.productList.observe(viewLifecycleOwner) {
             adapter.items = it
         }
+        viewModel.boughtProduct.observe(viewLifecycleOwner,::buySuccess)
+    }
+
+    private fun buySuccess(product: Product?) {
+        snack(SnackbarMessage(R.string.products_bought, varargs = product?.name)).show()
     }
 
     private fun addProduct() {

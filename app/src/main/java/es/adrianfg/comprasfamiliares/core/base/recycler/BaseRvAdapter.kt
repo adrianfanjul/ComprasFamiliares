@@ -43,7 +43,7 @@ class BaseRvAdapter<T : Any>(
         }
     }
 
-    fun listenerItemBtnClick(position: Int) {
+    fun listenerItemBtnClick(position: Int){
         itemClick(items[position])
     }
 

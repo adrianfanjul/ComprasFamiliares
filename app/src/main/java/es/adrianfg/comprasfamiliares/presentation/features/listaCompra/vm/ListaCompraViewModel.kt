@@ -7,7 +7,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.deleteStorageImage
-import es.adrianfg.comprasfamiliares.core.extension.uploadImage
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.usecase.DeleteProductUseCase
@@ -25,6 +24,8 @@ class ListaCompraViewModel @Inject constructor(
 ) : BaseViewModel() {
     private val _productList = MutableLiveData<List<Product>>()
     val productList: LiveData<List<Product>> get() = _productList
+    private val _boughtProduct = MutableLiveData<Product>()
+    val boughtProduct: LiveData<Product> get() = _boughtProduct
 
     fun loadProductsList(group: Group) {
         viewModelScope.launch {
@@ -43,10 +44,11 @@ class ListaCompraViewModel @Inject constructor(
             deleteProductUseCase.execute(
                 DeleteProductUseCase.Params(product)
             )
-                .onStart { _loading.value = true }
+                .onStart { _loading.value = true
+                            deleteStorageImage(product.image)}
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect { deleteStorageImage(it.image)}
+                .collect {_boughtProduct.value=it}
         }
     }
 

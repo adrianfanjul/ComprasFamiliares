@@ -12,7 +12,7 @@ import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.combine
 import es.adrianfg.comprasfamiliares.core.extension.getTmpFileUri
 import es.adrianfg.comprasfamiliares.core.extension.isValidName
-import es.adrianfg.comprasfamiliares.core.extension.uploadImage
+import es.adrianfg.comprasfamiliares.core.extension.uploadStorageImage
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.usecase.SetProductsUseCase
 import kotlinx.coroutines.flow.catch
@@ -69,8 +69,9 @@ class ListaCompraAddViewModel @Inject constructor(
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
                 .collect {
+                    uploadStorageImage(image.value.toString(),imageView)
                     _product.value = it
-                    imageView.uploadImage("Products/${group.value}/${it.name}.jpg")
+
                 }
         }
     }

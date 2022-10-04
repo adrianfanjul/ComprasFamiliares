@@ -27,18 +27,18 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
     override val viewModel: CreateGroupViewModel by viewModels()
     private var latestTmpUri: Uri? = null
     private val galeryActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val intent = result.data
-                dataBinding.createGroupImage.setImageURI(intent?.data)
-            }
+        if (result.resultCode == Activity.RESULT_OK) {
+            val intent = result.data
+            dataBinding.createGroupImage.setImageURI(intent?.data)
         }
+    }
     private val takePhotoActivityLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { isSuccess ->
-            if (isSuccess) {
-                latestTmpUri?.let { uri ->
-                    dataBinding.createGroupImage.setImageURI(uri)
-                }
+        if (isSuccess) {
+            latestTmpUri?.let { uri ->
+                dataBinding.createGroupImage.setImageURI(uri)
             }
         }
+    }
     private val requestSinglePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
         if (isGranted) {
             lifecycleScope.launchWhenStarted {
@@ -87,7 +87,6 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
     private fun createSucess(group: Group?) {
         snack(SnackbarMessage(R.string.groups_create_group, varargs = group?.name)).show()
         exit()
-
     }
 
     private fun errorName(isValid: Boolean?) {
@@ -98,7 +97,6 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
                 false -> dataBinding.createGroupInputLayoutName.error = null
             }
         }
-
     }
 
     private fun errorDescription(isValid: Boolean?) {
@@ -138,7 +136,6 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
                 dataBinding.createGroupChipGroupUsers.addView(chip)
             }
         }
-
     }
 }
 
