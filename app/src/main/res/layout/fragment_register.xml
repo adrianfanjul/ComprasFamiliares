@@ -61,6 +61,8 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:hint="@string/registerInputLayoutPassText"
+            app:suffixText="@string/suffix_text_password"
+            app:suffixTextAppearance="?comprasBody16"
             app:endIconMode="password_toggle"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register_input_layout_name"

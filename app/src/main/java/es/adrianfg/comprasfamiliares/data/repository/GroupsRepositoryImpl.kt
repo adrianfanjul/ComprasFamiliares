@@ -22,8 +22,8 @@ class GroupsRepositoryImpl @Inject constructor(
     override fun getListGroups(user:User): Flow<List<Group>> = flow { emit(firebaseRealtimeControllerGroup.getListGroups(user,context).mapToGroups())
     }
 
-    override fun registerGroup(group: Group): Flow<Group> = flow {
-        emit(firebaseRealtimeControllerGroup.register(group,context).mapToGroup())
+    override fun registerGroup(group: Group,imageView: AppCompatImageView): Flow<Group> = flow {
+        emit(firebaseRealtimeControllerGroup.register(group,imageView,context).mapToGroup())
     }
 
 

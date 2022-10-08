@@ -28,6 +28,7 @@ class LoginFragment : BaseFragmentDb<FragmentLoginBinding, LoginViewModel>() {
 
     override fun observeViewModels() {
         viewModel.errorUser.observe(viewLifecycleOwner, ::errorUserName)
+        viewModel.errorPassword.observe(viewLifecycleOwner, ::errorPassword)
         viewModel.user.observe(viewLifecycleOwner, ::loginSucess)
     }
 
@@ -50,6 +51,15 @@ class LoginFragment : BaseFragmentDb<FragmentLoginBinding, LoginViewModel>() {
             when (isValid) {
                 true -> dataBinding.loginInputLayoutUserName.error = getString(R.string.login_error_user)
                 false -> dataBinding.loginInputLayoutUserName.error = null
+            }
+        }
+    }
+
+    private fun errorPassword(isValid: Boolean?) {
+        isValid?.let {
+            when (isValid) {
+                true -> dataBinding.loginInputLayoutPassword.error = getString(R.string.login_error_password)
+                false -> dataBinding.loginInputLayoutPassword.error = null
             }
         }
     }

@@ -19,4 +19,5 @@ class PresentationModule {
     fun provideEventsApp(@IoDispatcher workerScope: CoroutineScope): LoadingDelegateViewModel {
         return LoadingDelegate(workerScope)
     }
+
 }

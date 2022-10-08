@@ -8,6 +8,6 @@ import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
 
 interface FirebaseRealtimeControllerGroup {
-    suspend fun register(group: Group,context: Context): GroupResponseItem
+    suspend fun register(group: Group,imageView: AppCompatImageView,context: Context): GroupResponseItem
     suspend fun getListGroups(user: User,context: Context): GroupsResponse
 }

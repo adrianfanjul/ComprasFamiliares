@@ -1,6 +1,7 @@
 package es.adrianfg.comprasfamiliares.data.repository
 
 import android.content.Context
+import androidx.appcompat.widget.AppCompatImageView
 import dagger.hilt.android.qualifiers.ApplicationContext
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerProduct
 import es.adrianfg.comprasfamiliares.data.mappers.mapToProduct
@@ -17,12 +18,16 @@ class ProductsRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
 ) : ProductsRepository {
 
-    override fun registerProduct(product: Product): Flow<Product> = flow {
-        emit(firebaseRealtimeControllerProduct.register(product, context).mapToProduct())
+    override fun registerProduct(product: Product,imageView: AppCompatImageView): Flow<Product> = flow {
+        emit(firebaseRealtimeControllerProduct.register(product,imageView,context).mapToProduct())
     }
 
-    override fun deleteProduct(product: Product): Flow<Product> = flow {
-        emit(firebaseRealtimeControllerProduct.deleteProduct(product, context).mapToProduct())
+    override fun deleteProduct(product: Product): Flow<List<Product>> = flow {
+        emit(firebaseRealtimeControllerProduct.deleteProduct(product, context).mapToProducts())
+    }
+
+    override fun deleteAllProducts(group: Group): Flow<List<Product>> = flow {
+        emit(firebaseRealtimeControllerProduct.deleteAllProducts(group, context).mapToProducts())
     }
 
     override fun getListProducts(group: Group): Flow<List<Product>> = flow {

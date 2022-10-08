@@ -5,7 +5,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import es.adrianfg.comprasfamiliares.R
-import es.adrianfg.comprasfamiliares.core.extension.uploadStorageImage
+import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.StorageImages
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerGroup
 import es.adrianfg.comprasfamiliares.data.response.GroupResponseItem
 import es.adrianfg.comprasfamiliares.data.response.GroupsResponse
@@ -15,10 +15,12 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 
-class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealtimeControllerGroup {
+class FirebaseRealtimeControllerGroupImpl @Inject constructor(
+    private val storageImages:StorageImages
+) : FirebaseRealtimeControllerGroup {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
 
-    override suspend fun register(group: Group, context: Context): GroupResponseItem {
+    override suspend fun register(group: Group,imageView: AppCompatImageView, context: Context): GroupResponseItem {
         val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users)
         try {
             val result = database.orderByChild("name").equalTo(group.name).get().await()
@@ -26,6 +28,7 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor() : FirebaseRealti
                 throw Error(context.resources?.getString(R.string.error_groups_repeat_name))
 
             } else {
+                storageImages.uploadStorageImage(group.image,imageView)
                 database.push().setValue(groupResponseItem)
                 return groupResponseItem
             }

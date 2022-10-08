@@ -7,7 +7,6 @@ import android.net.Uri
 import android.provider.MediaStore
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -80,11 +79,6 @@ class ListaCompraAddFragment : BaseFragmentDb<FragmentListaCompraAddBinding, Lis
         snack(SnackbarMessage(R.string.error_create_product, varargs = message)).show()
     }
 
-    private fun exit() {
-        val directions = ListaCompraAddFragmentDirections.listaCompraAddFragmentToListaCompraFragment()
-        navigate(directions)
-    }
-
     private fun createSucess(product: Product?) {
         snack(SnackbarMessage(R.string.products_create, varargs = product?.name)).show()
         exit()
@@ -112,6 +106,10 @@ class ListaCompraAddFragment : BaseFragmentDb<FragmentListaCompraAddBinding, Lis
 
     private fun openCamera() {
         requestSinglePermission.launch(Manifest.permission.CAMERA)
+    }
+
+    private fun exit() {
+        navigateBack()
     }
 
 }

@@ -4,174 +4,198 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel" />
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/create_group_content_root"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/create_group_title"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_group_content_root"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/titles_vertical_margin"
-            android:gravity="center"
-            android:text="@string/create_group_title"
-            android:textAppearance="?comprasH3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading?View.GONE:View.VISIBLE}">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/create_group_input_layout_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
-            android:layout_marginTop="@dimen/titles_vertical_margin"
-            android:gravity="center"
-            android:hint="@string/create_group_input_layout_name"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/create_group_input_name"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/create_group_title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLength="50"
-                android:text="@={viewModel.name}"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/create_group_input_layout_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
-            android:layout_marginTop="@dimen/titles_vertical_margin"
-            android:gravity="center"
-            android:hint="@string/create_group_input_layout_description"
-            app:endIconMode="clear_text"
-            app:errorEnabled="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_input_layout_name">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/create_group_input_description"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:lines="3"
-                android:maxLength="100"
-                android:maxLines="3"
-                android:text="@={viewModel.description}" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/create_group_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription="@string/create_group_image_description"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_sin_imagen"
-            app:layout_constraintHeight_percent="0.2"
-            app:layout_constraintStart_toStartOf="@+id/create_group_input_layout_description"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_input_layout_description"
-            app:layout_constraintWidth_percent="0.3" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_capture_btn"
-            style="?comprasButton_filled_round"
-            android:layout_marginHorizontal="8dp"
-            android:backgroundTint="@color/primaryColor"
-            android:text="@string/capture_btn"
-            app:icon="@drawable/ic_camera"
-            app:iconGravity="textStart"
-            app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
-            app:layout_constraintStart_toEndOf="@+id/create_group_image"
-            app:layout_constraintTop_toTopOf="@+id/create_group_image" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_choose_btn"
-            style="?comprasButton_filled_round"
-            android:layout_marginHorizontal="8dp"
-            android:backgroundTint="@color/rippleColor"
-            android:text="@string/choose_btn"
-            app:icon="@drawable/ic_galery"
-            app:iconGravity="textStart"
-            app:layout_constraintBottom_toBottomOf="@+id/create_group_image"
-            app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
-            app:layout_constraintStart_toEndOf="@+id/create_group_image" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_users_add_btn"
-            style="?comprasButton_filled_round"
-            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
-            android:layout_marginVertical="24dp"
-            android:text="@string/create_group_user_add_btn"
-            app:backgroundTint="@android:color/black"
-            app:icon="@drawable/ic_user_add"
-            app:iconGravity="textStart"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_image" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
-            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
-            android:scrollbars="none"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/create_group_users_add_btn">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/create_group_chip_group_users"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                app:singleLine="true"
-                app:singleSelection="true">
+                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:gravity="center"
+                android:text="@string/create_group_title"
+                android:textAppearance="?comprasH3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            </com.google.android.material.chip.ChipGroup>
-        </HorizontalScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_group_input_layout_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+                android:layout_marginTop="@dimen/titles_vertical_margin"
+                android:gravity="center"
+                android:hint="@string/create_group_input_layout_name"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_group_title">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_save_btn"
-            style="?comprasButton_filled_round"
-            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
-            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
-            android:enabled="@{viewModel.enableBtn}"
-            android:onClick="@{()-> viewModel.create()}"
-            android:text="@string/save_btn"
-            app:icon="@drawable/ic_save"
-            app:iconGravity="textStart"
-            app:layout_constraintBottom_toTopOf="@+id/create_group_exit_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_group_input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:text="@={viewModel.name}" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/create_group_exit_btn"
-            style="?comprasButton_filled_round"
-            android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
-            android:layout_marginVertical="@dimen/filled_button_vertical_margin"
-            android:text="@string/exit_btn"
-            app:icon="@drawable/ic_back"
-            app:iconGravity="textStart"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/create_group_input_layout_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+                android:layout_marginTop="@dimen/titles_vertical_margin"
+                android:gravity="center"
+                android:hint="@string/create_group_input_layout_description"
+                app:endIconMode="clear_text"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_group_input_layout_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/create_group_input_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:maxLength="100"
+                    android:maxLines="3"
+                    android:text="@={viewModel.description}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/create_group_image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/create_group_image_description"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_sin_imagen"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintStart_toStartOf="@+id/create_group_input_layout_description"
+                app:layout_constraintTop_toBottomOf="@+id/create_group_input_layout_description"
+                app:layout_constraintWidth_percent="0.3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_group_capture_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="8dp"
+                android:backgroundTint="@color/primaryColor"
+                android:text="@string/capture_btn"
+                app:icon="@drawable/ic_camera"
+                app:iconGravity="textStart"
+                app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
+                app:layout_constraintStart_toEndOf="@+id/create_group_image"
+                app:layout_constraintTop_toTopOf="@+id/create_group_image" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_group_choose_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="8dp"
+                android:backgroundTint="@color/rippleColor"
+                android:text="@string/choose_btn"
+                app:icon="@drawable/ic_galery"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toBottomOf="@+id/create_group_image"
+                app:layout_constraintEnd_toEndOf="@+id/create_group_input_layout_description"
+                app:layout_constraintStart_toEndOf="@+id/create_group_image" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_group_users_add_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="24dp"
+                android:text="@string/create_group_user_add_btn"
+                app:backgroundTint="@android:color/black"
+                app:icon="@drawable/ic_user_add"
+                app:iconGravity="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_group_image" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_group_users_add_btn">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/create_group_chip_group_users"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_group_save_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:enabled="@{viewModel.enableBtn}"
+                android:onClick="@{()-> viewModel.create()}"
+                android:text="@string/save_btn"
+                app:icon="@drawable/ic_save"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toTopOf="@+id/create_group_exit_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/create_group_exit_btn"
+                style="?comprasButton_filled_round"
+                android:layout_marginHorizontal="@dimen/filled_button_horizontal_margin"
+                android:layout_marginVertical="@dimen/filled_button_vertical_margin"
+                android:text="@string/exit_btn"
+                app:icon="@drawable/ic_back"
+                app:iconGravity="textStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.loading?View.VISIBLE:View.GONE}"
+            app:layout_anchor="@+id/lottieAnimationView"
+            app:layout_anchorGravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="@string/login_loading_animation" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

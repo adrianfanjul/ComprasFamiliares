@@ -20,8 +20,9 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val getLogInUseCase: GetLogInUseCase,
 ) : BaseViewModel() {
-
+    private val minCharacters = 8
     val userName = MutableLiveData("")
+
     val errorUser = liveData<Boolean> {
         emitSource(
             Transformations.map(enableBtn) {
@@ -29,10 +30,19 @@ class LoginViewModel @Inject constructor(
             }
         )
     }
+
+    val errorPassword = liveData<Boolean> {
+        emitSource(
+            Transformations.map(enableBtn) {
+                return@map it && password.value?.isValidPass() == false
+            }
+        )
+    }
+
     val password = MutableLiveData("")
 
     val enableBtn: LiveData<Boolean> = userName.combine(password) { user, pass ->
-        return@combine user.length > 3 && pass.isValidPass()
+        return@combine user.length >= minCharacters && pass.length >=minCharacters
     }
 
     private val _user = MutableLiveData<User>()

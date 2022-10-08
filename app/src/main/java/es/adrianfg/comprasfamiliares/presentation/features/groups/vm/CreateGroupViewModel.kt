@@ -69,16 +69,13 @@ class CreateGroupViewModel @Inject constructor(
                         description.value ?: "",
                         image.value ?: "",
                         selectedUserList.value ?: emptyList()
-                    )
+                    ),imageView
                 )
             )
                 .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect {
-                    uploadStorageImage(image.value.toString(),imageView)
-                    _group.value = it
-                }
+                .collect {_group.value = it }
         }
     }
 

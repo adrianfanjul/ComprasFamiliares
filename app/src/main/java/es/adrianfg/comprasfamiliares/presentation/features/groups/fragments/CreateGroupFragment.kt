@@ -79,11 +79,6 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
         snack(SnackbarMessage(R.string.error_create_group, varargs = message)).show()
     }
 
-    private fun exit() {
-        val directions = CreateGroupFragmentDirections.createGroupFragmentToGroupFragment()
-        navigate(directions)
-    }
-
     private fun createSucess(group: Group?) {
         snack(SnackbarMessage(R.string.groups_create_group, varargs = group?.name)).show()
         exit()
@@ -136,6 +131,10 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
                 dataBinding.createGroupChipGroupUsers.addView(chip)
             }
         }
+    }
+
+    private fun exit() {
+        navigateBack()
     }
 }
 

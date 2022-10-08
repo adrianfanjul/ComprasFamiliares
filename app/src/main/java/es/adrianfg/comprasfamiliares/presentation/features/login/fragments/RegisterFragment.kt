@@ -36,9 +36,8 @@ class RegisterFragment : BaseFragmentDb<FragmentRegisterBinding, RegisterViewMod
         snack(SnackbarMessage(R.string.error_register, varargs = message)).show()
     }
 
-    fun exit() {
-        val directions = RegisterFragmentDirections.registerFragmentToLoginFragment()
-        navigate(directions)
+    private fun exit() {
+        navigateBack()
     }
 
     private fun registerSucess(user: User?) {

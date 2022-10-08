@@ -14,8 +14,8 @@ class SetGroupsUseCase @Inject constructor(
     private val groupsRepository: GroupsRepository
 ) : FlowUseCase<SetGroupsUseCase.Params, Group>(dispatcher) {
 
-    override fun execute(params: Params): Flow<Group> = groupsRepository.registerGroup(params.group)
+    override fun execute(params: Params): Flow<Group> = groupsRepository.registerGroup(params.group,params.imageView)
 
-    data class Params(val group: Group)
+    data class Params(val group: Group,val imageView: AppCompatImageView)
 
 }

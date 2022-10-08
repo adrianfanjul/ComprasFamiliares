@@ -31,6 +31,7 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     override fun eventListeners() {
         dataBinding.productsRv.adapter = adapter
         dataBinding.listaCompraAddBtn.setOnClickListener { addProduct() }
+        dataBinding.listaCompraAllBtn.setOnClickListener { buyAllProducts()}
     }
 
     override fun initViewModels() {
@@ -51,6 +52,10 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     private fun addProduct() {
         val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment()
         navigate(directions)
+    }
+
+    private fun buyAllProducts() {
+        viewModel.buyAllProduct(sharedViewModel.group.value?: Group("","","", emptyList()))
     }
 
 }

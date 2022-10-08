@@ -16,19 +16,22 @@
     <string name="capture_btn">Foto</string>
     <string name="choose_btn">Galeria</string>
 
+    <!--Inputs-->
+    <string name="suffix_text_password">8/16</string>
+
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>
     <string name="login_register_btn_text">REGISTRARSE</string>
     <string name="login_error_user">El email no es valido</string>
     <string name="login_background_animation">https://assets9.lottiefiles.com/packages/lf20_boJRmE.json</string>
     <string name="login_loading_animation">https://assets1.lottiefiles.com/packages/lf20_qogkaqmb.json</string>
-    <string name="login_username_text">Usuario o email</string>
+    <string name="login_username_text">Email</string>
     <string name="login_password_text">Contraseña</string>
     <string name="login_login_btn_text">LOG-IN</string>
-    <string name="login_error_password">La contraseña no es valida</string>
+    <string name="login_error_password">La contraseña debe contener entre 8/16 caracteres, al menos un número y una letra </string>
     <string name="error_login">Error en el login: %s</string>
-    <string name="error_login_incorrect_paswword">Usuario o contraseña incorrectos por favor intentelo de nuevo</string>
-    <string name="error_login_incorrect_user">Usuario o contraseña incorrectos por favor intentelo de nuevo</string>
+    <string name="error_login_incorrect_paswword">Usuario o contraseña incorrectos.</string>
+    <string name="error_login_incorrect_user">Usuario o contraseña incorrectos.</string>
     <string name="error_users_empty">No hay usuarios registrados</string>
 
     <!--REGISTER-->
@@ -40,7 +43,7 @@
     <string name="registerInputLayoutEdadText">Edad</string>
     <string name="register_error_user">El email no es valido</string>
     <string name="register_registred_user">Usuario registrado: %s</string>
-    <string name="register_error_pass">La contraseña no es valida</string>
+    <string name="register_error_pass">La contraseña debe contener entre 8/16 caracteres, al menos un número y una letra</string>
     <string name="register_error_name">El nombre no es valido</string>
     <string name="error_register">Error al registrarse: %s</string>
     <string name="error_register_repeat_user">El usuario ya esta registrado</string>
@@ -87,5 +90,6 @@
     <string name="products_create">Producto añadido: %s</string>
     <string name="item_product_enter_btn">COMPRAR</string>
     <string name="error_products_not_found">El producto no existe</string>
+
 
 </resources>

@@ -71,6 +71,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
+                app:suffixText="@string/suffix_text_password"
+                app:suffixTextAppearance="?comprasBody16"
                 android:hint="@string/login_password_text"
                 app:endIconMode="password_toggle"
                 app:errorEnabled="true"

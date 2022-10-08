@@ -2,17 +2,14 @@ package es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm
 
 import android.content.Context
 import android.net.Uri
-import androidx.activity.viewModels
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.*
-import androidx.lifecycle.viewmodel.viewModelFactory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.combine
 import es.adrianfg.comprasfamiliares.core.extension.getTmpFileUri
 import es.adrianfg.comprasfamiliares.core.extension.isValidName
-import es.adrianfg.comprasfamiliares.core.extension.uploadStorageImage
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.usecase.SetProductsUseCase
 import kotlinx.coroutines.flow.catch
@@ -62,17 +59,13 @@ class ListaCompraAddViewModel @Inject constructor(
                         image.value ?: "",
                         user.value ?: "",
                         group.value ?:""
-                    )
+                    ),imageView
                 )
             )
                 .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect {
-                    uploadStorageImage(image.value.toString(),imageView)
-                    _product.value = it
-
-                }
+                .collect {_product.value = it }
         }
     }
 

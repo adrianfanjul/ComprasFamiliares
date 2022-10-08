@@ -10,10 +10,12 @@ import javax.inject.Inject
 
 class DeleteProductUseCase @Inject constructor(
     @IoDispatcher dispatcher: CoroutineDispatcher,
-    private val productsRepository: ProductsRepository
-) : FlowUseCase<DeleteProductUseCase.Params, Product>(dispatcher) {
+    private val productsRepository: ProductsRepository,
+) : FlowUseCase<DeleteProductUseCase.Params, List<Product>>(dispatcher) {
 
-    override fun execute(params: Params): Flow<Product> = productsRepository.deleteProduct(params.product)
+    override fun execute(params: Params):Flow<List<Product>> {
+       return productsRepository.deleteProduct(params.product)
+    }
 
     data class Params(val product: Product)
 
