@@ -57,7 +57,12 @@
     <style name="TextAppearance.Compras.Body2" parent="TextAppearance.MaterialComponents.Body2">
         <item name="fontFamily">@font/open_sans</item>
         <item name="android:fontFamily">@font/open_sans</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Compras.Body3" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textSize">10sp</item>
     </style>
     <style name="TextAppearance.Compras.Body1.Inverse">
         <item name="android:textColor">@color/secondaryTextColor</item>

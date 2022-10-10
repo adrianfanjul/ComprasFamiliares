@@ -28,6 +28,7 @@
         <item name="comprasH6Inverse">@style/TextAppearance.Compras.Headline6.Inverse</item>
         <item name="comprasBody16">@style/TextAppearance.Compras.Body1</item>
         <item name="comprasBody14">@style/TextAppearance.Compras.Body2</item>
+        <item name="comprasBody12">@style/TextAppearance.Compras.Body3</item>
         <item name="comprasBody16Inverse">@style/TextAppearance.Compras.Body1.Inverse</item>
         <item name="comprasBody14Inverse">@style/TextAppearance.Compras.Body2.Inverse</item>
         <item name="comprasButton_filled">@style/Button.Filled</item>

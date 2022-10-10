@@ -9,18 +9,57 @@
         android:id="@+id/listaCompraFragment"
         android:name="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraFragment"
         tools:layout="@layout/fragment_lista_compra">
+
         <action
             android:id="@+id/listaCompraFragment_to_listaCompraAddFragment"
-            app:destination="@id/listaCompraAddFragment" />
+            app:destination="@id/listaCompraAddFragment">
+            <argument
+                android:name="quickAdd"
+                app:argType="boolean"
+                app:nullable="false" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/listaCompraAddFragment"
         android:name="es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraAddFragment"
         tools:layout="@layout/fragment_lista_compra_add">
+
+        <argument
+            android:name="quickAdd"
+            android:defaultValue="false"
+            app:argType="boolean"
+            app:nullable="false" />
+
         <action
             android:id="@+id/listaCompraAddFragment_to_listaCompraFragment"
             app:destination="@id/listaCompraFragment" />
     </fragment>
+
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+
+    <action
+        android:id="@+id/to_loginActivity"
+        app:destination="@id/loginActivity" />
+
+    <activity
+        android:id="@+id/groupsActivity"
+        android:name="es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivity"
+        android:label="activity_groups"
+        tools:layout="@layout/activity_group" />
+
+    <action
+        android:id="@+id/to_groupsActivity"
+        app:destination="@id/groupsActivity">
+
+        <argument
+            android:name="user"
+            app:argType="es.adrianfg.comprasfamiliares.domain.models.User"
+            app:nullable="true" />
+    </action>
 
 </navigation>

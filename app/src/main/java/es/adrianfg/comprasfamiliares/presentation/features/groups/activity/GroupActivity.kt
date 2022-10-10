@@ -6,7 +6,6 @@ import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.NavDirections
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.navArgs
@@ -18,7 +17,6 @@ import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.User
-import es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.CreateGroupFragmentDirections
 import es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.GroupFragmentDirections
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 
@@ -28,9 +26,9 @@ class GroupActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityGroupBinding::inflate)
-    val sharedViewModel: GroupMainViewModel by viewModels ()
+    private val sharedViewModel: GroupMainViewModel by viewModels ()
 
-    val args: GroupActivityArgs by navArgs()
+    private val args: GroupActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

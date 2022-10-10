@@ -2,20 +2,27 @@ package es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm
 
 import android.content.Context
 import android.net.Uri
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.lifecycle.*
+import androidx.navigation.navArgs
 import dagger.hilt.android.lifecycle.HiltViewModel
+import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
 import es.adrianfg.comprasfamiliares.core.extension.combine
 import es.adrianfg.comprasfamiliares.core.extension.getTmpFileUri
 import es.adrianfg.comprasfamiliares.core.extension.isValidName
+import es.adrianfg.comprasfamiliares.core.extension.loadImage
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.usecase.SetProductsUseCase
+import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -48,7 +55,7 @@ class ListaCompraAddViewModel @Inject constructor(
     val product get() = _product
 
     fun create() {
-        image.value = "Products/${group.value}/${name.value}.jpg"
+        image.value = getImageRoute()
         viewModelScope.launch {
             setProductsUseCase.execute(
                 SetProductsUseCase.Params(
@@ -65,8 +72,15 @@ class ListaCompraAddViewModel @Inject constructor(
                 .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect {_product.value = it }
+                .collect {_product.value = it}
         }
+    }
+
+    private fun getImageRoute():String {
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS")
+        val formatted = current.format(formatter)
+        return "Products/${group.value}/${name.value}${formatted}.jpg"
     }
 
     fun getTmpFile(context: Context): Uri {

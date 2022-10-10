@@ -9,6 +9,7 @@
     <attr name="comprasH4Inverse" format="reference"/>
     <attr name="comprasH5Inverse" format="reference"/>
     <attr name="comprasH6Inverse" format="reference"/>
+    <attr name="comprasBody12" format="reference"/>
     <attr name="comprasBody14" format="reference"/>
     <attr name="comprasBody16" format="reference"/>
     <attr name="comprasBody14Inverse" format="reference"/>

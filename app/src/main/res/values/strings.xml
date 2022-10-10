@@ -2,6 +2,8 @@
 
     <string name="app_name">Compras Familiares</string>
     <string name="menu_groups_close_item">Cerrar sesion</string>
+    <string name="menu_products_go_groups_item">Volver a grupos</string>
+    <string name="menu_products_close_item">Cerrar sesion</string>
     <string name="camera_denegate">No hay permisos para la camara</string>
 
     <!--USERSDIALOG-->

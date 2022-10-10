@@ -6,4 +6,5 @@
         android:icon="@drawable/session_close"
         android:title="@string/menu_groups_close_item"
         app:showAsAction="always" />
+
 </menu>

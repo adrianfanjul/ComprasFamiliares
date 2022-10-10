@@ -4,19 +4,26 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.opengl.Visibility
 import android.provider.MediaStore
+import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.DrawableRes
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
+import androidx.navigation.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
+import es.adrianfg.comprasfamiliares.core.extension.loadImage
 import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentListaCompraAddBinding
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
+import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraAddViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 
@@ -24,9 +31,10 @@ import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaC
 @AndroidEntryPoint
 class ListaCompraAddFragment : BaseFragmentDb<FragmentListaCompraAddBinding, ListaCompraAddViewModel>() {
 
+    private val args: ListaCompraAddFragmentArgs by navArgs()
     override fun getLayout(): Int = R.layout.fragment_lista_compra_add
     override val viewModel: ListaCompraAddViewModel by viewModels()
-    val sharedViewModel: ListaCompraMainViewModel by activityViewModels ()
+    private val sharedViewModel: ListaCompraMainViewModel by activityViewModels ()
     private var latestTmpUri: Uri? = null
     private val galeryActivityLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -55,9 +63,20 @@ class ListaCompraAddFragment : BaseFragmentDb<FragmentListaCompraAddBinding, Lis
     }
 
     override fun initViewModels() {
+
+        hideInputs()
         viewModel.imageView = dataBinding.listaCompraAddImage
         viewModel.user.value = sharedViewModel.user.value?.email
         viewModel.group.value = sharedViewModel.group.value?.name
+    }
+
+    private fun hideInputs() {
+        if(args.quickAdd){
+            dataBinding.listaCompraAddInputLayoutDescription.visibility= View.GONE
+            dataBinding.listaCompraAddImage.visibility= View.GONE
+            dataBinding.listaCompraAddChooseBtn.visibility= View.GONE
+            dataBinding.listaCompraAddCaptureBtn.visibility= View.GONE
+        }
     }
 
     override fun setBindingLayout() {

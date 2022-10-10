@@ -11,6 +11,7 @@ import es.adrianfg.comprasfamiliares.databinding.FragmentListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
+import es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.SelectUserDialog
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraViewModel
 
@@ -31,6 +32,7 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     override fun eventListeners() {
         dataBinding.productsRv.adapter = adapter
         dataBinding.listaCompraAddBtn.setOnClickListener { addProduct() }
+        dataBinding.listaCompraSmallAddBtn.setOnClickListener { quickAddProduct() }
         dataBinding.listaCompraAllBtn.setOnClickListener { buyAllProducts()}
     }
 
@@ -50,7 +52,12 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     }
 
     private fun addProduct() {
-        val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment()
+        val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(false)
+        navigate(directions)
+    }
+
+    private fun quickAddProduct() {
+        val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(true)
         navigate(directions)
     }
 

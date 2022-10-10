@@ -104,7 +104,7 @@
                     android:lines="3"
                     android:maxLength="100"
                     android:maxLines="3"
-                    android:text="@={viewModel.description}" />
+                    android:text="@={viewModel.description}"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.appcompat.widget.AppCompatImageView

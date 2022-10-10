@@ -43,8 +43,9 @@
     <style name="Button.Filled.Rounded">
         <item name="shapeAppearance">@style/ShapeAppearance.Liguilla.Rouned</item>
     </style>
+
     <style name="Button.Filled.Rounded.Small">
-        <item name="android:textAppearance">?comprasBody14</item>
+        <item name="android:textAppearance">?comprasBody12</item>
         <item name="android:layout_height">60dp</item>
     </style>
 

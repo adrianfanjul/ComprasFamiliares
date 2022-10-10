@@ -1,6 +1,8 @@
 package es.adrianfg.comprasfamiliares.presentation.features.listaCompra.activity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -16,6 +18,8 @@ import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
+import es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.GroupFragmentDirections
+import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraFragmentDirections
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 
 @AndroidEntryPoint
@@ -38,6 +42,35 @@ class ListaCompraActivity : AppCompatActivity() {
         binding.toolbar.title = getString(R.string.lista_compra_toolbar_title,args.group?.name)
         sharedViewModel.setUser(args.user ?: User("","","","",-1))
         sharedViewModel.setGroup(args.group ?: Group("","","", emptyList()))
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_products, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_products_close-> {
+                closeSession()
+                true
+            }
+            R.id.menu_products_go_groups-> {
+                goGroups()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun closeSession() {
+        val directions = ListaCompraFragmentDirections.toLoginActivity()
+        navController.navigate(directions)
+    }
+
+    private fun goGroups() {
+        val directions = ListaCompraFragmentDirections.toGroupsActivity(args.user)
+        navController.navigate(directions)
     }
 
     override fun onSupportNavigateUp(): Boolean {

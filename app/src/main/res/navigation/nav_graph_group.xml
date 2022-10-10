@@ -15,6 +15,7 @@
         <action
             android:id="@+id/groupFragment_to_listaCompraActivity"
             app:destination="@id/listaCompraActivity" >
+
             <argument
                 android:name="group"
                 app:argType="es.adrianfg.comprasfamiliares.domain.models.Group"

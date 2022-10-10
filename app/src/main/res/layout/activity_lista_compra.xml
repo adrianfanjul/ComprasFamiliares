@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:title="@string/lista_compra_toolbar_title_default"
+            app:menu="@menu/menu_products"
             app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>

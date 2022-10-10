@@ -9,6 +9,7 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
@@ -17,12 +18,14 @@ import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentCreateGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
+import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
 
 
 @AndroidEntryPoint
 class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGroupViewModel>() {
 
+    private val args: GroupActivityArgs by navArgs()
     override fun getLayout(): Int = R.layout.fragment_create_group
     override val viewModel: CreateGroupViewModel by viewModels()
     private var latestTmpUri: Uri? = null
