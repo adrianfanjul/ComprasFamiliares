@@ -9,7 +9,6 @@ import com.bumptech.glide.request.BaseRequestOptions
 
 @GlideExtension
 object GlideExtension {
-
     @GlideOption
     @JvmStatic
     fun defaultOptions(options: BaseRequestOptions<*>,placeHolder: Drawable?):BaseRequestOptions<*> {

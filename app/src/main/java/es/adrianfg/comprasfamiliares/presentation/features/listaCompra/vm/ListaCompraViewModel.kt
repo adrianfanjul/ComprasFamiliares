@@ -36,7 +36,7 @@ class ListaCompraViewModel @Inject constructor(
                 .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect { _productList.value = it}
+                .collect { _productList.value = it }
         }
     }
 
@@ -45,11 +45,13 @@ class ListaCompraViewModel @Inject constructor(
             deleteProductUseCase.execute(
                 DeleteProductUseCase.Params(product)
             )
-                .onStart { _loading.value = true}
+                .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect { _productList.value=it
-                    _boughtProduct.value=product}
+                .collect {
+                    _productList.value = it
+                    _boughtProduct.value = product
+                }
         }
     }
 
@@ -58,10 +60,10 @@ class ListaCompraViewModel @Inject constructor(
             deleteAllProductsUseCase.execute(
                 DeleteAllProductsUseCase.Params(group)
             )
-                .onStart { _loading.value = true}
+                .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect { _productList.value= it}
+                .collect { _productList.value = it }
         }
     }
 

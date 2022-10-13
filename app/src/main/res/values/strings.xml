@@ -92,6 +92,7 @@
     <string name="products_create">Producto añadido: %s</string>
     <string name="item_product_enter_btn">COMPRAR</string>
     <string name="error_products_not_found">El producto no existe</string>
+    <string name="notification_longer_text">Texto demasiado largo</string>
 
 
 </resources>

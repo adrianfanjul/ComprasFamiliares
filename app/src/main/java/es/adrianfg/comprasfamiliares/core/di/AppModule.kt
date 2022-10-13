@@ -6,8 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.StorageImages
 import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.impl.StorageImagesImpl
-import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerUser
-import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.impl.FirebaseRealtimeControllerUserImpl
 
 @InstallIn(SingletonComponent::class)
 @Module

@@ -43,16 +43,17 @@
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/item_product_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/item_product_img"
+                android:gravity="center"
                 android:text="@{item.name}"
                 android:textAppearance="?comprasH6Inverse"
                 tools:text="Leche" />
