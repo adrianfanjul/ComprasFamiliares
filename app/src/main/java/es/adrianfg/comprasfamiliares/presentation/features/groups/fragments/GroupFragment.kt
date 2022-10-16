@@ -22,7 +22,10 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     private val adapter by lazy {
         BaseRvAdapter<Group>(R.layout.item_group_list) { group ->
             group?.let {
-                val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(it,sharedViewModel.user.value)
+                val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(
+                    it,
+                    sharedViewModel.user.value
+                )
                 navigate(directions)
             }
         }
@@ -34,7 +37,8 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     }
 
     override fun initViewModels() {
-        viewModel.loadGroupsList(sharedViewModel.user.value?:User("","","","",-1))
+        viewModel.loadGroupsList(sharedViewModel.user.value ?: User("", "", "", "", -1))
+        viewModel.reloadList(sharedViewModel.user.value ?: User("", "", "", "", -1))
     }
 
     override fun observeViewModels() {

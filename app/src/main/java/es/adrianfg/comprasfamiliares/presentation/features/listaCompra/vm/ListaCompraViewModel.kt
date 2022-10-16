@@ -1,5 +1,6 @@
 package es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm
 
+import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -15,6 +16,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import java.util.logging.Handler
 import javax.inject.Inject
 
 @HiltViewModel
@@ -65,6 +67,16 @@ class ListaCompraViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect { _productList.value = it }
         }
+    }
+
+    fun reloadList(group: Group) {
+        val myHandler = android.os.Handler(Looper.getMainLooper())
+        myHandler.post(object : Runnable {
+            override fun run() {
+                loadProductsList(group)
+                myHandler.postDelayed(this, 5000 /*5 segundos*/)
+            }
+        })
     }
 
 }

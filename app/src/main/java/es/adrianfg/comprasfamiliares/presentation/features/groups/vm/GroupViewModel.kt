@@ -1,5 +1,6 @@
 package es.adrianfg.comprasfamiliares.presentation.features.groups.vm
 
+import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -33,6 +34,16 @@ class GroupViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect { _groupList.value = it }
         }
+    }
+
+    fun reloadList(user: User) {
+        val myHandler = android.os.Handler(Looper.getMainLooper())
+        myHandler.post(object : Runnable {
+            override fun run() {
+                loadGroupsList(user)
+                myHandler.postDelayed(this, 5000 /*5 segundos*/)
+            }
+        })
     }
 
 

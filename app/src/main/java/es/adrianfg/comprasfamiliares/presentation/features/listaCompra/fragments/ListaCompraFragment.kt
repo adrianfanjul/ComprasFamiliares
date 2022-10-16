@@ -32,18 +32,19 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
         dataBinding.productsRv.adapter = adapter
         dataBinding.listaCompraAddBtn.setOnClickListener { addProduct() }
         dataBinding.listaCompraSmallAddBtn.setOnClickListener { quickAddProduct() }
-        dataBinding.listaCompraAllBtn.setOnClickListener { buyAllProducts()}
+        dataBinding.listaCompraAllBtn.setOnClickListener { buyAllProducts() }
     }
 
     override fun initViewModels() {
-        viewModel.loadProductsList(sharedViewModel.group.value?: Group("","","", emptyList()))
+        viewModel.loadProductsList(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
+        viewModel.reloadList(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
     }
 
     override fun observeViewModels() {
         viewModel.productList.observe(viewLifecycleOwner) {
             adapter.items = it
         }
-        viewModel.boughtProduct.observe(viewLifecycleOwner,::buySuccess)
+        viewModel.boughtProduct.observe(viewLifecycleOwner, ::buySuccess)
     }
 
     private fun buySuccess(product: Product?) {
@@ -51,17 +52,19 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     }
 
     private fun addProduct() {
-        val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(false)
+        val directions =
+            ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(false)
         navigate(directions)
     }
 
     private fun quickAddProduct() {
-        val directions = ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(true)
+        val directions =
+            ListaCompraFragmentDirections.listaCompraFragmentToListaCompraAddFragment(true)
         navigate(directions)
     }
 
     private fun buyAllProducts() {
-        viewModel.buyAllProduct(sharedViewModel.group.value?: Group("","","", emptyList()))
+        viewModel.buyAllProduct(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
     }
 
 }
