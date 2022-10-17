@@ -5,4 +5,4 @@ import com.google.firebase.database.IgnoreExtraProperties
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Group(val name:String,val description:String,val image:String,val users:List<String>): Parcelable
+data class Group(val name:String,val description:String,val image:String,val users:List<String>,val createUser:String): Parcelable

@@ -49,7 +49,7 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor(
 
     override suspend fun getListProducts(group: Group, context: Context): ProductsResponse {
         try {
-            return getList(group.name,context)
+            return getList(group.name)
 
         } catch (e: Exception) {
             throw Error(e.message)
@@ -73,7 +73,7 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor(
             } else {
                 throw Error(context.resources?.getString(R.string.error_products_not_found))
             }
-            return getList(product.group,context)
+            return getList(product.group)
 
         } catch (e: Exception) {
             throw Error(e.message)
@@ -94,14 +94,14 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor(
                 }
             }
 
-            return getList(group.name,context)
+            return getList(group.name)
 
         } catch (e: Exception) {
             throw Error(e.message)
         }
     }
 
-    private suspend fun getList(name: String, context: Context): ProductsResponse {
+    private suspend fun getList(name: String): ProductsResponse {
         val listProducts = mutableListOf<ProductResponseItem>()
         val result = database.orderByChild("name").get().await()
         if (result.exists()) {

@@ -10,7 +10,8 @@ fun GroupsResponse.mapToGroups() =
             image = it?.image ?: "",
             name = it?.name ?: "",
             description = it?.description ?: "",
-            users = it?.users.orEmpty()
+            users = it?.users.orEmpty(),
+            createUser = it?.createUser ?: ""
         )
     }.orEmpty()
 
@@ -19,7 +20,8 @@ fun GroupResponseItem.mapToGroup() =
             image = this.image ?: "",
             name = this.name ?: "",
             description = this.description ?: "",
-            users = this.users.orEmpty()
+            users = this.users.orEmpty(),
+            createUser = this.createUser ?: "",
         )
 
 

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--OTHER-->
+    <string name="menu_products_close_item">Close session</string>
+    <string name="menu_groups_close_item">Close session</string>
+    <string name="menu_products_go_groups_item">Go groups</string>
+    <string name="camera_denegate">There are no permissions for the camera</string>
+
+    <!--USERSDIALOG-->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="pick_users">Pick users</string>
+    <string name="error_selected_user_list_empty">No user selected</string>
+
+    <!--BTN-->
+    <string name="save_btn">SAVE</string>
+    <string name="exit_btn">EXIT</string>
+    <string name="capture_btn">Capture</string>
+    <string name="choose_btn">Galery</string>
+
+    <!--Inputs-->
+    <string name="suffix_text_password">8/16</string>
+
+    <!--LOGIN-->
+    <string name="login_title">LOG-IN</string>
+    <string name="login_register_btn_text">REGISTER</string>
+    <string name="login_error_user">Invalid email</string>
+    <string name="login_username_text">Email</string>
+    <string name="login_password_text">Password</string>
+    <string name="login_login_btn_text">LOG-IN</string>
+    <string name="login_error_password">The password must contain between 8/16 characters, at least one number and one letter</string>
+    <string name="error_login">Error login: %s</string>
+    <string name="error_login_incorrect_paswword">Wrong username or password.</string>
+    <string name="error_login_incorrect_user">Wrong username or password.</string>
+    <string name="error_users_empty">There are no registered users</string>
+
+    <!--REGISTER-->
+    <string name="register_title">REGISTER</string>
+    <string name="registerInputLayoutEmailText">Email</string>
+    <string name="registerInputLayoutPassText">Password</string>
+    <string name="registerInputLayoutNameText">Name</string>
+    <string name="registerInputLayoutSurNameText">Surname</string>
+    <string name="registerInputLayoutEdadText">Age</string>
+    <string name="register_error_user">Invalid email</string>
+    <string name="register_registred_user">Registered user: %s</string>
+    <string name="register_error_pass">The password must contain between 8/16 characters, at least one number and one letter</string>
+    <string name="register_error_name">Invalid name</string>
+    <string name="error_register">Register error: %s</string>
+    <string name="error_register_repeat_user">The user is already registered</string>
+
+    <!--GROUPS-->
+    <string name="groups_title">GROUPS</string>
+    <string name="group_toolbar_title_default">GROUPS</string>
+    <string name="group_toolbar_title">Welcome %1s %2s</string>
+    <string name="selected_group">We have selected the group %s</string>
+    <string name="groups_create_group">Group created: %s</string>
+    <string name="item_group_enter_btn">ENTER</string>
+    <string name="item_group_create_user">Created by %s</string>
+    <string name="create_group_title">CREATE GROUP</string>
+    <string name="create_group_input_layout_name">Group name</string>
+    <string name="groups_fab_add_content_desc">Create a group</string>
+    <string name="create_group_input_layout_description">Group description</string>
+    <string name="error_create_group">Failed to create group: %s</string>
+    <string name="register_error_description">Invalid description</string>
+    <string name="error_groups_repeat_name">A group with that name already exists</string>
+    <string name="error_groups_empty">You are not in any group</string>
+    <string name="create_group_image_description">Group Image</string>
+    <string name="create_group_input_layout_list_users_text">User list</string>
+    <string name="create_group_user_add_btn">Add user</string>
+
+    <!--BUY LIST-->
+    <string name="lista_compra_title">BUY LIST</string>
+    <string name="lista_compra_toolbar_title_default">Buy list</string>
+    <string name="lista_compra_toolbar_title">Welcome to %1s</string>
+    <string name="lista_compra_all_btn">BUY ALL</string>
+    <string name="lista_compra_add_btn">DETAILED PRODUCT</string>
+    <string name="lista_compra_small_add_btn">FAST PRODUCT</string>
+    <string name="product_amount">Amount: %d</string>
+    <string name="product_user">Added by: %s</string>
+    <string name="products_bought">The product %s has been purchased</string>
+
+    <!--BUY LIST ADD-->
+    <string name="lista_compra_add_title">PRODUCT</string>
+    <string name="error_products_repeat_name">There is already a product with that name</string>
+    <string name="error_products_empty">There are no products in the list</string>
+    <string name="lista_compra_add_input_layout_name">Product name</string>
+    <string name="lista_compra_add_input_layout_description">Product description</string>
+    <string name="lista_compra_add_input_layout_amount">Amount</string>
+    <string name="lista_compra_add_image_description">Product image</string>
+    <string name="error_create_product">Error adding product: %s</string>
+    <string name="products_create">Product added: %s</string>
+    <string name="item_product_enter_btn">BUY</string>
+    <string name="error_products_not_found">The product does not exist</string>
+    <string name="notification_longer_text">Text too long</string>
+
+</resources>

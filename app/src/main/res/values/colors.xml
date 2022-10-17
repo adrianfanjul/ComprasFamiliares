@@ -16,4 +16,6 @@
     <color name="colorOnSurface">#4e342e</color>
     <color name="rippleColor">#B39DDB</color>
     <color name="selected_nav">#F36B6B</color>
+    <color name="item_list">#c7b48f</color>
+
 </resources>

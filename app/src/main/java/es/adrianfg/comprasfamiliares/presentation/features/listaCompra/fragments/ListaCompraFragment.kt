@@ -36,8 +36,8 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     }
 
     override fun initViewModels() {
-        viewModel.loadProductsList(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
-        viewModel.reloadList(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
+        viewModel.loadProductsList(sharedViewModel.group.value ?: Group("", "", "", emptyList(),""))
+        viewModel.reloadList(sharedViewModel.group.value ?: Group("", "", "", emptyList(),""))
     }
 
     override fun observeViewModels() {
@@ -64,7 +64,7 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     }
 
     private fun buyAllProducts() {
-        viewModel.buyAllProduct(sharedViewModel.group.value ?: Group("", "", "", emptyList()))
+        viewModel.buyAllProduct(sharedViewModel.group.value ?: Group("", "", "", emptyList(),""))
     }
 
 }

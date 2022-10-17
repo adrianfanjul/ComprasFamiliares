@@ -35,6 +35,7 @@ class CreateGroupViewModel @Inject constructor(
     val selectedUserList get() = _selectedUserList
     private val _userList = MutableLiveData<List<User>>()
     val userList: LiveData<List<User>> get() = _userList
+    val createUser = MutableLiveData("")
 
     val errorName = liveData<Boolean> {
         emitSource(
@@ -68,7 +69,8 @@ class CreateGroupViewModel @Inject constructor(
                         name.value ?: "",
                         description.value ?: "",
                         image.value ?: "",
-                        selectedUserList.value ?: emptyList()
+                        selectedUserList.value ?: emptyList(),
+                        createUser.value ?: ""
                     ),imageView
                 )
             )

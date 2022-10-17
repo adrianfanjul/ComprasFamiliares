@@ -7,6 +7,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -20,12 +21,13 @@ import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
+import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 
 
 @AndroidEntryPoint
 class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGroupViewModel>() {
 
-    private val args: GroupActivityArgs by navArgs()
+    private val sharedViewModel: GroupMainViewModel by activityViewModels()
     override fun getLayout(): Int = R.layout.fragment_create_group
     override val viewModel: CreateGroupViewModel by viewModels()
     private var latestTmpUri: Uri? = null
@@ -57,6 +59,7 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
 
     override fun initViewModels() {
         viewModel.loadUsersList()
+        viewModel.createUser.value=sharedViewModel.user.value?.email
         viewModel.imageView=dataBinding.createGroupImage
     }
 

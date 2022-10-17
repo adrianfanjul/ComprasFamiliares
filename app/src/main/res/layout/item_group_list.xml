@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/primaryLightColor"
+        app:cardBackgroundColor="@color/item_list"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:cardPreventCornerOverlap="true">
@@ -43,6 +43,7 @@
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
+                tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -64,10 +65,24 @@
                 android:layout_below="@+id/item_group_name"
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="@dimen/titles_vertical_margin"
                 android:ellipsize="end"
                 android:text="@{item.description}"
                 android:textAppearance="?comprasBody14Inverse"
                 tools:text="Descripcion del grupo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/item_group_create_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_group_description"
+                android:layout_alignStart="@+id/item_group_name"
+                android:layout_marginHorizontal="4dp"
+                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:ellipsize="end"
+                android:text="@{@string/product_user(item.createUser)}"
+                android:textAppearance="?comprasBody14Inverse"
+                tools:text="Creador del grupo" />
 
             <View
                 android:id="@+id/linea"
@@ -87,7 +102,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
-                android:text="@string/item_group_enter_btn" />
+                android:text="@string/item_group_enter_btn"
+                tools:ignore="TextContrastCheck" />
 
         </RelativeLayout>
 

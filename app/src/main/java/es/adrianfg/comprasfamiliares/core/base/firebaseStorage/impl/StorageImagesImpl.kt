@@ -5,7 +5,9 @@ import android.graphics.Canvas
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
+import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.ProjectStorageReference
 import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.StorageImages
 import kotlinx.coroutines.tasks.await
 import java.io.ByteArrayOutputStream
@@ -14,9 +16,8 @@ import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 
-class StorageImagesImpl @Inject constructor() : StorageImages {
-    private val storage = Firebase.storage
-    private val storageRef = storage.reference
+class StorageImagesImpl @Inject constructor(private val projectStorageReference: ProjectStorageReference) : StorageImages {
+    private val storageRef = projectStorageReference.getStorageReference()
 
     //Se le pasa el pathstring y el imageview y sube la foto al storage
     override suspend fun uploadStorageImage(pathString: String,imageView: AppCompatImageView) {
@@ -44,6 +45,7 @@ class StorageImagesImpl @Inject constructor() : StorageImages {
             }
         }
     }
+
     //Comvierte el imageview en un bitmap
     private fun convertViewToDrawable(view: View): Bitmap {
         val spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)

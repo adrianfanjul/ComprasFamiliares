@@ -21,7 +21,7 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor(
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
 
     override suspend fun register(group: Group,imageView: AppCompatImageView, context: Context): GroupResponseItem {
-        val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users)
+        val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users,group.createUser)
         try {
             val result = database.orderByChild("name").equalTo(group.name).get().await()
             if (result.exists()) {

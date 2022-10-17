@@ -1,9 +1,10 @@
 <resources>
 
-    <string name="app_name">Compras Familiares</string>
-    <string name="menu_groups_close_item">Cerrar sesion</string>
-    <string name="menu_products_go_groups_item">Volver a grupos</string>
+    <!--OTROS-->
+    <string name="app_name" translatable="false">Compras Familiares</string>
     <string name="menu_products_close_item">Cerrar sesion</string>
+    <string name="menu_groups_close_item">Cerrar sesión</string>
+    <string name="menu_products_go_groups_item">Ir a Grupos</string>
     <string name="camera_denegate">No hay permisos para la camara</string>
 
     <!--USERSDIALOG-->
@@ -25,8 +26,8 @@
     <string name="login_title">LOG-IN</string>
     <string name="login_register_btn_text">REGISTRARSE</string>
     <string name="login_error_user">El email no es valido</string>
-    <string name="login_background_animation">https://assets9.lottiefiles.com/packages/lf20_boJRmE.json</string>
-    <string name="login_loading_animation">https://assets1.lottiefiles.com/packages/lf20_qogkaqmb.json</string>
+    <string name="login_background_animation" translatable="false">https://assets9.lottiefiles.com/packages/lf20_boJRmE.json</string>
+    <string name="login_loading_animation" translatable="false">https://assets1.lottiefiles.com/packages/lf20_qogkaqmb.json</string>
     <string name="login_username_text">Email</string>
     <string name="login_password_text">Contraseña</string>
     <string name="login_login_btn_text">LOG-IN</string>
@@ -57,6 +58,7 @@
     <string name="selected_group">Hemos seleccionado el grupo %s</string>
     <string name="groups_create_group">Grupo creado: %s</string>
     <string name="item_group_enter_btn">ENTRAR</string>
+    <string name="item_group_create_user">Grupo creado por %s</string>
     <string name="create_group_title">CREAR GRUPO</string>
     <string name="create_group_input_layout_name">Nombre del grupo</string>
     <string name="groups_fab_add_content_desc">Crear un grupo</string>
@@ -93,6 +95,5 @@
     <string name="item_product_enter_btn">COMPRAR</string>
     <string name="error_products_not_found">El producto no existe</string>
     <string name="notification_longer_text">Texto demasiado largo</string>
-
 
 </resources>

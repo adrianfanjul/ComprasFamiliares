@@ -41,7 +41,7 @@ class ListaCompraActivity : AppCompatActivity() {
 
         binding.toolbar.title = getString(R.string.lista_compra_toolbar_title,args.group?.name)
         sharedViewModel.setUser(args.user ?: User("","","","",-1))
-        sharedViewModel.setGroup(args.group ?: Group("","","", emptyList()))
+        sharedViewModel.setGroup(args.group ?: Group("","","", emptyList(),""))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

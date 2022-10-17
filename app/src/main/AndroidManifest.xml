@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -16,6 +15,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.ComprasFamiliares.NoActionBar"
         tools:targetApi="31">
@@ -32,13 +32,11 @@
 
         <activity
             android:name=".presentation.features.groups.activity.GroupActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"/>
 
         <activity
             android:name=".presentation.features.listaCompra.activity.ListaCompraActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
