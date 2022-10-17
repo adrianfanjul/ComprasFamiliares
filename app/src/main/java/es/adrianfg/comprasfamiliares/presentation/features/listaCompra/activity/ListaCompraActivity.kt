@@ -18,7 +18,6 @@ import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
-import es.adrianfg.comprasfamiliares.presentation.features.groups.fragments.GroupFragmentDirections
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments.ListaCompraFragmentDirections
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 
