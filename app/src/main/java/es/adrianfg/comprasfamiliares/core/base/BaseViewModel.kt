@@ -10,4 +10,5 @@ abstract class BaseViewModel() : ViewModel() {
 
     protected val _error = MutableLiveData<SingleEvent<Throwable>>()
     val error: LiveData<SingleEvent<Throwable>> get() = _error
+
 }

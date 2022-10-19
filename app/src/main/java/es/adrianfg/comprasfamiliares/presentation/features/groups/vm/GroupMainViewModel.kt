@@ -14,4 +14,5 @@ class GroupMainViewModel @Inject constructor() : BaseViewModel() {
     fun setUser(user: User) {
         _user.value = user
     }
+
 }

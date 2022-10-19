@@ -19,6 +19,11 @@
             name="item"
             type="es.adrianfg.comprasfamiliares.domain.models.Group" />
 
+        <variable
+            name="vm"
+            type="es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel" />
+
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -53,13 +58,13 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/item_group_img"
-                android:text="@{item.name}"
+                android:text="@{item.name.toUpperCase()}"
                 android:textAppearance="?comprasH6Inverse"
-                tools:text="Usuario@gmail.es" />
+                tools:text="GRUPO CASA" />
 
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/item_group_description"
+                android:id="@+id/item_group_create_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_group_name"
@@ -67,22 +72,22 @@
                 android:layout_marginHorizontal="4dp"
                 android:layout_marginVertical="@dimen/titles_vertical_margin"
                 android:ellipsize="end"
-                android:text="@{item.description}"
+                android:text="@{@string/product_user(item.createUser)}"
                 android:textAppearance="?comprasBody14Inverse"
-                tools:text="Descripcion del grupo" />
+                tools:text="Creador del grupo" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/item_group_create_user"
+                android:id="@+id/item_group_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_group_description"
+                android:layout_below="@+id/item_group_create_user"
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_marginHorizontal="4dp"
                 android:layout_marginVertical="@dimen/titles_vertical_margin"
                 android:ellipsize="end"
-                android:text="@{@string/product_user(item.createUser)}"
+                android:text="@{item.description}"
                 android:textAppearance="?comprasBody14Inverse"
-                tools:text="Creador del grupo" />
+                tools:text="Descripcion del grupo" />
 
             <View
                 android:id="@+id/linea"
@@ -95,13 +100,25 @@
             </View>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/item_group_delete_btn"
+                style="?comprasButton_filled_round"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/item_group_name"
+                android:layout_alignParentBottom="true"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position,1)}"
+                android:visibility="visible"
+                android:text="@string/delete_btn"
+                tools:ignore="TextContrastCheck" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/item_group_btn"
                 style="?comprasButton_filled_round"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position,2)}"
                 android:text="@string/item_group_enter_btn"
                 tools:ignore="TextContrastCheck" />
 

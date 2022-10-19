@@ -54,7 +54,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_toEndOf="@+id/item_product_img"
                 android:gravity="center"
-                android:text="@{item.name}"
+                android:text="@{item.name.toUpperCase()}"
                 android:textAppearance="?comprasH6Inverse"
                 tools:text="Leche" />
 
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position,1)}"
                 android:text="@string/item_product_enter_btn"
                 tools:ignore="TextContrastCheck" />
 

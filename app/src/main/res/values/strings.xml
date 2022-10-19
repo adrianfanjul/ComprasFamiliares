@@ -16,6 +16,7 @@
     <!--BTN-->
     <string name="save_btn">GUARDAR</string>
     <string name="exit_btn">SALIR</string>
+    <string name="delete_btn">BORRAR</string>
     <string name="capture_btn">Foto</string>
     <string name="choose_btn">Galeria</string>
 
@@ -67,6 +68,7 @@
     <string name="register_error_description">Descripcion no valida</string>
     <string name="error_groups_repeat_name">Ya existe un grupo con ese nombre</string>
     <string name="error_groups_empty">No estas en ningun grupo</string>
+    <string name="error_group_not_found">El grupo no existe</string>
     <string name="create_group_image_description">Imagen del grupo</string>
     <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
     <string name="create_group_user_add_btn">Añadir Usuarios</string>

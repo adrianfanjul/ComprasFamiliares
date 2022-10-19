@@ -9,5 +9,6 @@ import kotlinx.coroutines.flow.Flow
 interface GroupsRepository {
     fun getListGroups(user: User): Flow<List<Group>>
     fun registerGroup(group: Group,imageView: AppCompatImageView): Flow<Group>
+    fun deleteGroup(group: Group): Flow<List<Group>>
 }
 

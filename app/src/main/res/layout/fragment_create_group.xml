@@ -196,6 +196,5 @@
             app:lottie_loop="true"
             app:lottie_url="@string/login_loading_animation" />
 
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

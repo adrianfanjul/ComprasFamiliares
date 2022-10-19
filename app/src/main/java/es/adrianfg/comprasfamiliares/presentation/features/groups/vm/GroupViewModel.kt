@@ -1,13 +1,20 @@
 package es.adrianfg.comprasfamiliares.presentation.features.groups.vm
 
 import android.os.Looper
+import android.view.View
+import androidx.core.view.get
+import androidx.core.view.iterator
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
+import es.adrianfg.comprasfamiliares.core.extension.gone
 import es.adrianfg.comprasfamiliares.domain.models.Group
+import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.domain.usecase.GetListGroupsUseCase
 import kotlinx.coroutines.flow.catch
@@ -23,6 +30,7 @@ class GroupViewModel @Inject constructor(
 
     private val _groupList = MutableLiveData<List<Group>>()
     val groupList: LiveData<List<Group>> get() = _groupList
+    val logedUser = MutableLiveData("")
 
     fun loadGroupsList(user: User) {
         viewModelScope.launch {
@@ -46,5 +54,8 @@ class GroupViewModel @Inject constructor(
         })
     }
 
+    fun showDeleteButton(logedUser: String, groupsRv: RecyclerView) {
+
+    }
 
 }

@@ -2,7 +2,6 @@ package es.adrianfg.comprasfamiliares.core.base.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import es.adrianfg.comprasfamiliares.BR
@@ -10,13 +9,13 @@ import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.extension.autoNotify
 import kotlin.properties.Delegates
 
-typealias OnClickItem<T> = ((T?) -> Unit)
+typealias OnClickItem<T,Int> = ((T?,Int) -> Unit)
 
 class BaseRvAdapter<T : Any>(
     private val dataview: Int,
     items: List<T>? = emptyList(),
     private val viewmodel: BaseViewModel? = null,
-    private val itemClick: OnClickItem<T>,
+    private val itemClick: OnClickItem<T,Int>,
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -43,11 +42,9 @@ class BaseRvAdapter<T : Any>(
         }
     }
 
-    fun listenerItemBtnClick(position: Int){
-        itemClick(items[position])
+    fun listenerItemBtnClick(position: Int,button:Int){
+        itemClick(items[position],button)
     }
-
-
 
 }
 

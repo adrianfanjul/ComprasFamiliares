@@ -20,13 +20,16 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     override fun getLayout(): Int = R.layout.fragment_group
     private val sharedViewModel: GroupMainViewModel by activityViewModels()
     private val adapter by lazy {
-        BaseRvAdapter<Group>(R.layout.item_group_list) { group ->
+        BaseRvAdapter<Group>(R.layout.item_group_list) { group,button ->
+            val clickedButton = button
             group?.let {
-                val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(
-                    it,
-                    sharedViewModel.user.value
-                )
-                navigate(directions)
+                if (button==2) {
+                    val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(
+                        it,
+                        sharedViewModel.user.value
+                    )
+                    navigate(directions)
+                }
             }
         }
     }
@@ -39,6 +42,7 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     override fun initViewModels() {
         viewModel.loadGroupsList(sharedViewModel.user.value ?: User("", "", "", "", -1))
         viewModel.reloadList(sharedViewModel.user.value ?: User("", "", "", "", -1))
+        viewModel.showDeleteButton(sharedViewModel.user.value?.email?: "",dataBinding.groupsRv)
     }
 
     override fun observeViewModels() {
@@ -51,6 +55,5 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
         val directions = GroupFragmentDirections.groupFragmentToCreateGroupFragment()
         navigate(directions)
     }
-
 }
 
