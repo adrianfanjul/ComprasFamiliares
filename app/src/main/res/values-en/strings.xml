@@ -56,6 +56,7 @@
     <string name="group_toolbar_title">Welcome %1s %2s</string>
     <string name="selected_group">We have selected the group %s</string>
     <string name="groups_create_group">Group created: %s</string>
+    <string name="groups_delete_group">Group %s has been deleted</string>
     <string name="item_group_enter_btn">ENTER</string>
     <string name="item_group_create_user">Created by %s</string>
     <string name="create_group_title">CREATE GROUP</string>

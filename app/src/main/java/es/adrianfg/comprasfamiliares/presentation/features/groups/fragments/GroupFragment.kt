@@ -5,9 +5,11 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
-import es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter
+import es.adrianfg.comprasfamiliares.core.base.recycler.GroupsRvAdapter
+import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
+import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel
@@ -20,14 +22,16 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     override fun getLayout(): Int = R.layout.fragment_group
     private val sharedViewModel: GroupMainViewModel by activityViewModels()
     private val adapter by lazy {
-        BaseRvAdapter<Group>(R.layout.item_group_list) { group,button ->
-            val clickedButton = button
+        GroupsRvAdapter<Group>(sharedViewModel.user.value?.email?: "",R.layout.item_group_list) { group, button ->
             group?.let {
+                if(button==1){
+                    viewModel.buyAllProduct(it)
+                    viewModel.deleteGroup(it)
+                    snack(SnackbarMessage(R.string.groups_delete_group, varargs = group.name)).show()
+                }
+
                 if (button==2) {
-                    val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(
-                        it,
-                        sharedViewModel.user.value
-                    )
+                    val directions = GroupFragmentDirections.groupFragmentToListaCompraActivity(it,sharedViewModel.user.value)
                     navigate(directions)
                 }
             }
@@ -35,14 +39,13 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     }
 
     override fun eventListeners() {
+        adapter.setLogedUser(sharedViewModel.user.value?.email?: "")
         dataBinding.groupsRv.adapter = adapter
         dataBinding.groupsFabAdd.setOnClickListener { createGroup() }
     }
 
     override fun initViewModels() {
         viewModel.loadGroupsList(sharedViewModel.user.value ?: User("", "", "", "", -1))
-        viewModel.reloadList(sharedViewModel.user.value ?: User("", "", "", "", -1))
-        viewModel.showDeleteButton(sharedViewModel.user.value?.email?: "",dataBinding.groupsRv)
     }
 
     override fun observeViewModels() {
@@ -55,5 +58,6 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
         val directions = GroupFragmentDirections.groupFragmentToCreateGroupFragment()
         navigate(directions)
     }
+
 }
 

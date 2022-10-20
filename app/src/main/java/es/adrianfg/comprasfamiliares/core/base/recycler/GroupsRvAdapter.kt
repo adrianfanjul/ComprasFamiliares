@@ -11,19 +11,21 @@ import es.adrianfg.comprasfamiliares.BR
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.extension.autoNotify
+import es.adrianfg.comprasfamiliares.domain.models.Group
 import kotlin.properties.Delegates
 
-typealias OnClickItem<T> = ((T?) -> Unit)
+typealias OnClickGroupItem<T,Int> = ((T?,Int?) -> Unit)
 
-class BaseRvAdapter<T : Any>(
+class GroupsRvAdapter<T : Any>(
+    private var logedUser:String,
     private val dataview: Int,
-    items: List<T>? = emptyList(),
+    items: List<Group>? = emptyList(),
     private val viewmodel: BaseViewModel? = null,
-    private val itemClick: OnClickItem<T>,
+    private val itemGroupClick: OnClickGroupItem<Group,Int>
 
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var items: List<T> by Delegates.observable(items ?: emptyList()) { _, old, new ->
+    var items: List<Group> by Delegates.observable(items ?: emptyList()) { _, old, new ->
         autoNotify(old, new) { o, n -> o == n }
     }
 
@@ -40,17 +42,28 @@ class BaseRvAdapter<T : Any>(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is BaseViewHolderBinding) {
+
+            if(logedUser.equals(items[position].createUser)){
+                holder.itemView.findViewById<MaterialButton>(R.id.item_group_delete_btn).visibility=View.VISIBLE
+            }else{
+                holder.itemView.findViewById<MaterialButton>(R.id.item_group_delete_btn).visibility=View.GONE
+            }
+
             holder.binding.setVariable(BR.adapter, this)
             holder.binding.setVariable(BR.position, position)
             holder.bind(items[position])
         }
     }
 
-    fun listenerItemBtnClick(position: Int){
+    fun setLogedUser(user: String){
+        logedUser=user
+    }
+
+    fun listenerItemBtnClick(position: Int,button:Int){
         try {
-            itemClick(items[position])
+            itemGroupClick(items[position],button)
         }catch (e:Exception){
-            e.message?.let { Log.e("BaseRvAdapter", it) }
+            e.message?.let { Log.e("GroupsRvAdapter", it) }
         }
     }
 

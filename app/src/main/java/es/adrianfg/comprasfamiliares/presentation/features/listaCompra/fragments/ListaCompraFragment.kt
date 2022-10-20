@@ -21,11 +21,9 @@ class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaComp
     override val viewModel: ListaCompraViewModel by viewModels()
     private val sharedViewModel: ListaCompraMainViewModel by activityViewModels()
     private val adapter by lazy {
-        BaseRvAdapter<Product>(R.layout.item_product_list) { product,button ->
+        BaseRvAdapter<Product>(R.layout.item_product_list) { product ->
             product?.let {
-                if (button==1){
-                    viewModel.buyProduct(it)
-                }
+                viewModel.buyProduct(it)
             }
         }
     }

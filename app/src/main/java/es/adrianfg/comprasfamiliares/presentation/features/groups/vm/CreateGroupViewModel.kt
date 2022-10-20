@@ -17,6 +17,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 @HiltViewModel
@@ -61,7 +63,7 @@ class CreateGroupViewModel @Inject constructor(
     val group get() = _group
 
     fun create() {
-        image.value = "Grupos/${name.value}.jpg"
+        image.value = getImageRoute()
         viewModelScope.launch {
             setGroupsUseCase.execute(
                 SetGroupsUseCase.Params(
@@ -89,6 +91,13 @@ class CreateGroupViewModel @Inject constructor(
                 .catch { _error.value = SingleEvent(it) }
                 .collect { _userList.value = it }
         }
+    }
+
+    private fun getImageRoute():String {
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss.SSS")
+        val formatted = current.format(formatter)
+        return "Groups/${name.value}${formatted}.jpg"
     }
 
     fun getTmpFile(context: Context): Uri {

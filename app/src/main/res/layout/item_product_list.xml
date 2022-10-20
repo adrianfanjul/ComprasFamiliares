@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:onClick="@{()-> adapter.listenerItemBtnClick(position,1)}"
+                android:onClick="@{()-> adapter.listenerItemBtnClick(position)}"
                 android:text="@string/item_product_enter_btn"
                 tools:ignore="TextContrastCheck" />
 

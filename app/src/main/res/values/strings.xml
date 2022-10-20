@@ -58,6 +58,7 @@
     <string name="group_toolbar_title">Bienvenido %1s %2s</string>
     <string name="selected_group">Hemos seleccionado el grupo %s</string>
     <string name="groups_create_group">Grupo creado: %s</string>
+    <string name="groups_delete_group">El grupo %s ha sido borrado</string>
     <string name="item_group_enter_btn">ENTRAR</string>
     <string name="item_group_create_user">Grupo creado por %s</string>
     <string name="create_group_title">CREAR GRUPO</string>

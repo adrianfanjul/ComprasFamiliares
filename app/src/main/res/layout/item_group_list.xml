@@ -13,7 +13,7 @@
 
         <variable
             name="adapter"
-            type="es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter" />
+            type="es.adrianfg.comprasfamiliares.core.base.recycler.GroupsRvAdapter" />
 
         <variable
             name="item"
@@ -21,7 +21,7 @@
 
         <variable
             name="vm"
-            type="es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel" />
+            type="es.adrianfg.comprasfamiliares.core.base.BaseViewModel" />
 
 
     </data>
@@ -107,7 +107,7 @@
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_alignParentBottom="true"
                 android:onClick="@{()-> adapter.listenerItemBtnClick(position,1)}"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:text="@string/delete_btn"
                 tools:ignore="TextContrastCheck" />
 
