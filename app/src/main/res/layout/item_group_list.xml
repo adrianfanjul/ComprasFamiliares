@@ -23,14 +23,13 @@
             name="vm"
             type="es.adrianfg.comprasfamiliares.core.base.BaseViewModel" />
 
-
     </data>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/item_group_card"
         style="@style/Widget.Material3.CardView.Elevated"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_margin="8dp"
         app:cardBackgroundColor="@color/item_list"
         app:cardCornerRadius="16dp"
@@ -70,7 +69,7 @@
                 android:layout_below="@+id/item_group_name"
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:layout_marginVertical="@dimen/list_item_vertical_margin"
                 android:ellipsize="end"
                 android:text="@{@string/product_user(item.createUser)}"
                 android:textAppearance="?comprasBody14Inverse"
@@ -83,7 +82,7 @@
                 android:layout_below="@+id/item_group_create_user"
                 android:layout_alignStart="@+id/item_group_name"
                 android:layout_marginHorizontal="4dp"
-                android:layout_marginVertical="@dimen/titles_vertical_margin"
+                android:layout_marginVertical="@dimen/list_item_vertical_margin"
                 android:ellipsize="end"
                 android:text="@{item.description}"
                 android:textAppearance="?comprasBody14Inverse"
@@ -101,7 +100,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/item_group_delete_btn"
-                style="?comprasButton_filled_round"
+                style="?comprasButton_filled_round_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/item_group_name"
@@ -113,7 +112,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/item_group_btn"
-                style="?comprasButton_filled_round"
+                style="?comprasButton_filled_round_small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

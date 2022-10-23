@@ -22,7 +22,8 @@
         <activity
             android:name=".presentation.features.login.LoginActivity"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,12 +34,14 @@
         <activity
             android:name=".presentation.features.groups.activity.GroupActivity"
             android:screenOrientation="portrait"
-            android:exported="false"/>
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".presentation.features.listaCompra.activity.ListaCompraActivity"
             android:screenOrientation="portrait"
-            android:exported="false"/>
+            android:exported="false"
+            tools:ignore="LockedOrientationActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

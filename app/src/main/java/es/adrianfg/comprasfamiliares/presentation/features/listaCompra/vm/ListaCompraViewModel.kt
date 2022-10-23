@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
 import es.adrianfg.comprasfamiliares.core.base.SingleEvent
-import es.adrianfg.comprasfamiliares.core.extension.sendEmail
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.usecase.DeleteAllProductsUseCase
@@ -17,7 +16,6 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import java.util.logging.Handler
 import javax.inject.Inject
 
 @HiltViewModel
