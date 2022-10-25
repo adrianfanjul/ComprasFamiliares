@@ -5,24 +5,22 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
-import es.adrianfg.comprasfamiliares.core.base.recycler.GroupsRvAdapter
 import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
 import es.adrianfg.comprasfamiliares.domain.models.User
+import es.adrianfg.comprasfamiliares.presentation.features.groups.adapters.GroupsRvAdapter
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel
 
-
 @AndroidEntryPoint
-class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
-
+class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel> () {
     override val viewModel: GroupViewModel by viewModels()
     override fun getLayout(): Int = R.layout.fragment_group
     private val sharedViewModel: GroupMainViewModel by activityViewModels()
     private val adapter by lazy {
-        GroupsRvAdapter<Group>(sharedViewModel.user.value?.email?: "",R.layout.item_group_list) { group, button ->
+        GroupsRvAdapter<Group>(sharedViewModel.user.value?.email?: "",requireContext(),R.layout.item_group_list) { group, button ->
             group?.let {
                 if(button==1){
                     viewModel.buyAllProduct(it)
@@ -39,7 +37,6 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
     }
 
     override fun eventListeners() {
-        adapter.setLogedUser(sharedViewModel.user.value?.email?: "")
         dataBinding.groupsRv.adapter = adapter
         dataBinding.groupsFabAdd.setOnClickListener { createGroup() }
     }
@@ -58,6 +55,5 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel>() {
         val directions = GroupFragmentDirections.groupFragmentToCreateGroupFragment()
         navigate(directions)
     }
-
 }
 

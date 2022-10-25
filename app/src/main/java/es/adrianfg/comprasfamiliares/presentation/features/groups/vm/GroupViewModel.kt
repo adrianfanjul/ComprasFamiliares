@@ -21,9 +21,9 @@ import javax.inject.Inject
 class GroupViewModel @Inject constructor(
     private val getListGroupsUseCase: GetListGroupsUseCase,
     private val deleteGroupUseCase: DeleteGroupUseCase,
-    private val deleteAllProductsUseCase: DeleteAllProductsUseCase
-) : BaseViewModel() {
+    private val deleteAllProductsUseCase: DeleteAllProductsUseCase,
 
+) : BaseViewModel() {
     private val _groupList = MutableLiveData<List<Group>>()
     val groupList: LiveData<List<Group>> get() = _groupList
 

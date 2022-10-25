@@ -9,8 +9,6 @@ import es.adrianfg.comprasfamiliares.core.base.firebaseStorage.StorageImages
 import es.adrianfg.comprasfamiliares.data.firebaseRealtimeController.FirebaseRealtimeControllerGroup
 import es.adrianfg.comprasfamiliares.data.response.GroupResponseItem
 import es.adrianfg.comprasfamiliares.data.response.GroupsResponse
-import es.adrianfg.comprasfamiliares.data.response.ProductResponseItem
-import es.adrianfg.comprasfamiliares.data.response.ProductsResponse
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
 import kotlinx.coroutines.tasks.await
@@ -18,7 +16,7 @@ import javax.inject.Inject
 
 
 class FirebaseRealtimeControllerGroupImpl @Inject constructor(
-    private val storageImages:StorageImages
+    private val storageImages:StorageImages,
 ) : FirebaseRealtimeControllerGroup {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
 

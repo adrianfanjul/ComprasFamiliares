@@ -5,23 +5,23 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.base.BaseFragmentDb
-import es.adrianfg.comprasfamiliares.core.base.recycler.BaseRvAdapter
 import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.Product
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
+import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.adapters.ProductsRvAdapter
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraViewModel
 
 @AndroidEntryPoint
-class ListaCompraFragment : BaseFragmentDb<FragmentListaCompraBinding, ListaCompraViewModel>() {
+class ListaCompraFragment: BaseFragmentDb<FragmentListaCompraBinding, ListaCompraViewModel>() {
 
     override fun getLayout(): Int = R.layout.fragment_lista_compra
     override val viewModel: ListaCompraViewModel by viewModels()
     private val sharedViewModel: ListaCompraMainViewModel by activityViewModels()
     private val adapter by lazy {
-        BaseRvAdapter<Product>(R.layout.item_product_list) { product ->
+        ProductsRvAdapter<Product>(requireContext(),R.layout.item_product_list) { product ->
             product?.let {
                 viewModel.buyProduct(it)
             }

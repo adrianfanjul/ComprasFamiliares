@@ -13,7 +13,7 @@
 
         <variable
             name="adapter"
-            type="es.adrianfg.comprasfamiliares.core.base.recycler.GroupsRvAdapter" />
+            type="es.adrianfg.comprasfamiliares.presentation.features.groups.adapters.GroupsRvAdapter" />
 
         <variable
             name="item"
@@ -21,7 +21,7 @@
 
         <variable
             name="vm"
-            type="es.adrianfg.comprasfamiliares.core.base.BaseViewModel" />
+            type="es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupViewModel" />
 
     </data>
 
@@ -42,8 +42,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_group_img"
-                loadImage="@{item.image}"
-                placeHolder="@{@drawable/img_sin_imagen}"
+                app:srcCompat="@drawable/img_sin_imagen"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
