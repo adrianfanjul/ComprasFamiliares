@@ -10,7 +10,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
@@ -19,7 +18,6 @@ import es.adrianfg.comprasfamiliares.core.extension.snack
 import es.adrianfg.comprasfamiliares.databinding.FragmentCreateGroupBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.SnackbarMessage
-import es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivityArgs
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.GroupMainViewModel
 
@@ -124,8 +122,8 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
     }
 
     private fun addUsers() {
-        val modalDialog = SelectUserDialog(viewModel)
-        modalDialog.show(requireActivity().supportFragmentManager, "usersDialog")
+        val modalDialog = SelectUserDialog(viewModel, sharedViewModel.user.value?.email ?: "")
+        modalDialog.show(requireActivity().supportFragmentManager, getString(R.string.TagUserDialog))
     }
 
     private fun selectedUserListSucess(list: List<String>?) {

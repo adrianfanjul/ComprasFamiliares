@@ -27,7 +27,6 @@ class GroupActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityGroupBinding::inflate)
     private val sharedViewModel: GroupMainViewModel by viewModels ()
-
     private val args: GroupActivityArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,10 +37,11 @@ class GroupActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
         binding.toolbar.title = getString(R.string.group_toolbar_title,args.user?.name,args.user?.surName)
         sharedViewModel.setUser(args.user ?: User("","","","",-1))
+
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_groups, menu)
         return true

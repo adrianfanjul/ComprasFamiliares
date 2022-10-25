@@ -1,6 +1,5 @@
 package es.adrianfg.comprasfamiliares.presentation.features.login.fragments
 
-import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R

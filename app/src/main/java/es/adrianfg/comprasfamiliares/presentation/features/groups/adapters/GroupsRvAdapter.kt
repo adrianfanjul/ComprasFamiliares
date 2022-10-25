@@ -5,12 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import es.adrianfg.comprasfamiliares.BR
 import es.adrianfg.comprasfamiliares.R
@@ -63,7 +61,7 @@ class GroupsRvAdapter<T : Any>(
             GlideApp.with(context)
                 .load(Firebase.storage.reference.child(items[position].image))
                 .defaultOptions(context.getDrawable(R.drawable.img_sin_imagen))
-                .into(holder.itemView.findViewById<ImageView>(R.id.item_group_img));
+                .into(holder.itemView.findViewById(R.id.item_group_img));
         }
     }
 

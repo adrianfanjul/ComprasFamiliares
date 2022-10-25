@@ -38,11 +38,11 @@
 
     <!--REGISTER-->
     <string name="register_title">REGISTER</string>
-    <string name="registerInputLayoutEmailText">Email</string>
-    <string name="registerInputLayoutPassText">Password</string>
-    <string name="registerInputLayoutNameText">Name</string>
-    <string name="registerInputLayoutSurNameText">Surname</string>
-    <string name="registerInputLayoutEdadText">Age</string>
+    <string name="register_input_layout_email_text">Email</string>
+    <string name="register_input_layout_pass_text">Password</string>
+    <string name="register_input_layout_name_text">Name</string>
+    <string name="register_input_layout_surName_text">Surname</string>
+    <string name="register_input_layout_edad_text">Age</string>
     <string name="register_error_user">Invalid email</string>
     <string name="register_registred_user">Registered user: %s</string>
     <string name="register_error_pass">The password must contain between 8/16 characters, at least one number and one letter</string>

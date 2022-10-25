@@ -58,7 +58,7 @@ class RegisterViewModel @Inject constructor(
                 SetRegisterUseCase.Params(
                     User(
                         email.value ?: "",
-                        codePass ?: "",
+                        codePass,
                         name.value ?: "",
                         surName.value ?: "",
                         age.value?.toIntOrNull() ?: -1

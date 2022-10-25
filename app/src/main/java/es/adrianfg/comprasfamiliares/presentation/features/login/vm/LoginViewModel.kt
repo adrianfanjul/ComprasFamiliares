@@ -54,7 +54,7 @@ class LoginViewModel @Inject constructor(
             getLogInUseCase.execute(
                 GetLogInUseCase.Params(
                     userName.value ?: "",
-                    codePass ?: ""
+                    codePass
                 )
             )
                 .onStart { _loading.value = true }

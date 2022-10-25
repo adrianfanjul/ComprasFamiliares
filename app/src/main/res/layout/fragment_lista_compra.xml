@@ -44,7 +44,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/lista_compra_add_btn"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintWidth_percent="0.3" />
+                app:layout_constraintWidth_percent="0.3"
+                tools:ignore="TextContrastCheck" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lista_compra_add_btn"
@@ -55,7 +56,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/lista_compra_small_add_btn"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/lista_compra_all_btn"
-                app:layout_constraintWidth_percent="0.3" />
+                app:layout_constraintWidth_percent="0.3"
+                tools:ignore="TextContrastCheck" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/lista_compra_small_add_btn"
@@ -66,7 +68,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/lista_compra_add_btn"
-                app:layout_constraintWidth_percent="0.3" />
+                app:layout_constraintWidth_percent="0.3"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

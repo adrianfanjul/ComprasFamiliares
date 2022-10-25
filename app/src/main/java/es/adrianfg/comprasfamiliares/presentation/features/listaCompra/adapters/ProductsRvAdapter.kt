@@ -8,7 +8,6 @@ import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import es.adrianfg.comprasfamiliares.BR
 import es.adrianfg.comprasfamiliares.R

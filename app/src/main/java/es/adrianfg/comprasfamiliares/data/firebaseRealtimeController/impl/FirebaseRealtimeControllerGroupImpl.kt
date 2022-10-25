@@ -39,7 +39,6 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor(
     }
 
     override suspend fun getListGroups(user: User, context: Context): GroupsResponse {
-
         try {
            return getList(user.email)
         } catch (e: Exception) {

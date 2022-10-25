@@ -9,17 +9,18 @@ import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.domain.models.User
 import es.adrianfg.comprasfamiliares.presentation.features.groups.vm.CreateGroupViewModel
 
-class SelectUserDialog(val viewModel: CreateGroupViewModel) :DialogFragment() {
-    val listUsers = viewModel.userList.value ?: emptyList()
+class SelectUserDialog(val viewModel: CreateGroupViewModel,val logedUserEmail:String) :DialogFragment() {
+   private val listUsers = viewModel.userList.value ?: emptyList()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val selectedItems = ArrayList<Int>()
             val builder = AlertDialog.Builder(it)
             val emailsArray = getEmails(listUsers)
+            val defaultChecked = getDefaultChecked(emailsArray)
 
             builder.setTitle(R.string.pick_users)
-                .setMultiChoiceItems(emailsArray, null,
+                .setMultiChoiceItems(emailsArray,defaultChecked ,
                     DialogInterface.OnMultiChoiceClickListener { dialog, which, isChecked ->
                         if (isChecked) {
                             selectedItems.add(which)
@@ -31,9 +32,7 @@ class SelectUserDialog(val viewModel: CreateGroupViewModel) :DialogFragment() {
                     DialogInterface.OnClickListener { dialog, id ->
                         viewModel.selectedUserList.value = getSelectedUsers(selectedItems)
                     })
-                .setNegativeButton(
-                    R.string.cancel,
-                    DialogInterface.OnClickListener { dialog, id ->
+                .setNegativeButton( R.string.cancel,DialogInterface.OnClickListener { dialog, id ->
                     })
 
             builder.create()
@@ -48,6 +47,9 @@ class SelectUserDialog(val viewModel: CreateGroupViewModel) :DialogFragment() {
                 selectedUsers.add(listUsers.elementAt(indice).email)
             }
         }
+        if (!selectedUsers.contains(logedUserEmail)){
+            selectedUsers.add(logedUserEmail)
+        }
         return selectedUsers.toList()
     }
 
@@ -58,6 +60,19 @@ class SelectUserDialog(val viewModel: CreateGroupViewModel) :DialogFragment() {
             arrayList.add(user.email)
         }
         return arrayList.toTypedArray()
+    }
+
+    //Devuelve una listade emails y devuelve una lista de marcados con el usuario logueado marcado
+    private fun getDefaultChecked(emailsArray: Array<String>): BooleanArray {
+        val defaultChecked = mutableListOf<Boolean>()
+        for (email in emailsArray) {
+            if(email.equals(logedUserEmail)){
+                defaultChecked.add(true)
+            }else{
+                defaultChecked.add(false)
+            }
+        }
+        return defaultChecked.toBooleanArray()
     }
 
 }

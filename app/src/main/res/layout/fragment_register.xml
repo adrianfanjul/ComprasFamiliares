@@ -37,7 +37,7 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginTop="@dimen/titles_vertical_margin"
             android:gravity="center"
-            android:hint="@string/registerInputLayoutEmailText"
+            android:hint="@string/register_input_layout_email_text"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register_input_layout_pass"
@@ -51,7 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:maxLength="254"
-                android:text="@={viewModel.email}" />
+                android:text="@={viewModel.email}"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -60,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
-            android:hint="@string/registerInputLayoutPassText"
+            android:hint="@string/register_input_layout_pass_text"
             app:suffixText="@string/suffix_text_password"
             app:suffixTextAppearance="?comprasBody16"
             app:endIconMode="password_toggle"
@@ -77,7 +78,8 @@
                 android:layout_height="match_parent"
                 android:inputType="textPassword"
                 android:maxLength="16"
-                android:text="@={viewModel.pass}" />
+                android:text="@={viewModel.pass}"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -87,7 +89,7 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
-            android:hint="@string/registerInputLayoutNameText"
+            android:hint="@string/register_input_layout_name_text"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register_input_layout_surName"
@@ -101,7 +103,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:maxLength="100"
-                android:text="@={viewModel.name}" />
+                android:text="@={viewModel.name}"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -111,7 +114,7 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
-            android:hint="@string/registerInputLayoutSurNameText"
+            android:hint="@string/register_input_layout_surName_text"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register_input_layout_edad"
@@ -125,7 +128,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:maxLength="200"
-                android:text="@={viewModel.surName}" />
+                android:text="@={viewModel.surName}"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -135,7 +139,7 @@
             android:layout_marginHorizontal="@dimen/text_view_horizontal_margin"
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
-            android:hint="@string/registerInputLayoutEdadText"
+            android:hint="@string/register_input_layout_edad_text"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/register_save_btn"
@@ -150,7 +154,8 @@
                 android:layout_height="match_parent"
                 android:inputType="number"
                 android:maxLength="3"
-                android:text="@={viewModel.age}" />
+                android:text="@={viewModel.age}"
+                tools:ignore="TextContrastCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -165,7 +170,8 @@
             app:iconGravity="textStart"
             app:layout_constraintBottom_toTopOf="@+id/register_exit_btn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/register_exit_btn"
@@ -177,7 +183,8 @@
             app:iconGravity="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

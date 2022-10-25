@@ -8,25 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-     <com.google.android.material.textview.MaterialTextView
-         android:id="@+id/groups_title"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         android:textAppearance="?comprasH3"
-         android:gravity="center"
-         android:layout_marginVertical="@dimen/titles_vertical_margin"
-         android:text="@string/groups_title"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/groups_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/titles_vertical_margin"
+            android:gravity="center"
+            android:text="@string/groups_title"
+            android:textAppearance="?comprasH3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/groups_rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginVertical="12dp"
-            app:layout_constraintHeight_percent="0.75"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintHeight_percent="0.75"
             app:layout_constraintTop_toBottomOf="@+id/groups_title"
             tools:itemCount="3"
             tools:listitem="@layout/item_group_list" />
@@ -37,10 +37,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="12dp"
+            android:contentDescription="@string/groups_fab_add_content_desc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/groups_fab_add_content_desc"
-            app:srcCompat="@drawable/ic_add" />
+            app:srcCompat="@drawable/ic_add"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
