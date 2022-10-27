@@ -15,6 +15,7 @@
             android:id="@+id/toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
+            app:titleTextAppearance="?comprasH6"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.ComprasFamiliares.AppBarOverlay" />

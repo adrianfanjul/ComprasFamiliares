@@ -15,7 +15,7 @@
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
             android:text="@string/groups_title"
-            android:textAppearance="?comprasH3"
+            android:textAppearance="?comprasH4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -6,6 +6,7 @@
     <attr name="comprasH4" format="reference"/>
     <attr name="comprasH5" format="reference"/>
     <attr name="comprasH6" format="reference"/>
+    <attr name="comprasH7" format="reference"/>
     <attr name="comprasH4Inverse" format="reference"/>
     <attr name="comprasH5Inverse" format="reference"/>
     <attr name="comprasH6Inverse" format="reference"/>

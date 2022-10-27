@@ -26,7 +26,7 @@
             android:layout_marginVertical="@dimen/titles_vertical_margin"
             android:gravity="center"
             android:text="@string/register_title"
-            android:textAppearance="@style/TextAppearance.Compras.Headline3"
+            android:textAppearance="?comprasH4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
