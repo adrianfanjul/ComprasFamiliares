@@ -19,6 +19,7 @@ import es.adrianfg.comprasfamiliares.core.extension.autoNotify
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import kotlin.properties.Delegates
 
+
 typealias OnClickGroupItem<T,Int> = ((T?,Int?) -> Unit)
 
 class GroupsRvAdapter<T : Any>(
@@ -58,6 +59,8 @@ class GroupsRvAdapter<T : Any>(
             holder.binding.setVariable(BR.adapter, this)
             holder.binding.setVariable(BR.position, position)
             holder.bind(items[position])
+
+
             GlideApp.with(context)
                 .load(Firebase.storage.reference.child(items[position].image))
                 .defaultOptions(context.getDrawable(R.drawable.img_sin_imagen))

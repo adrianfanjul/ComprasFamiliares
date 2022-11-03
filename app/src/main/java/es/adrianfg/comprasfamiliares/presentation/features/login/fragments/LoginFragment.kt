@@ -18,7 +18,6 @@ class LoginFragment : BaseFragmentDb<FragmentLoginBinding, LoginViewModel>() {
 
     override fun setBindingLayout() {
         dataBinding.viewModel = viewModel
-
     }
 
     override fun eventListeners() {

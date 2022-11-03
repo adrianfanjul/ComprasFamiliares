@@ -16,7 +16,7 @@
 
         <action
             android:id="@+id/loginFragment_to_groupActivity"
-            app:destination="@id/groupActivity" >
+            app:destination="@id/groupActivity">
             <argument
                 android:name="user"
                 app:argType="es.adrianfg.comprasfamiliares.domain.models.User"
@@ -33,15 +33,16 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
+
     <activity
         android:id="@+id/groupActivity"
         android:name="es.adrianfg.comprasfamiliares.presentation.features.groups.activity.GroupActivity">
 
         <argument
             android:name="user"
+            android:defaultValue="@null"
             app:argType="es.adrianfg.comprasfamiliares.domain.models.User"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </activity>
 
 </navigation>

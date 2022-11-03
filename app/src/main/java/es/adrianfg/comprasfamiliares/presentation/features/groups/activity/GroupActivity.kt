@@ -58,8 +58,7 @@ class GroupActivity : AppCompatActivity() {
     }
 
     private fun closeSession() {
-        val directions = GroupFragmentDirections.toLoginActivity()
-        navController.navigate(directions)
+        navController.navigate(R.id.to_loginActivity)
     }
 
     override fun onSupportNavigateUp(): Boolean {

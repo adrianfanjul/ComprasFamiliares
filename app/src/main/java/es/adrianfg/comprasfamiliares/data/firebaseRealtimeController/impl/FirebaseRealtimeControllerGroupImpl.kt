@@ -12,35 +12,40 @@ import es.adrianfg.comprasfamiliares.data.response.GroupsResponse
 import es.adrianfg.comprasfamiliares.domain.models.Group
 import es.adrianfg.comprasfamiliares.domain.models.User
 import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 
 
 class FirebaseRealtimeControllerGroupImpl @Inject constructor(
-    private val storageImages:StorageImages,
+    private val storageImages: StorageImages,
 ) : FirebaseRealtimeControllerGroup {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
+    private val maxTimeout = 2000L
 
-    override suspend fun register(group: Group,imageView: AppCompatImageView, context: Context): GroupResponseItem {
-        val groupResponseItem = GroupResponseItem(group.name, group.description, group.image, group.users,group.createUser)
+    override suspend fun register(group: Group,imageView: AppCompatImageView,context: Context): GroupResponseItem
+    {
+        val groupResponseItem = GroupResponseItem( group.name, group.description, group.image,group.users,group.createUser)
         try {
-            val result = database.orderByChild("name").equalTo(group.name).get().await()
-            if (result.exists()) {
-                throw Error(context.resources?.getString(R.string.error_groups_repeat_name))
+            withTimeout(maxTimeout) {
+                val result = database.orderByChild("name").equalTo(group.name).get().await()
+                if (result.exists()) {
+                    throw Error(context.resources?.getString(R.string.error_groups_repeat_name))
 
-            } else {
-                storageImages.uploadStorageImage(group.image,imageView)
-                database.push().setValue(groupResponseItem)
-                return groupResponseItem
+                } else {
+                    storageImages.uploadStorageImage(group.image, imageView)
+                    database.push().setValue(groupResponseItem)
+                }
             }
+            return groupResponseItem
 
-        } catch (e: Exception) {
-            throw Error(e.message)
+        } catch (ex: Exception) {
+            throw Error(context.resources?.getString(R.string.error_time_out))
         }
     }
 
     override suspend fun getListGroups(user: User, context: Context): GroupsResponse {
         try {
-           return getList(user.email)
+            return getList(user.email,context)
         } catch (e: Exception) {
             throw Error(e.message)
         }
@@ -48,34 +53,44 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor(
 
     override suspend fun deleteGroup(group: Group, context: Context): GroupsResponse {
         try {
-            val result = database.orderByChild("name").equalTo(group.name).get().await()
-            if (result.exists()) {
-                for (res in result.children) {
-                    res.getValue(GroupResponseItem::class.java) ?: GroupResponseItem()
-                    storageImages.deleteStorageImage(group.image)
-                    res.key?.let { database.child(it).removeValue()}
+            withTimeout(maxTimeout) {
+                val result = database.orderByChild("name").equalTo(group.name).get().await()
+                if (result.exists()) {
+                    for (res in result.children) {
+                        res.getValue(GroupResponseItem::class.java) ?: GroupResponseItem()
+                        storageImages.deleteStorageImage(group.image)
+                        res.key?.let { database.child(it).removeValue() }
+                    }
+                } else {
+                    throw Error(context.resources?.getString(R.string.error_group_not_found))
                 }
-            } else {
-                throw Error(context.resources?.getString(R.string.error_group_not_found))
             }
-            return getList(group.createUser)
+            return getList(group.createUser,context)
 
-        } catch (e: Exception) {
-            throw Error(e.message)
+        } catch (ex: Exception) {
+            throw Error(context.resources?.getString(R.string.error_time_out))
         }
     }
 
-    private suspend fun getList(email: String): GroupsResponse {
-        val listGroups = mutableListOf<GroupResponseItem>()
-        val result = database.orderByChild("name").get().await()
-        if (result.exists()) {
-            for (group in result.children) {
-                val groupValue = group.getValue(GroupResponseItem::class.java) ?: GroupResponseItem()
-                if (groupValue.users?.contains(email) == true) {
-                    listGroups.add(groupValue)
+    private suspend fun getList(email: String,context: Context): GroupsResponse {
+        try {
+            val listGroups = mutableListOf<GroupResponseItem>()
+            withTimeout(maxTimeout) {
+                val result = database.orderByChild("name").get().await()
+                if (result.exists()) {
+                    for (group in result.children) {
+                        val groupValue =
+                            group.getValue(GroupResponseItem::class.java) ?: GroupResponseItem()
+                        if (groupValue.users?.contains(email) == true) {
+                            listGroups.add(groupValue)
+                        }
+                    }
                 }
             }
+            return GroupsResponse(listGroups.toList())
+
+        } catch (ex: Exception) {
+            throw Error(context.resources?.getString(R.string.error_time_out))
         }
-        return GroupsResponse(listGroups.toList())
     }
 }

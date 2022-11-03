@@ -63,8 +63,7 @@ class ListaCompraActivity : AppCompatActivity() {
     }
 
     private fun closeSession() {
-        val directions = ListaCompraFragmentDirections.toLoginActivity()
-        navController.navigate(directions)
+        navController.navigate(R.id.to_loginActivity)
     }
 
     private fun goGroups() {

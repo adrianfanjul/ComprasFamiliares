@@ -81,6 +81,9 @@ class CreateGroupFragment : BaseFragmentDb<FragmentCreateGroupBinding, CreateGro
 
     override fun showError(message: String?) {
         snack(SnackbarMessage(R.string.error_create_group, varargs = message)).show()
+        if (message.equals(context?.resources?.getString(R.string.error_time_out))){
+            navigate(R.id.to_loginActivity)
+        }
     }
 
     private fun createSucess(group: Group?) {

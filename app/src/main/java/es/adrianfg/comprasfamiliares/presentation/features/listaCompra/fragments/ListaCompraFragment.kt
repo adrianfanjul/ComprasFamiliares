@@ -47,6 +47,13 @@ class ListaCompraFragment: BaseFragmentDb<FragmentListaCompraBinding, ListaCompr
         viewModel.boughtProduct.observe(viewLifecycleOwner, ::buySuccess)
     }
 
+    override fun showError(message: String?) {
+        snack(SnackbarMessage(R.string.error_groups, varargs = message)).show()
+        if (message.equals(context?.resources?.getString(R.string.error_time_out))){
+            navigate(R.id.to_loginActivity)
+        }
+    }
+
     private fun buySuccess(product: Product?) {
         snack(SnackbarMessage(R.string.products_bought, varargs = product?.name)).show()
     }

@@ -25,7 +25,6 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel> () {
                 if(button==1){
                     viewModel.buyAllProduct(it)
                     viewModel.deleteGroup(it)
-                    snack(SnackbarMessage(R.string.groups_delete_group, varargs = group.name)).show()
                 }
 
                 if (button==2) {
@@ -48,6 +47,13 @@ class GroupFragment : BaseFragmentDb<FragmentGroupBinding, GroupViewModel> () {
     override fun observeViewModels() {
         viewModel.groupList.observe(viewLifecycleOwner) {
             adapter.items = it
+        }
+    }
+
+    override fun showError(message: String?) {
+        snack(SnackbarMessage(R.string.error_groups, varargs = message)).show()
+        if (message.equals(context?.resources?.getString(R.string.error_time_out))){
+            navigate(R.id.to_loginActivity)
         }
     }
 

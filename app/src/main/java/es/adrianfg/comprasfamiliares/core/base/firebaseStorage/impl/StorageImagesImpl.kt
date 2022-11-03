@@ -2,7 +2,6 @@ package es.adrianfg.comprasfamiliares.core.base.firebaseStorage.impl
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
 import com.google.firebase.ktx.Firebase

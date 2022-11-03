@@ -6,22 +6,7 @@
     <string name="menu_groups_close_item">Close session</string>
     <string name="menu_products_go_groups_item">Go groups</string>
     <string name="camera_denegate">There are no permissions for the camera</string>
-
-    <!--USERSDIALOG-->
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="pick_users">Pick users</string>
-    <string name="error_selected_user_list_empty">No user selected</string>
-
-    <!--BTN-->
-    <string name="save_btn">SAVE</string>
-    <string name="exit_btn">EXIT</string>
-    <string name="delete_btn">DELETE</string>
-    <string name="capture_btn">Capture</string>
-    <string name="choose_btn">Galery</string>
-
-    <!--Inputs-->
-    <string name="suffix_text_password">8/16</string>
+    <string name="error_time_out">Service error, please check your connection</string>
 
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>
@@ -71,6 +56,7 @@
     <string name="create_group_image_description">Group Image</string>
     <string name="create_group_input_layout_list_users_text">User list</string>
     <string name="create_group_user_add_btn">Add user</string>
+    <string name="error_groups">Group error: %s</string>
 
     <!--BUY LIST-->
     <string name="lista_compra_title">BUY LIST</string>
@@ -82,6 +68,7 @@
     <string name="product_amount">Amount: %d</string>
     <string name="product_user">Added by: %s</string>
     <string name="products_bought">The product %s has been purchased</string>
+    <string name="error_product">Product error: %s</string>
 
     <!--BUY LIST ADD-->
     <string name="lista_compra_add_title">PRODUCT</string>
@@ -96,5 +83,22 @@
     <string name="item_product_enter_btn">BUY</string>
     <string name="error_products_not_found">The product does not exist</string>
     <string name="notification_longer_text">Text too long</string>
+
+    <!--USERSDIALOG-->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="pick_users">Pick users</string>
+    <string name="error_selected_user_list_empty">No user selected</string>
+
+    <!--BTN-->
+    <string name="save_btn">SAVE</string>
+    <string name="exit_btn">EXIT</string>
+    <string name="delete_btn">DELETE</string>
+    <string name="capture_btn">Capture</string>
+    <string name="choose_btn">Galery</string>
+
+    <!--Inputs-->
+    <string name="suffix_text_password">8/16</string>
+
 
 </resources>

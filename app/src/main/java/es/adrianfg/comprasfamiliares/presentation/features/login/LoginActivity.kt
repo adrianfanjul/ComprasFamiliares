@@ -1,6 +1,7 @@
 package es.adrianfg.comprasfamiliares.presentation.features.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -8,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
 import es.adrianfg.comprasfamiliares.core.extension.viewBinding
@@ -19,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityLoginBinding::inflate)
+    lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,21 @@ class LoginActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        firebaseAuth=FirebaseAuth.getInstance()
+        anonymousAuth()
+    }
+
+    private fun anonymousAuth() {
+        firebaseAuth.signInAnonymously()
+            .addOnFailureListener {
+                Log.e("firebase","anonymousAuth: $it")
+            }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        firebaseAuth.signOut()
     }
 
     override fun onSupportNavigateUp(): Boolean {

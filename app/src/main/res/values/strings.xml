@@ -5,24 +5,8 @@
     <string name="menu_products_close_item">Cerrar sesion</string>
     <string name="menu_groups_close_item">Cerrar sesión</string>
     <string name="menu_products_go_groups_item">Ir a Grupos</string>
-    <string name="camera_denegate">No hay permisos para la camara</string>
-    <string name="TagUserDialog" translatable="false">usersDialog</string>
-
-    <!--USERSDIALOG-->
-    <string name="ok">Aceptar</string>
-    <string name="cancel">Cancelar</string>
-    <string name="pick_users">Escoge los usuarios</string>
-    <string name="error_selected_user_list_empty">No se ha seleccionado ningun usuario</string>
-
-    <!--BTN-->
-    <string name="save_btn">GUARDAR</string>
-    <string name="exit_btn">SALIR</string>
-    <string name="delete_btn">BORRAR</string>
-    <string name="capture_btn">Foto</string>
-    <string name="choose_btn">Galeria</string>
-
-    <!--Inputs-->
-    <string name="suffix_text_password">8/16</string>
+    <string name="camera_denegate">No hay permisos para la camara</string>error_time_out
+    <string name="error_time_out">Error en el servicio, por favor compruebe su conexión</string>
 
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>
@@ -74,6 +58,7 @@
     <string name="create_group_image_description">Imagen del grupo</string>
     <string name="create_group_input_layout_list_users_text">Lista de usuarios</string>
     <string name="create_group_user_add_btn">Añadir Usuarios</string>
+    <string name="error_groups">Error en el grupo: %s</string>
 
     <!--LISTA COMPRA-->
     <string name="lista_compra_title">LISTA COMPRA</string>
@@ -85,6 +70,7 @@
     <string name="product_amount">Cantidad: %d</string>
     <string name="product_user">Añadido por: %s</string>
     <string name="products_bought">El producto %s ha sido comprado</string>
+    <string name="error_product">Error en productos: %s</string>
 
     <!--LISTA COMPRA ADD-->
     <string name="lista_compra_add_title">PRODUCTO</string>
@@ -99,5 +85,22 @@
     <string name="item_product_enter_btn">COMPRAR</string>
     <string name="error_products_not_found">El producto no existe</string>
     <string name="notification_longer_text">Texto demasiado largo</string>
+
+    <!--USERSDIALOG-->
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="pick_users">Escoge los usuarios</string>
+    <string name="error_selected_user_list_empty">No se ha seleccionado ningun usuario</string>
+    <string name="TagUserDialog" translatable="false">usersDialog</string>
+
+    <!--BTN-->
+    <string name="save_btn">GUARDAR</string>
+    <string name="exit_btn">SALIR</string>
+    <string name="delete_btn">BORRAR</string>
+    <string name="capture_btn">Foto</string>
+    <string name="choose_btn">Galeria</string>
+
+    <!--Inputs-->
+    <string name="suffix_text_password">8/16</string>
 
 </resources>
