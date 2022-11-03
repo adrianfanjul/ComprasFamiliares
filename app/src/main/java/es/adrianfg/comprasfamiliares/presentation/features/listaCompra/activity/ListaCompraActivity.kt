@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -14,6 +13,7 @@ import androidx.navigation.ui.NavigationUI.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
+import es.adrianfg.comprasfamiliares.core.base.BaseActivity
 import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityListaCompraBinding
 import es.adrianfg.comprasfamiliares.domain.models.Group
@@ -22,7 +22,7 @@ import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.fragments
 import es.adrianfg.comprasfamiliares.presentation.features.listaCompra.vm.ListaCompraMainViewModel
 
 @AndroidEntryPoint
-class ListaCompraActivity : AppCompatActivity() {
+class ListaCompraActivity : BaseActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityListaCompraBinding::inflate)

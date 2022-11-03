@@ -2,7 +2,6 @@ package es.adrianfg.comprasfamiliares.presentation.features.login
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
@@ -12,12 +11,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import es.adrianfg.comprasfamiliares.R
+import es.adrianfg.comprasfamiliares.core.base.BaseActivity
 import es.adrianfg.comprasfamiliares.core.extension.viewBinding
 import es.adrianfg.comprasfamiliares.databinding.ActivityLoginBinding
 
-
 @AndroidEntryPoint
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val binding by viewBinding(ActivityLoginBinding::inflate)

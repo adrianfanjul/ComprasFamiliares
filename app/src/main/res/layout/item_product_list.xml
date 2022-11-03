@@ -29,7 +29,7 @@
         android:id="@+id/item_product_card"
         style="@style/Widget.Material3.CardView.Elevated"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_margin="8dp"
         app:cardBackgroundColor="@color/item_list"
         app:cardCornerRadius="16dp"
@@ -42,10 +42,10 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_product_img"
-                app:srcCompat="@drawable/img_sin_imagen"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:scaleType="centerCrop"
+                app:srcCompat="@drawable/img_sin_imagen"
                 tools:ignore="ImageContrastCheck"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -100,9 +100,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="1dp"
                 android:layout_above="@+id/item_product_btn"
-                android:layout_toEndOf="@+id/item_product_img"
-                android:background="#ffd5d5d5">
-
+                android:background="@color/white">
             </View>
 
             <com.google.android.material.button.MaterialButton

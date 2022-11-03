@@ -20,7 +20,7 @@ class FirebaseRealtimeControllerGroupImpl @Inject constructor(
     private val storageImages: StorageImages,
 ) : FirebaseRealtimeControllerGroup {
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Groups")
-    private val maxTimeout = 2000L
+    private val maxTimeout = 3000L
 
     override suspend fun register(group: Group,imageView: AppCompatImageView,context: Context): GroupResponseItem
     {

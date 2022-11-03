@@ -20,7 +20,7 @@ class FirebaseRealtimeControllerProductImpl @Inject constructor(
 ) :  FirebaseRealtimeControllerProduct {
 
     private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference("Products")
-    private val maxTimeout= 2000L
+    private val maxTimeout= 3000L
 
     override suspend fun register(product: Product,imageView: AppCompatImageView, context: Context): ProductResponseItem {
         val productResponseItem = ProductResponseItem(product.name, product.description,product.amount, product.image, product.user,product.group)
