@@ -7,6 +7,7 @@
     <string name="menu_products_go_groups_item">Go groups</string>
     <string name="camera_denegate">There are no permissions for the camera</string>
     <string name="error_time_out">Service error, please check your connection</string>
+    <string name="error_time_out_title">Connection error</string>
 
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>

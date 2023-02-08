@@ -1,5 +1,6 @@
 package es.adrianfg.comprasfamiliares.core.base
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import es.adrianfg.comprasfamiliares.R
 
 abstract class BaseFragmentDb<DB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
 
@@ -61,9 +63,14 @@ abstract class BaseFragmentDb<DB : ViewDataBinding, VM : BaseViewModel> : Fragme
     }
 
     private fun handleError() {
-        viewModel.error.observe(viewLifecycleOwner){
-           it.getContentIfNotHandled()?.let {
-               showError(it.message)
+        viewModel.error.observe(viewLifecycleOwner) { it ->
+            it.getContentIfNotHandled()?.let {
+                if (it.message.equals(resources.getString(R.string.error_time_out))) {
+                    val builder = AlertDialog.Builder(view?.context)
+                    errorTimeoutDialog(builder)
+                }else{
+                    showError(it.message)
+                }
             }
         }
     }
@@ -71,6 +78,15 @@ abstract class BaseFragmentDb<DB : ViewDataBinding, VM : BaseViewModel> : Fragme
     override fun onDestroy() {
         super.onDestroy()
         dataBinding.unbind()
+    }
+
+    private fun errorTimeoutDialog(builder: AlertDialog.Builder) {
+        builder.setTitle(resources.getString(R.string.error_time_out_title))
+        builder.setMessage(resources.getString(R.string.error_time_out))
+        builder.setPositiveButton(resources.getString(R.string.ok)) { dialog, which ->
+            navigate(R.id.to_loginActivity)
+        }
+        builder.show()
     }
 
     /**

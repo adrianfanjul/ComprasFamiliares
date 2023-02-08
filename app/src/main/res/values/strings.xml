@@ -7,6 +7,7 @@
     <string name="menu_products_go_groups_item">Ir a Grupos</string>
     <string name="camera_denegate">No hay permisos para la camara</string>error_time_out
     <string name="error_time_out">Error en el servicio, por favor compruebe su conexión</string>
+    <string name="error_time_out_title">Error de conexión</string>
 
     <!--LOGIN-->
     <string name="login_title">LOG-IN</string>

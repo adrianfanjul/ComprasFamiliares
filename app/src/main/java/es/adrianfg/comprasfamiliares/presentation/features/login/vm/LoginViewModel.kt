@@ -1,5 +1,11 @@
 package es.adrianfg.comprasfamiliares.presentation.features.login.vm
 
+import android.Manifest
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
+import androidx.annotation.RequiresPermission
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import es.adrianfg.comprasfamiliares.core.base.BaseViewModel
@@ -15,6 +21,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
@@ -49,6 +56,7 @@ class LoginViewModel @Inject constructor(
     val user get() = _user
 
     fun logIn() {
+
         val codePass = get_SHA_512_SecurePassword(password.value ?: "", userName.value ?: "")
         viewModelScope.launch {
             getLogInUseCase.execute(
@@ -60,7 +68,7 @@ class LoginViewModel @Inject constructor(
                 .onStart { _loading.value = true }
                 .onCompletion { _loading.value = false }
                 .catch { _error.value = SingleEvent(it) }
-                .collect { _user.value= it }
+                .collect { _user.value = it }
         }
     }
 
